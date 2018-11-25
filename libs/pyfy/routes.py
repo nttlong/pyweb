@@ -7,6 +7,8 @@ __routes__ = {}
 class __route_wrapper__(object):
     def __init__(self,data):
         self.name = ""
+        self.login_url =""
+        self.rel_dir = ""
         from . import settings
         find_apps = [x for x in settings.list_of_apps if data.file.find(x["dir"])>-1]
         if find_apps.__len__()>0:
@@ -24,23 +26,47 @@ class __route_wrapper__(object):
 
     def wrapper(self,*args,**kwargs):
         if self.host!="":
-            @self.__flask_app__.route("/"+self.host+self.url)
+
             def exec_route():
+                if hasattr(self.app_config["mdl"],"auth"):
+                    if request.path !="/"+self.host+"/"+self.app_config["login_url"] and \
+                            (not self.app_config["mdl"].auth()):
+                        from flask import redirect
+                        return redirect(self.host+"/"+self.app_config["login_url"])
+
                 from libs.pyfy import settings
                 setattr(request,"excutor",self)
                 data = args[0]()
                 if data == None:
                     data = {}
                 return render_template("/".join([self.app_config["rel_dir"],"views",self.template]),**data)
+
+            exec_route.func_name = self.app_config["rel_dir"].replace ("/", "_") + "_" + args[0].func_name
+            self.__flask_app__.add_url_rule (
+                "/" + self.host + self.url,
+                view_func= exec_route,
+                methods=["GET","POST"]
+            )
         else:
-            @self.__flask_app__.route (self.url)
+
             def exec_route():
+                if hasattr(self.app_config["mdl"],"auth"):
+                    if not self.app_config["mdl"].auth():
+                        from flask import redirect
+                        return redirect("/"+self.login_url)
                 from libs.pyfy import settings
                 setattr (request, "excutor", self)
                 data = args[0] ()
                 if data == None:
                     data = {}
                 return render_template ("/".join ([self.app_config["rel_dir"], "views", self.template]), **data)
+
+            exec_route.func_name = self.app_config["rel_dir"].replace ("/", "_") + "_" + args[0].func_name
+            self.__flask_app__.add_url_rule (
+                self.url,
+                view_func=exec_route,
+                methods=["GET", "POST"]
+            )
 
 @types(
     file=(str,True),

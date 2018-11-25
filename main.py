@@ -23,7 +23,8 @@ settings.init(
         dict(
             NAME = "admin",
             DIR = "apps/admin",
-            HOST_DIR = "admin"
+            HOST_DIR = "admin",
+            LOGIN_URL ="login"
 
         )
     ]

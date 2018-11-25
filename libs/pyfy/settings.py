@@ -26,7 +26,8 @@ from pyparams_validator import types
     APPS=([dict(
         NAME=(str,True),
         DIR = (str,True),
-        HOST_DIR =(str,True)
+        HOST_DIR =(str,True),
+        LOGIN_URL = (str,True)
     )],True)
 )
 
@@ -66,7 +67,8 @@ def init(data):
         app_config_item = dict(
             dir = os.sep.join([_path,app_info.DIR.split("/")[app_info.DIR.split("/").__len__()-1]]),
             host = app_info.HOST_DIR,
-            rel_dir = app_info.DIR
+            rel_dir = app_info.DIR,
+            login_url = app_info.LOGIN_URL
         )
         list_of_apps.append(app_config_item)
         mdl_name = app_info.DIR.split("/")[app_info.DIR.split("/").__len__()-1]
@@ -74,12 +76,21 @@ def init(data):
         app_config_item["mdl"] = mdl
         app_config_item["app_name"] = app_info.NAME
         app_config_item["owner"].name = app_info.NAME
-        @app.route ("/"+app_info.HOST_DIR+'/static/<path:path>')
+        app_config_item["owner"].login_url = app_info.LOGIN_URL
+        app_config_item["owner"].rel_dir = app_info.DIR
+
         def static_proxy(path):
             from flask import send_from_directory
             x=app_info
             _path = os.sep.join([data.WORKING_DIR,app_info.DIR+"/static/"]).replace("/",os.sep)
             return send_from_directory (_path,path)
+
+            static_proxy.func_name = app_info.DIR.replace ("/", "_") + "_static_serve"
+        app.add_url_rule (
+            "/"+app_info.HOST_DIR+'/static/<path:path>',
+            view_func=static_proxy,
+            methods=["GET"]
+        )
 
 
 
