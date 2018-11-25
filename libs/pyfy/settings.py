@@ -6,7 +6,7 @@ WORKING_DIR = None
 from flask import Flask
 from pymongo import database
 import pymongo
-
+from ..MongodDbSession import MongoSessionInterface
 import os
 from pyparams_validator import types
 @types(
@@ -53,6 +53,8 @@ def init(data):
         variable_start_string='{(',
         variable_end_string=')}'
     ))
+    app.session_interface = MongoSessionInterface (db=db)
+    app.secret_key = "57thvy5^%"
     #template_folder
     for app_info in data.APPS:
         import sys
@@ -72,9 +74,12 @@ def init(data):
         app_config_item["mdl"] = mdl
         app_config_item["app_name"] = app_info.NAME
         app_config_item["owner"].name = app_info.NAME
-        @app.route ('/static/<path:path>')
+        @app.route ("/"+app_info.HOST_DIR+'/static/<path:path>')
         def static_proxy(path):
-            return app.send_static_file (path)
+            from flask import send_from_directory
+            x=app_info
+            _path = os.sep.join([data.WORKING_DIR,app_info.DIR+"/static/"]).replace("/",os.sep)
+            return send_from_directory (_path,path)
 
 
 
