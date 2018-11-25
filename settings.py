@@ -1,6 +1,8 @@
 import pymongo
 import pymqr
 from flask import Flask
+from flask import url_for
+
 from flask_session import Session
 import os
 import apps
@@ -16,6 +18,7 @@ settings.setdb(db)
 APP_NAME = "__main__"
 WORKING_DIR = os.getcwd()
 TEMPLATE_PATH =os.sep.join([WORKING_DIR,"views"])
+STATIC_DIR = "static"
 app = Flask(APP_NAME,template_folder=TEMPLATE_PATH)
 app.config.update(
     SECRET_KEY=b'_5#y2L"F4Q8z\n\xec]/',
