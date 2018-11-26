@@ -30,6 +30,8 @@ settings.init(
     ]
 
 )
+from pymqr import settings as st
+st.setdb(settings.db)
 # import routes
 if __name__ == "__main__":
 

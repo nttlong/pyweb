@@ -1,2 +1,3 @@
 git+https://github.com/nttlong/pymethodvalidator.git
 git+https://github.com/nttlong/pymqr.git
+git+https://github.com/nttlong/pydmobject.git

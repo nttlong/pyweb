@@ -1,6 +1,14 @@
 import routes
+from libs import memberships
+from  libs.memberships import users
 from flask import session
+import pymqr
 def auth():
+
+    user = memberships.find_user(pymqr.filters.UserName=="system")
+    if user.is_empty():
+        memberships.create_user(UserName="system",Password="system",Email="")
+
     user = session.get("user",{})
     if user== {}:
         return False

@@ -110,6 +110,22 @@ class __GOBBLE__():
                 if not (k.__len__()>2 and k[0:2] == "__" and k[k.__len__():k.__len__()-2] =="__"):
                     ret.update({k:v})
             return ret
+    @staticmethod
+    def get_from_dict(data):
+        import pydocs
+        ret = {}
+        if isinstance(data,dict):
+            for k,v in data.items():
+                _k = k
+                if isinstance(k,pydocs.Fields):
+                    _k = pydocs.get_field_expr(k,True)
+                ret.update({
+                    _k: __GOBBLE__.get_from_dict(v)
+                })
+        else:
+            return data
+        return ret
+
 
 
 # class BaseDocumentsInstance(object):
@@ -233,7 +249,10 @@ class BaseDocuments(object):
     def __lshift__(self, other):
         if other == {}:
             raise Exception("Can not fill data into {0} with empty dict".format(type(self)))
-        return self.object(other)
+        import mobject
+        ret = self.create()
+        ret.__dict__.update(__GOBBLE__.get_from_dict(other))
+        return  ret
 
     def __is_contains_field__(self, item):
         import pydocs

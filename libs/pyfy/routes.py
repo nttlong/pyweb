@@ -1,7 +1,7 @@
 from pyparams_validator import types
 from flask import render_template
 from flask import  request
-
+import models
 import os
 __routes__ = {}
 class __route_wrapper__(object):
@@ -24,10 +24,20 @@ class __route_wrapper__(object):
 
 
 
+
+
+
+
     def wrapper(self,*args,**kwargs):
         if self.host!="":
 
             def exec_route():
+
+                model = models.model(self)
+                data = models.dmobject()
+                if request.method == "POST":
+                    data =models.dmobject(request.form.to_dict())
+
                 if hasattr(self.app_config["mdl"],"auth"):
                     if request.path !="/"+self.host+"/"+self.app_config["login_url"] and \
                             (not self.app_config["mdl"].auth()):
@@ -36,10 +46,10 @@ class __route_wrapper__(object):
 
                 from libs.pyfy import settings
                 setattr(request,"excutor",self)
-                data = args[0]()
-                if data == None:
-                    data = {}
-                return render_template("/".join([self.app_config["rel_dir"],"views",self.template]),**data)
+                args[0](model,data)
+                model.set_data(data)
+
+                return render_template("/".join([self.app_config["rel_dir"],"views",self.template]),**model.__dict__)
 
             exec_route.func_name = self.app_config["rel_dir"].replace ("/", "_") + "_" + args[0].func_name
             self.__flask_app__.add_url_rule (
@@ -50,16 +60,19 @@ class __route_wrapper__(object):
         else:
 
             def exec_route():
+                model = models.model (self)
+                data = models.dmobject ()
+                if request.method == "POST":
+                    data = models.dmobject (request.form.to_dict ())
                 if hasattr(self.app_config["mdl"],"auth"):
                     if not self.app_config["mdl"].auth():
                         from flask import redirect
                         return redirect("/"+self.login_url)
                 from libs.pyfy import settings
                 setattr (request, "excutor", self)
-                data = args[0] ()
-                if data == None:
-                    data = {}
-                return render_template ("/".join ([self.app_config["rel_dir"], "views", self.template]), **data)
+                args[0] (model,data)
+                model.set_data (data)
+                return render_template ("/".join ([self.app_config["rel_dir"], "views", self.template]),**model)
 
             exec_route.func_name = self.app_config["rel_dir"].replace ("/", "_") + "_" + args[0].func_name
             self.__flask_app__.add_url_rule (

@@ -62,15 +62,20 @@ def __apply__(fn, a, b):
             fn: [get_field_expr(a), get_field_expr(b)]
         }
         setattr(a, "__tree__", ret_tree)
+
     elif type(b) in [str, unicode]:
-        import expression_parser
-        try:
-            right = expression_parser.to_mongobd(b)
-        except Exception as ex:
-            raise Exception("Can not apply operator +,-,*,/,.. with string constant\n"
-                            "Please use pyfuncs.concat or other text function in this package")
+        # ret_tree = {
+        #     fn: [get_field_expr (a), get_field_expr (b)]
+        # }
+        # setattr (a, "__tree__", ret_tree)
+        # import expression_parser
+        # try:
+        #     right = expression_parser.to_mongobd(b)
+        # except Exception as ex:
+        #     raise Exception("Can not apply operator +,-,*,/,.. with string constant\n"
+        #                     "Please use pyfuncs.concat or other text function in this package")
         ret_tree = {
-            fn: [get_field_expr(a), right]
+            fn: [get_field_expr(a), b]
         }
         setattr(a, "__tree__", ret_tree)
     elif isinstance(b, tuple) and b.__len__() > 0:
@@ -166,7 +171,7 @@ class Fields(BaseFields):
         return __apply__("$mod", self, other)
 
     def __eq__(self, other):
-        if self.__dict__.has_key("__for_filter__"):
+        if self.__dict__.get("__for_filter__",True):
             if type(other) in [str, unicode]:
                 self.__tree__ = {
                     self.__name__: {

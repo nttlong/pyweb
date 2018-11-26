@@ -1,5 +1,6 @@
 from libs.pyfy import routes
-from flask import request,session
+from flask import request,session,redirect
+from libs import memberships
 @routes.route(
     url="/",
     file = __file__,
@@ -13,5 +14,15 @@ def index():
     file = __file__,
     template = "login.html"
 )
-def login():
+def login(sender,model):
+
+    if request.method== "POST":
+        ret= memberships.validate_user(request.form.to_dict())
+        if ret:
+            redirect(sender.app_url)
+        else:
+            model.error=sender.get_app_res("Login fail!!!")
+
+        data =request.data
+
     return {}

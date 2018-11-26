@@ -51,9 +51,10 @@ def init(data):
     app = Flask (data.NAME,template_folder = data.WORKING_DIR)
     jinja_options = app.jinja_options.copy ()
     jinja_options.update (dict (
-        variable_start_string='{(',
-        variable_end_string=')}'
+        variable_start_string='${',
+        variable_end_string='}'
     ))
+    app.jinja_options = jinja_options
     app.session_interface = MongoSessionInterface (db=db)
     app.secret_key = "57thvy5^%"
     #template_folder
