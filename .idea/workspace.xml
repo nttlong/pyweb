@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f8c31e1-74d1-4f5a-84fa-5ef6249984fc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/libs/memberships/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/memberships/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/mobject.py" beforeDir="false" afterPath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/mobject.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/admin/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/pyfy/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/pyfy/routes.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +28,7 @@
         <counts>
           <entry key="gitignore" value="1" />
           <entry key="html" value="8" />
-          <entry key="py" value="94" />
+          <entry key="py" value="97" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
@@ -37,14 +37,14 @@
           <entry key="Git file" value="1" />
           <entry key="HTML" value="8" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="94" />
+          <entry key="Python" value="97" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="2255" />
           <entry key="html" value="219" />
-          <entry key="py" value="11670" />
+          <entry key="py" value="11745" />
           <entry key="txt" value="17" />
         </counts>
       </usages-collector>
@@ -52,7 +52,7 @@
         <counts>
           <entry key="HTML" value="219" />
           <entry key="PLAIN_TEXT" value="17" />
-          <entry key="Python" value="13925" />
+          <entry key="Python" value="14000" />
         </counts>
       </usages-collector>
     </session>
@@ -75,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/admin/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+            <state relative-caret-position="140">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -87,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libs/memberships/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="91" column="37" lean-forward="true" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="37" />
+            <state relative-caret-position="122">
+              <caret line="97" selection-start-line="97" selection-end-line="97" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
                 <marker date="1543240786010" expanded="true" signature="1704:1709" ph="..." />
@@ -117,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/mobject.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="192" column="33" lean-forward="true" selection-end-line="208" />
+            <state relative-caret-position="210">
+              <caret line="196" selection-start-line="196" selection-end-line="196" />
               <folding>
                 <element signature="e#3463#4430#0" />
                 <element signature="e#4435#5049#0" />
@@ -134,6 +134,41 @@
                 <marker date="1543241419168" expanded="true" signature="4557:4561" ph="..." />
                 <marker date="1543241419168" expanded="true" signature="5733:6806" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/admin/routes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+                <marker date="1543242321659" expanded="true" signature="228:233" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libs/pyfy/routes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+                <marker date="1543242177420" expanded="true" signature="742:753" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/werkzeug/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="380" selection-start-line="380" selection-end-line="380" />
             </state>
           </provider>
         </entry>
@@ -157,36 +192,6 @@
                 <element signature="e#3761#4004#0" />
                 <marker date="1543238714738" expanded="true" signature="5816:5825" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pyquery.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="299" selection-start-line="299" selection-end-line="299" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pyaggregatebuilders.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="50" column="21" lean-forward="true" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
-              <folding>
-                <element signature="e#2929#3689#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pycollection.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="91" selection-start-line="91" selection-end-line="91" />
             </state>
           </provider>
         </entry>
@@ -240,10 +245,8 @@
         <option value="$PROJECT_DIR$/libs/pyfy/settings.py" />
         <option value="$PROJECT_DIR$/apps/admin/views/login.html" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/libs/pyfy/routes.py" />
         <option value="$PROJECT_DIR$/libs/pyfy/models.py" />
         <option value="$PROJECT_DIR$/apps/admin/__init__.py" />
-        <option value="$PROJECT_DIR$/apps/admin/routes.py" />
         <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pyparams_validator/__init__.py" />
         <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pydocs.py" />
         <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pycollection.py" />
@@ -252,6 +255,8 @@
         <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/documents.py" />
         <option value="$PROJECT_DIR$/libs/memberships/__init__.py" />
         <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/mobject.py" />
+        <option value="$PROJECT_DIR$/libs/pyfy/routes.py" />
+        <option value="$PROJECT_DIR$/apps/admin/routes.py" />
       </list>
     </option>
   </component>
@@ -415,13 +420,13 @@
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23724696" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23724696" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3283582" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.6451078" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3084577" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.3084577" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -489,11 +494,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/libs/memberships/__init__.py</url>
-          <line>119</line>
-          <option name="timeStamp" value="173" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/libs/memberships/__init__.py</url>
           <line>85</line>
           <option name="timeStamp" value="192" />
         </line-breakpoint>
@@ -522,17 +522,40 @@
           <line>199</line>
           <option name="timeStamp" value="202" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/admin/__init__.py</url>
+          <line>7</line>
+          <option name="timeStamp" value="203" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/admin/routes.py</url>
+          <line>25</line>
+          <option name="timeStamp" value="205" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/libs/pyfy/routes.py</url>
+          <line>49</line>
+          <option name="timeStamp" value="206" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/libs/pyfy/routes.py</url>
+          <line>76</line>
+          <option name="timeStamp" value="207" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/libs/pyfy/routes.py</url>
+          <line>50</line>
+          <option name="timeStamp" value="208" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/admin/routes.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="209" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymongo/topology.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="198" selection-start-line="198" selection-end-line="198" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymongo/helpers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -778,17 +801,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libs/pyfy/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-            <marker date="1543219853840" expanded="true" signature="742:753" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/flask/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
@@ -800,18 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="346" selection-start-line="346" selection-end-line="346" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/admin/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-            <marker date="1543228655788" expanded="true" signature="228:233" ph="..." />
-            <marker date="1543228655788" expanded="true" signature="737:742" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -878,16 +878,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/admin/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pyparams_validator/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -895,23 +885,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libs/memberships/__init__.py">
+    <entry file="file://$PROJECT_DIR$/apps/admin/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="91" column="37" lean-forward="true" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="37" />
+        <state relative-caret-position="140">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
-            <marker date="1543240786010" expanded="true" signature="1704:1709" ph="..." />
-            <marker date="1543240786010" expanded="true" signature="3351:3436" ph="..." />
-            <marker date="1543240786010" expanded="true" signature="3542:3547" ph="..." />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/mobject.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="192" column="33" lean-forward="true" selection-end-line="208" />
+        <state relative-caret-position="210">
+          <caret line="196" selection-start-line="196" selection-end-line="196" />
           <folding>
             <element signature="e#3463#4430#0" />
             <element signature="e#4435#5049#0" />
@@ -923,6 +910,48 @@
             <marker date="1543241419168" expanded="true" signature="4556:4557" ph="..." />
             <marker date="1543241419168" expanded="true" signature="4557:4561" ph="..." />
             <marker date="1543241419168" expanded="true" signature="5733:6806" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/memberships/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="97" selection-start-line="97" selection-end-line="97" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+            <marker date="1543240786010" expanded="true" signature="1704:1709" ph="..." />
+            <marker date="1543240786010" expanded="true" signature="3351:3436" ph="..." />
+            <marker date="1543240786010" expanded="true" signature="3542:3547" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/werkzeug/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="380" selection-start-line="380" selection-end-line="380" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/pyfy/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+            <marker date="1543242177420" expanded="true" signature="742:753" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/admin/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <marker date="1543242321659" expanded="true" signature="228:233" ph="..." />
           </folding>
         </state>
       </provider>

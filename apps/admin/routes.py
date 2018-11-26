@@ -23,10 +23,8 @@ def login(sender,model):
                 Session=session,
                 User=ret,
                 Language=sender.language)
-            redirect(sender.app_url)
+            return redirect(sender.app_url)
         else:
             model.error=sender.get_app_res("Login fail!!!")
 
         data =request.data
-
-    return {}

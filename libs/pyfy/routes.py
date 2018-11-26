@@ -46,10 +46,13 @@ class __route_wrapper__(object):
 
                 from libs.pyfy import settings
                 setattr(request,"excutor",self)
-                args[0](model,data)
-                model.set_data(data)
 
-                return render_template("/".join([self.app_config["rel_dir"],"views",self.template]),**model.__dict__)
+                ret = args[0](model,data)
+                model.set_data(data)
+                if ret == None:
+                    return render_template("/".join([self.app_config["rel_dir"],"views",self.template]),**model.__dict__)
+                else:
+                    return ret
 
             exec_route.func_name = self.app_config["rel_dir"].replace ("/", "_") + "_" + args[0].func_name
             self.__flask_app__.add_url_rule (
@@ -70,9 +73,12 @@ class __route_wrapper__(object):
                         return redirect("/"+self.login_url)
                 from libs.pyfy import settings
                 setattr (request, "excutor", self)
-                args[0] (model,data)
+                ret = args[0] (model,data)
                 model.set_data (data)
-                return render_template ("/".join ([self.app_config["rel_dir"], "views", self.template]),**model)
+                if ret == None:
+                    return render_template ("/".join ([self.app_config["rel_dir"], "views", self.template]),**model)
+                else:
+                    return ret
 
             exec_route.func_name = self.app_config["rel_dir"].replace ("/", "_") + "_" + args[0].func_name
             self.__flask_app__.add_url_rule (
