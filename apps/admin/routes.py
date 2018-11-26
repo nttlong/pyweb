@@ -5,7 +5,7 @@ from libs import memberships
     url="/",
     file = __file__,
     template="index.html")
-def index():
+def index(sender,model):
     session["X"]=1
     x=1
     pass
@@ -18,7 +18,11 @@ def login(sender,model):
 
     if request.method== "POST":
         ret= memberships.validate_user(request.form.to_dict())
-        if ret:
+        if ret!=None:
+            memberships.SignIn(
+                Session=session,
+                User=ret,
+                Language=sender.language)
             redirect(sender.app_url)
         else:
             model.error=sender.get_app_res("Login fail!!!")

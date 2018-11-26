@@ -227,7 +227,7 @@ class __types_wrapper__ (object):
 
 
 
-            elif not isinstance(data[item],dict) and type (data[item]) != self.data[item].data_type:
+            elif self.data[item].data_type!=object and not isinstance(data[item],dict) and type (data[item]) != self.data[item].data_type:
                 raise exceptions.InvalidDataFields (item, type (data[item]), self.data[item].data_type)
             if self.data[item].data_type == dict:
                 self.data[item].validate_data_type (data[item], item)

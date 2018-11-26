@@ -7,7 +7,13 @@ def auth():
 
     user = memberships.find_user(pymqr.filters.UserName=="system")
     if user.is_empty():
-        memberships.create_user(UserName="system",Password="system",Email="")
+        memberships.create_user(
+            UserName="system",
+            Password="system",
+            Email="",
+            IsSysAdmin=True,
+            IsActive = True
+        )
 
     user = session.get("user",{})
     if user== {}:

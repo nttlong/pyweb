@@ -228,6 +228,15 @@ class Fields(BaseFields):
         return __apply__("$or", self, other)
 
     def __lshift__(self, other):
+        if isinstance(other,dict):
+            if self.__dict__.has_key("__origin__"):
+                ret_data = self.__dict__["__origin__"].create()
+                ret_data.__dict__.update(other)
+                return ret_data
+            else:
+                import mobject
+                return mobject.dynamic_object(other)
+
         import expression_parser
         if type(other) in [str, unicode]:
             ret = Fields()

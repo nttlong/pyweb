@@ -7,12 +7,16 @@ import exceptions
 import datetime
 import pymqr
 from pymqr import pydocs
+from flask import session,Session
 
 
 @types(
     UserName = (str,True), #Username is require
     Password = (str,True), #Password is require
     Email = (str,True), #Email is requie
+    IsSysAdmin=(bool,True),
+    IsActive = (bool,True),
+    ActivateOn =datetime.datetime,
     Profile = (dict(
         FirstName = (str,True),
         LastName = (str,True),
@@ -20,9 +24,14 @@ from pymqr import pydocs
     ),False)
 )
 def create_user(data):
+    """
+    Create a user
+    :param data:
+    :return:
+    """
     Users =users.Users
     qr = query (settings.getdb (), Users)
-    user = qr.where(Users.UserName == data.UserName).object
+    user = qr.where(pymqr.filters.UserName == data.UserName).object
     if user.is_empty():
         salt = uuid.uuid4().hex
         hash_object = hashlib.sha1 (data.Password + salt)
@@ -31,7 +40,9 @@ def create_user(data):
             Users.HashPassword:hash_object.hexdigest(),
             Users.PasswordSalt: salt,
             Users.Email: data.Email,
-            Users.IsSysAdmin:True
+            Users.IsSysAdmin:True,
+            Users.IsActive:data.IsActive,
+            Users.Logins:[]
         }
         user_data,error, result = qr.insert(user_data.to_dict()).commit()
         if error:
@@ -46,15 +57,69 @@ def create_user(data):
     Password = (unicode,True)
 )
 def validate_user(data):
+    from pymqr import mobject
+    """
+    Validate user by username and Password
+    :param data:
+    :return:
+    """
     qr = query(settings.getdb(),users.Users)
-    user_data = qr.where(pymqr.filters.UserName == data.UserName).object
+    user_data = qr.match(
+        pymqr.funcs.expr(
+            (pymqr.funcs.strcasecmp(
+                users.Users.UserName,
+                data.UserName
+            )==0) &
+            users.Users.IsActive
+        )).project(
+        "_id",
+        users.Users.UserName,
+        users.Users.Email,
+        users.Users.IsSysAdmin,
+        users.Users.PasswordSalt,
+        users.Users.HashPassword,
+        pymqr.docs.FirstName<<users.Users.Profile.FirstName,
+        pymqr.docs.LastName << users.Users.Profile.LastName,
+        pymqr.docs.BirthDate << users.Users.Profile.BirthDate
+    ).object
     if user_data.is_empty():
-        return False
+        return None
     else:
         hash_object = hashlib.sha1 (data.Password + user_data.PasswordSalt)
-        return hash_object.hexdigest() == user_data.HashPassword
+        if hash_object.hexdigest() == user_data.HashPassword:
+            return  mobject.dynamic_object({
+                users.Users.IsSysAdmin: user_data.IsSysAdmin,
+                users.Users.UserName : user_data.UserName,
+                users.Users.Email:user_data.Email,
+                pymqr.docs.FirstName:user_data.FirstName,
+                pymqr.docs.LastName: user_data.LastName,
+                pymqr.docs.BirthDate:user_data.BirthDate
+            })
+        else:
+            return None
 @types(pydocs.Fields)
 def find_user(filter):
     qr = query (settings.getdb (), users.Users)
     return qr.where(filter).object
 
+@types(
+    Session = (object,True),
+    User = (object,True),
+    Language=(str,True)
+)
+def SignIn(data):
+    data.Session.update({
+        "user":data.User.to_dict()
+    })
+    v = users.Users.create()
+    qr = query (settings.getdb (), users.Users)
+    login_item = users.Logins<<{
+        users.Logins.Language:data.Language,
+        users.Logins.TimeUtc:datetime.datetime.utcnow(),
+        users.Logins.Time:datetime.datetime.now(),
+        users.Logins.SessionID: data.Session.sid
+    }
+    ret = qr.where(pymqr.filters.UserName==data.User.UserName).push({
+        users.Users.Logins:login_item
+    }).commit()
+    x=ret
