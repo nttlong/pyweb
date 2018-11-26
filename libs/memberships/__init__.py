@@ -87,14 +87,23 @@ def validate_user(data):
     else:
         hash_object = hashlib.sha1 (data.Password + user_data.PasswordSalt)
         if hash_object.hexdigest() == user_data.HashPassword:
-            return  mobject.dynamic_object({
-                users.Users.IsSysAdmin: user_data.IsSysAdmin,
-                users.Users.UserName : user_data.UserName,
-                users.Users.Email:user_data.Email,
-                pymqr.docs.FirstName:user_data.FirstName,
-                pymqr.docs.LastName: user_data.LastName,
-                pymqr.docs.BirthDate:user_data.BirthDate
-            })
+            x = user_data.filter_to_oject(
+                users.Users.IsSysAdmin,
+                users.Users.UserName,
+                users.Users.Email,
+                pymqr.docs.FirstName,
+                pymqr.docs.LastName,
+                pymqr.docs.BirthDate
+            )
+            return x
+            # return  mobject.dynamic_object({
+            #     users.Users.IsSysAdmin: user_data.IsSysAdmin,
+            #     users.Users.UserName : user_data.UserName,
+            #     users.Users.Email:user_data.Email,
+            #     pymqr.docs.FirstName:user_data.FirstName,
+            #     pymqr.docs.LastName: user_data.LastName,
+            #     pymqr.docs.BirthDate:user_data.BirthDate
+            # })
         else:
             return None
 @types(pydocs.Fields)
