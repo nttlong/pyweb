@@ -96,14 +96,7 @@ def validate_user(data):
                 pymqr.docs.BirthDate
             )
             return x
-            # return  mobject.dynamic_object({
-            #     users.Users.IsSysAdmin: user_data.IsSysAdmin,
-            #     users.Users.UserName : user_data.UserName,
-            #     users.Users.Email:user_data.Email,
-            #     pymqr.docs.FirstName:user_data.FirstName,
-            #     pymqr.docs.LastName: user_data.LastName,
-            #     pymqr.docs.BirthDate:user_data.BirthDate
-            # })
+
         else:
             return None
 @types(pydocs.Fields)
@@ -117,6 +110,11 @@ def find_user(filter):
     Language=(str,True)
 )
 def SignIn(data):
+    """
+    do sigin with session
+    :param data:
+    :return:
+    """
     data.Session.update({
         "user":data.User.to_dict()
     })
@@ -132,3 +130,12 @@ def SignIn(data):
         users.Users.Logins:login_item
     }).commit()
     x=ret
+@types(str)
+def Sigout(sessionId):
+    from . models import Sessions as _session
+    qr = query(settings.getdb(),_session.Sessions)
+    qr.where(pymqr.filters.sid==session.sid)
+    
+
+
+    pass

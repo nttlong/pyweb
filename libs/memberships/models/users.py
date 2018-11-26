@@ -8,6 +8,12 @@ class Logins(object):
         self.TimeUtc =datetime.datetime,True
         self.SessionID= str,True
         self.Language = str,True
+@documents.EmbededDocument()
+class Signouts(object):
+    def __init__(self):
+        self.Time = datetime.datetime, True
+        self.TimeUtc = datetime.datetime, True
+        self.SessionID = str, True
 @documents.EmbededDocument ()
 class Profile (object):
     def __init__(self):
@@ -16,8 +22,6 @@ class Profile (object):
         self.BirthDate = datetime.datetime, True
 @documents.Collection("users")
 class Users(documents.BaseDocuments):
-
-
     def __init__(self):
         self.UserName = str,True # type is text and require
         self.Email = str,True #Email
@@ -30,4 +34,5 @@ class Users(documents.BaseDocuments):
         self.IsActive = bool,True
         self.ActivateOn = datetime
         self.Logins = [Logins]
+        self.Signouts = [Signouts]
 
