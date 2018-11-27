@@ -1,8 +1,11 @@
 from flask import request,session
+from os.path import relpath
+import os
 import pymqr
 from pymqr import documents
 __has_languages__ = None
 from threading import Lock
+from . import settings
 lock = Lock()
 
 @documents.Collection("languages")
@@ -16,16 +19,18 @@ class Languages(object):
 class model(object):
     def __init__(self,excutor):
         self.excutor = excutor
-        self.abs_url = request.url.split("://")[0]+"://"+request.host
-        self.app_url = self.abs_url+"/"+self.excutor.host
-        self.static = self.abs_url + "/" + self.excutor.host+"/static"
+        self.absUrl = request.url.split("://")[0]+"://"+request.host
+        self.appUrl = self.absUrl+"/"+self.excutor.host
+        self.static = self.absUrl + "/" + self.excutor.host+"/static"
         self.data = None
-        self.app_name =self.excutor.name
+        self.appName =self.excutor.name
         self.language = session.get("language","en")
+        self.appDir = relpath(self.excutor.dir,settings.WORKING_DIR).replace(os.sep,"/")
+        self.appDirViews = self.appDir+"/views"
     def set_data(self,data):
         self.data = data
 
-    def get_app_res(self,key,value = None):
+    def getAppRes(self,key,value = None):
         if value == None:
             value = key.lstrip(" ").rstrip(" ")
         key = key.lstrip (" ").rstrip (" ").lower()

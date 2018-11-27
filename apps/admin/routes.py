@@ -3,7 +3,6 @@ from flask import request,session,redirect
 from libs import memberships
 @routes.route(
     url="/",
-    file = __file__,
     template="index.html")
 def index(sender,model):
     session["X"]=1
@@ -11,7 +10,6 @@ def index(sender,model):
     pass
 @routes.route(
     url="/login",
-    file = __file__,
     template = "login.html"
 )
 def login(sender,model):
@@ -23,7 +21,7 @@ def login(sender,model):
                 Session=session,
                 User=ret,
                 Language=sender.language)
-            return redirect(sender.app_url)
+            return redirect(sender.appUrl)
         else:
             model.error=sender.get_app_res("Login fail!!!")
 

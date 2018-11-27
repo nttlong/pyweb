@@ -99,6 +99,7 @@ def validate_user(data):
 
         else:
             return None
+
 @types(pydocs.Fields)
 def find_user(filter):
     qr = query (settings.getdb (), users.Users)
@@ -118,7 +119,6 @@ def SignIn(data):
     data.Session.update({
         "user":data.User.to_dict()
     })
-    v = users.Users.create()
     qr = query (settings.getdb (), users.Users)
     login_item = users.Logins<<{
         users.Logins.Language:data.Language,

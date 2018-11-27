@@ -1,6 +1,5 @@
 # import settings
 from flask import Flask
-from flask_session import Session
 import os
 from libs.pyfy import settings
 
@@ -26,6 +25,12 @@ settings.init(
             HOST_DIR = "admin",
             LOGIN_URL ="login"
 
+        ),
+        dict(
+            NAME="portal",
+            DIR = "apps/portal",
+            HOST_DIR ="portal",
+            LOGIN_URL =""
         )
     ]
 

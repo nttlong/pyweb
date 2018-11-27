@@ -9,6 +9,7 @@ import pymongo
 from ..MongodDbSession import MongoSessionInterface
 import os
 from pyparams_validator import types
+import jinja2
 @types(
     NAME=(str,True),
     DB = (dict(
@@ -57,6 +58,8 @@ def init(data):
     app.jinja_options = jinja_options
     app.session_interface = MongoSessionInterface (db=db)
     app.secret_key = "57thvy5^%"
+    dirs = []
+
     #template_folder
     for app_info in data.APPS:
         import sys
@@ -71,10 +74,16 @@ def init(data):
             rel_dir = app_info.DIR,
             login_url = app_info.LOGIN_URL
         )
+
+        dirs.append(os.sep.join([data.WORKING_DIR, app_info.DIR,"views"]))
+
+
         list_of_apps.append(app_config_item)
         mdl_name = app_info.DIR.split("/")[app_info.DIR.split("/").__len__()-1]
         mdl = __import__(mdl_name)
         app_config_item["mdl"] = mdl
+        if not hasattr(mdl,"routes"):
+            raise Exception("'{0}' was not found in '{1}'".format("routes",mdl_name))
         app_config_item["app_name"] = app_info.NAME
         app_config_item["owner"].name = app_info.NAME
         app_config_item["owner"].login_url = app_info.LOGIN_URL
@@ -86,14 +95,28 @@ def init(data):
             _path = os.sep.join([data.WORKING_DIR,app_info.DIR+"/static/"]).replace("/",os.sep)
             return send_from_directory (_path,path)
 
-            static_proxy.func_name = app_info.DIR.replace ("/", "_") + "_static_serve"
+        class static_serve(object):
+            def __init__(self,static_path):
+                self.static_path = static_path
+
+            def serve(self,path):
+                from flask import send_from_directory
+                return send_from_directory(self.static_path, path)
+
+        _path = os.sep.join([data.WORKING_DIR, app_info.DIR + "/static/"]).replace("/", os.sep)
+        obj_static_serve = static_serve(_path)
+        obj_static_serve.serve.im_func.func_name = app_info.DIR.replace ("/", "_") + "_static_serve"
         app.add_url_rule (
             "/"+app_info.HOST_DIR+'/static/<path:path>',
-            view_func=static_proxy,
+            view_func=obj_static_serve.serve,
             methods=["GET"]
         )
 
-
+    my_loader = jinja2.ChoiceLoader([
+        app.jinja_loader,
+        jinja2.FileSystemLoader(dirs),
+    ])
+    app.jinja_loader = my_loader
 
 
 

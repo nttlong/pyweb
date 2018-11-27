@@ -51,6 +51,7 @@ class __route_wrapper__(object):
                 model.set_data(data)
                 if ret == None:
                     return render_template("/".join([self.app_config["rel_dir"],"views",self.template]),**model.__dict__)
+
                 else:
                     return ret
 
@@ -88,10 +89,14 @@ class __route_wrapper__(object):
             )
 
 @types(
-    file=(str,True),
+    file=str,
     url=(str,True),
     template=(str,True)
 )
 def route(data):
+    import inspect
+    data.__validator__ = False
+    file_caller = inspect.stack()[3][1]
+    data.file = file_caller
     ret = __route_wrapper__(data)
     return ret.wrapper
