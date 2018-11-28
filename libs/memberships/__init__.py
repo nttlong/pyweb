@@ -130,12 +130,23 @@ def SignIn(data):
         users.Users.Logins:login_item
     }).commit()
     x=ret
-@types(str)
-def Sigout(sessionId):
+@types(object)
+def SignOut(session):
     from . models import Sessions as _session
     qr = query(settings.getdb(),_session.Sessions)
-    qr.where(pymqr.filters.sid==session.sid)
-    
+    ret,error,result=qr.where(pymqr.filters.sid==session.sid).delete()
+    logout_item = users.Signouts<<{
+        users.Signouts.SessionID:session.sid,
+        users.Signouts.Time:datetime.datetime.now(),
+        users.Signouts.TimeUtc:datetime.datetime.utcnow()
+    }
+    entity = query(settings.getdb(), users.Users).where(pymqr.filters.UserName == session["user"]["UserName"])
+    entity = entity.push({
+        users.Users.Signouts: logout_item
+    })
+
+    ret,error,redult = entity.commit()
+    session.clear()
 
 
-    pass
+

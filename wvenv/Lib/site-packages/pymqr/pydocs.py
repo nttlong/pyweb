@@ -193,6 +193,7 @@ class Fields(BaseFields):
 
         return __apply__("$eq", self, other)
 
+
     def __ne__(self, other):
         if self.__for_filter:
             if type(other) in [str, unicode]:

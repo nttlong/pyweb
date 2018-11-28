@@ -105,7 +105,7 @@ def init(data):
 
         _path = os.sep.join([data.WORKING_DIR, app_info.DIR + "/static/"]).replace("/", os.sep)
         obj_static_serve = static_serve(_path)
-        obj_static_serve.serve.im_func.func_name = app_info.DIR.replace ("/", "_") + "_static_serve"
+        obj_static_serve.serve.im_func.func_name = str(app_info.DIR.replace ("/", "_") + "_static_serve")
         app.add_url_rule (
             "/"+app_info.HOST_DIR+'/static/<path:path>',
             view_func=obj_static_serve.serve,

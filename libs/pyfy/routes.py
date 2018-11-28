@@ -55,7 +55,7 @@ class __route_wrapper__(object):
                 else:
                     return ret
 
-            exec_route.func_name = self.app_config["rel_dir"].replace ("/", "_") + "_" + args[0].func_name
+            exec_route.func_name = str (self.app_config["rel_dir"].replace ("/", "_") + "_" + args[0].func_name)
             self.__flask_app__.add_url_rule (
                 "/" + self.host + self.url,
                 view_func= exec_route,

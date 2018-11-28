@@ -3,6 +3,12 @@ def __build_data__(data):
     ret ={}
     if isinstance(data,dict):
         import pydocs
+        invalid_items = [x for x,y in data.items() if type(x) not in [str,unicode,pydocs.Fields]]
+        if invalid_items.__len__()>0:
+            raise Exception("{0} with type {4} is invalid data type of key."
+                            " The valid data type of key is"
+                            "{1},{2} or {3}"
+                            .format(invalid_items[0], str,unicode,pydocs.Fields,type(invalid_items[0])))
         for k,v in data.items():
             if isinstance(k,pydocs.Fields):
                 field_name = pydocs.get_field_expr(k,True)
@@ -13,7 +19,7 @@ def __build_data__(data):
                 })
             elif hasattr(v,"to_dict"):
                 ret.update ({
-                    k: __build_data__ (v.to_dict())
+                    pydocs.get_field_expr(k,True): __build_data__ (v.to_dict())
                 })
             else:
                 ret.update ({
@@ -162,8 +168,14 @@ class entity():
             "$mul": _data
         })
         return self
-    def __add__(self, other):
-        print other
+    def delete(self):
+        ret = None
+        try:
+            ret = self.owner.coll.detele_many (self.__where__)
+            return self.__where__,None,ret
+        except Exception as ex:
+            return None,ex,ret
+
 
 
 

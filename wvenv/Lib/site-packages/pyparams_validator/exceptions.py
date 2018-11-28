@@ -6,9 +6,9 @@ class MissingFields(Exception):
         plural_msg = "These {0} are require "
         if index != None:
             if parent != None:
-                msg = "{0} is require at "+ parent
+                msg = "'{0}' is require at "+ parent
             else:
-                msg = "{0} is require at row ="+index.__str__()
+                msg = "'{0}' is require at row ="+index.__str__()
         if index != None:
             if parent != None:
                 plural_msg = "These {0} are require at "+parent
@@ -18,7 +18,7 @@ class MissingFields(Exception):
         if list(fields).__len__()==1:
             self.message = msg.format(list(fields)[0])
         else:
-            self.message = plural_msg.format(",".join(list(fields)))
+            self.message = plural_msg.format(",".join(list(["'"+x+"'" for x in fields])))
         if parent != None:
             self.parent_field = parent
             self.parent_caption = parent+"[" + index.__str__()+"]"

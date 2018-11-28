@@ -6,7 +6,7 @@ import pymqr.mobject
     url="/",
     template="index.html")
 def index(sender,model):
-    model.user =  pymqr.mobject.dynamic_object(session["user"])
+    sender.user =  pymqr.mobject.dynamic_object(session["user"])
 @routes.route(
     url="/login",
     template = "login.html"
@@ -25,3 +25,11 @@ def login(sender,model):
             model.error=sender.get_app_res("Login fail!!!")
 
         data =request.data
+@routes.route(
+    url="/signout",
+    template = "signout.html"
+)
+def signout(sender,model):
+    from libs import memberships
+    memberships.SignOut(session)
+    return redirect(sender.appUrl)

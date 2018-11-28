@@ -2,39 +2,15 @@
 from flask import Flask
 import os
 from libs.pyfy import settings
+import libs.pyxml_dict
+WORKING_DIR = os.getcwd()
+config_path = os.sep.join([WORKING_DIR,'config/config.xml'])
+config = libs.pyxml_dict.load(config_path)
+config.update({
+    "WORKING_DIR":WORKING_DIR
+})
 
-settings.init(
-    CONFIG=dict(
-        SECRET_KEY="1ewqne",
-        SESSION_COOKIE_NAME = "main"
-
-    ),
-    WORKING_DIR = os.getcwd(),
-    DB = dict(
-        HOST = "localhost",
-        PASSWORD ="123456",
-        NAME ="db1",
-        PORT =27017,
-        USER ="root"
-    ),
-    NAME ="main",
-    APPS =[
-        dict(
-            NAME = "admin",
-            DIR = "apps/admin",
-            HOST_DIR = "admin",
-            LOGIN_URL ="login"
-
-        ),
-        dict(
-            NAME="portal",
-            DIR = "apps/portal",
-            HOST_DIR ="portal",
-            LOGIN_URL =""
-        )
-    ]
-
-)
+settings.init(config)
 from pymqr import settings as st
 st.setdb(settings.db)
 # import routes

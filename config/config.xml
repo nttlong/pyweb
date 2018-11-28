@@ -1,0 +1,29 @@
+<root>
+    <!---->
+    <NAME value="Main"/>
+    <CONFIG>
+        <SECRET_KEY value ="1ewqne"/>
+        <SESSION_COOKIE_NAME value="main"/>
+    </CONFIG>
+    <DB>
+        <HOST value="localhost"/>
+        <PORT value="27017"  type="int"/>
+        <NAME value="db1"/>
+        <USER  value="root"/>
+        <PASSWORD  value="123456"/>
+    </DB>
+    <APPS type="list">
+        <APP>
+            <NAME value="admin"/>
+            <DIR value="apps/admin"/>
+            <HOST_DIR value="admin"/>
+            <LOGIN_URL value="login"/>
+        </APP>
+        <APP>
+            <NAME value="portal"/>
+            <DIR value="apps/portal"/>
+            <HOST_DIR value="portal"/>
+            <LOGIN_URL value="login"/>
+        </APP>
+    </APPS>
+</root>
