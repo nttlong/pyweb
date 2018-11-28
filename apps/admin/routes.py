@@ -2,33 +2,12 @@ from libs.pyfy import routes
 from flask import request,session,redirect
 from libs import memberships
 import pymqr.mobject
-@routes.route(
-    url="/",
-    template="index.html")
-def index(sender,model):
-    dmobj = pymqr.mobject.dynamic_object
-    sender.user =  pymqr.mobject.dynamic_object(session["user"])
-    sender.menu=[
-        dmobj(
-            caption = "System",
-            items=[
-                dmobj(
-                    caption="Users",
-                    page = "views/system"
-                )
-            ]
-        ),
-        dmobj(
-            caption = "Resource",
-            items = [
-                dmobj(
-                    caption = "Languages",
-                    page="views/language"
-                )
-            ]
-        )
-    ]
-    x=1
+# @routes.route(
+#     url="/",
+#     template="index.html")
+# def index(sender,model):
+
+#     x=1
 
 @routes.route(
     url="/login",

@@ -118,7 +118,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div q-template url="${appUrl}/{{page}}">
+    <div q-template url="${appUrl}/{{page}}" ng-if="page">
 
     </div>
 
@@ -142,8 +142,6 @@
       debugger;
 
     });
-
-
   }])
 
 </script>

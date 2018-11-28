@@ -76,7 +76,7 @@ angularDefine(function(mdl){
             restrict: "ACE",
             link: function (scope, ele, attr) {
                 attr.$observe("url", function (value) {
-               
+
                     loadUrl(value, function (err, content) {
                         var ret = getScript(content);
                         var retObj = compile(scope, ret.scripts, ret.content,ret.url);

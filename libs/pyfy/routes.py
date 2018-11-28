@@ -20,14 +20,6 @@ class __route_wrapper__(object):
         self.url = data.url
         self.file = data.file
         self.template = data.template
-
-
-
-
-
-
-
-
     def wrapper(self,*args,**kwargs):
         if self.host!="":
 

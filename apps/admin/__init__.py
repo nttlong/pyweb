@@ -3,6 +3,7 @@ from libs import memberships
 from  libs.memberships import users
 from flask import session
 import pymqr
+from . import controllers
 def auth():
 
     user = memberships.find_user(pymqr.filters.UserName=="system")
