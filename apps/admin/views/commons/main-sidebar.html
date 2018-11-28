@@ -5,19 +5,22 @@
 
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
+        {% for item in menu %}
 
-        <li class="active treeview">
+        <li class="treeview">
           <a href="${static}/tmp/#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-dashboard"></i> <span>${item.caption}</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="${static}/tmp/index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li class="active"><a href="${static}/tmp/index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+            {% for x in item.items %}
+            <li><a href="#page=${x.page}"><i class="fa fa-circle-o"></i> ${x.caption}</a></li>
+            {%endfor%}
           </ul>
         </li>
+        {%endfor%}
       </ul>
     </section>
     <!-- /.sidebar -->

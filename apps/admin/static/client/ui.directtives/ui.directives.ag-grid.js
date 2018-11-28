@@ -327,7 +327,6 @@ var ag_grid_msg_delete_dialog ='<div class="modal" tabindex="-1" role="dialog">'
                     infiniteInitialRowCount: 1,
                     maxBlocksInCache: 2,
                     onGridReady: function(params) {
-                        debugger;
                         unHookGridKeyDownWatcher();
                         hookGridKeyDownWatcher();
                         setTimeout(function(){params.api.sizeColumnsToFit();},200)
@@ -556,7 +555,6 @@ var ag_grid_msg_delete_dialog ='<div class="modal" tabindex="-1" role="dialog">'
                     return ret;
                 }
                 attr.$observe("columns",function(val){
-                    debugger;
                     var cols =scope.$eval(val);
                     if(angular.isUndefined(cols)) {
                         return

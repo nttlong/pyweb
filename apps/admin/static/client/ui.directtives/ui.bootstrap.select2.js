@@ -1,12 +1,12 @@
 angularDefine(function(mdl){
-    debugger;
+
     mdl.directive("select2",["$parse",function($parse){
         return {
             restrict:"ECA",
             template:"<select style=\"width:100%\"></select>",
             replace:true,
             link:function(s,e,a){
-                debugger;
+
                 var config={
                     data:s.$eval(a.source)||[],
                     placeholder: a.placeholder,

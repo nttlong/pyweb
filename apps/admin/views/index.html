@@ -118,6 +118,9 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    <div q-template url="${appUrl}/{{page}}">
+
+    </div>
 
   </div>
   <!-- /.content-wrapper -->
@@ -130,10 +133,16 @@
 
 
 <script>
-  var mdl =angular.module("admin",[]);
+  var mdl =angular.module("admin",["q-ui"]);
   mdl.controller("admin",["$scope",function(scope){
-    alert(scope.$id)
-    console.log(scope);
+    history_navigator(scope.$root)
+    scope.$root.$history.change(function(data){
+      scope.page = data.page;
+      scope.$applyAsync();
+      debugger;
+
+    });
+
 
   }])
 

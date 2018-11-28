@@ -1,6 +1,7 @@
 angularDefine(function(mdl){
     mdl.directive("qTemplate", ["$compile", function ($compile) {
 
+
         function loadUrl(url, handler) {
             var $mask = $("<div class='mask'></div>");
             $mask.appendTo("body");
@@ -75,6 +76,7 @@ angularDefine(function(mdl){
             restrict: "ACE",
             link: function (scope, ele, attr) {
                 attr.$observe("url", function (value) {
+               
                     loadUrl(value, function (err, content) {
                         var ret = getScript(content);
                         var retObj = compile(scope, ret.scripts, ret.content,ret.url);

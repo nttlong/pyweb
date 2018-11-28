@@ -129,7 +129,6 @@ function makeUpForm(divRow,a){
                 $(eles[i]).addClass("col-md-"+ mdValue);
                 var lgValue=lgCols[lgIndex]*1;
                 if($($(eles[i]).children()[0]).attr("lg-span")){
-                    debugger;
                     var lgSpanValue=$($(eles[i]).children()[0]).attr("lg-span")*1;
                     for(var j=1;j<lgSpanValue;j++){
                         lgIndex++;
