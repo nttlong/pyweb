@@ -5,9 +5,50 @@ from flask import render_template
 
 class Controller(object):
     @property
+    def absUrl(self):
+        from flask import request
+        return request.url.split("://")[0]+"://"+request.host
+    @property
+    def appUrl(self):
+        from flask import request
+        return self.absUrl+"/"+self.excutor.host
+    @property
+    def static(self):
+        return self.absUrl + "/" + self.excutor.host+"/static"
+    @property
+    def language(self):
+        from flask import session
+        return session.get("language","en")
+    @property
+    def appDir(self):
+        from . import settings
+        from os.path import relpath
+        import os
+        return relpath(self.excutor.dir,settings.WORKING_DIR).replace(os.sep,"/")
+    @property
+    def appDirViews(self):
+        return self.appDir+"/views"
+    def get_model(self):
+        return None
+
+
+
+
+
+
+
+
+    @property
     def request(self):
         from flask import request
         return request
+    @property
+    def session(self):
+        from flask import session
+        return session
+    def redirect(self,url):
+        from flask import redirect as rd
+        return rd(url)
 
 class __controller_wrapper__(object):
     def __init__(self,data):
@@ -31,25 +72,26 @@ class __controller_wrapper__(object):
         args[0].__bases__[0].__init__ (self.instance)
         self.instance.__init__()
         if self.host != "":
-
             def exec_route():
-
                 model = models.model (self)
                 data = models.dmobject ()
                 if request.method == "POST":
                     data = models.dmobject (request.form.to_dict ())
-
                 if hasattr (self.app_config["mdl"], "auth"):
                     if request.path != "/" + self.host + "/" + self.app_config["login_url"] and \
                             (not self.app_config["mdl"].auth ()):
                         from flask import redirect
                         return redirect (self.host + "/" + self.app_config["login_url"])
-
                 from libs.pyfy import settings
                 setattr (request, "excutor", self)
-
-                ret = self.instance.load(model, data)
-
+                if hasattr(self.instance,"OnLoad"):
+                    ret = self.instance.OnLoad(model, data)
+                if request.method == "GET":
+                    if hasattr(self.instance,"OnGet"):
+                        ret = self.instance.OnGet(model, data)
+                if request.method == "POST":
+                    if hasattr(self,"OnPost"):
+                        ret = self.instance.OnPost(model, data)
                 model.set_data (data)
                 if ret == None:
                     return render_template ("/".join ([self.app_config["rel_dir"], "views", self.template]),
@@ -67,7 +109,6 @@ class __controller_wrapper__(object):
                 methods=["GET", "POST"]
             )
         else:
-
             def exec_route():
                 model = models.model (self)
                 data = models.dmobject ()
