@@ -16,7 +16,7 @@ class index(controllers.Controller):
                 items=[
                     dmobj (
                         caption="Users",
-                        page="views/system"
+                        page="views/users"
                     )
                 ]
             ),

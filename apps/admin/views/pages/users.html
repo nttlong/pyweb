@@ -1,0 +1,15 @@
+<div>
+    <ajax url="${currentUrl}">
+        <call data-id="LoadUsers" params="data"/>
+    </ajax>
+</div>
+
+<script>
+    (function(scope){
+        scope.data={
+            a:1,
+            b:2
+        }
+        alert("OK");
+    });
+</script>

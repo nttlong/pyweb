@@ -1,6 +1,6 @@
 from libs.pyfy import controllers
-@controllers(
-    url="signout",
+@controllers.controller(
+    url="/signout",
     template="signout"
 )
 class SignOut(controllers.Controller):

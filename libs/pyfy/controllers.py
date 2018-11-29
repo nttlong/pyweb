@@ -72,16 +72,32 @@ class __controller_wrapper__(object):
         args[0].__bases__[0].__init__ (self.instance)
         self.instance.__init__()
         if self.host != "":
-            def exec_route():
-                model = models.model (self)
+            def exec_route(*args,**kwargs):
+                import pydmobjects
+                params_data = kwargs
+                if args.__len__()>0:
+                    params_data = args[0]
+
+                ret = None
+                model = models.model (self,params_data)
                 data = models.dmobject ()
-                if request.method == "POST":
-                    data = models.dmobject (request.form.to_dict ())
                 if hasattr (self.app_config["mdl"], "auth"):
                     if request.path != "/" + self.host + "/" + self.app_config["login_url"] and \
                             (not self.app_config["mdl"].auth ()):
                         from flask import redirect
                         return redirect (self.host + "/" + self.app_config["login_url"])
+                if request.method == "POST":
+                    data = models.dmobject (request.form.to_dict ())
+                    call_method = request.headers.get("AJAX-POST",None)
+                    if call_method!=None:
+                        if hasattr(self.instance,call_method):
+                            ret_json = getattr(self.instance,call_method)(request.data)
+
+
+
+
+
+
                 from libs.pyfy import settings
                 setattr (request, "excutor", self)
                 if hasattr(self.instance,"OnLoad"):
@@ -90,7 +106,7 @@ class __controller_wrapper__(object):
                     if hasattr(self.instance,"OnGet"):
                         ret = self.instance.OnGet(model, data)
                 if request.method == "POST":
-                    if hasattr(self,"OnPost"):
+                    if hasattr(self.instance,"OnPost"):
                         ret = self.instance.OnPost(model, data)
                 model.set_data (data)
                 if ret == None:
@@ -109,7 +125,7 @@ class __controller_wrapper__(object):
                 methods=["GET", "POST"]
             )
         else:
-            def exec_route():
+            def exec_route(*args,**kwargs):
                 model = models.model (self)
                 data = models.dmobject ()
                 if request.method == "POST":
@@ -140,7 +156,8 @@ class __controller_wrapper__(object):
 
 @types(
     url=(str,True),
-    template=(str,True))
+    template=(str,True)
+)
 def controller(data):
     import inspect
     file_caller = inspect.stack ()[3][1]
@@ -150,4 +167,23 @@ def controller(data):
     ret = __controller_wrapper__(data)
     return ret.wrapper
 
+def load():
+    from . import settings
+    import os
+    import sys
+    import imp
+    import inspect
+    from os.path import relpath
+    file_name = inspect.stack()[1][1]
+    dir_name = os.path.dirname(file_name)
+    lst = list(os.walk(dir_name))
+    files =[x for x in lst[0][2] if x!="__init__.py" and x[x.__len__()-3:x.__len__()] == ".py"]
+    for f in files:
+        _f = os.sep.join([dir_name,f])
+        rel_p = os.path.relpath(_f, settings.WORKING_DIR)
+        mdl_name = rel_p.replace(os.sep, "_").replace(".","__")
+        try:
+            mdl = imp.load_source(mdl_name,_f)
+        except Exception as ex:
+            raise Exception("load controller {0} is error".format(_f),ex)
 

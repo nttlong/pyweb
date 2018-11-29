@@ -16,6 +16,6 @@ class Login(controllers.Controller):
                 Language=sender.language)
             return self.redirect (sender.appUrl)
         else:
-            model.error = sender.get_app_res ("Login fail!!!")
+            model.error = sender.getAppRes ("Login fail!!!")
 
         data = self.request.data

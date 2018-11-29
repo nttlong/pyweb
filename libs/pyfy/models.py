@@ -6,6 +6,7 @@ from pymqr import documents
 __has_languages__ = None
 from threading import Lock
 from . import settings
+import pydmobjects
 lock = Lock()
 
 @documents.Collection("languages")
@@ -17,16 +18,18 @@ class Languages(object):
         self.view = str,True
 
 class model(object):
-    def __init__(self,excutor):
+    def __init__(self,excutor,param_data):
         self.excutor = excutor
         self.absUrl = request.url.split("://")[0]+"://"+request.host
         self.appUrl = self.absUrl+"/"+self.excutor.host
         self.static = self.absUrl + "/" + self.excutor.host+"/static"
         self.data = None
-        self.appName =self.excutor.name
+        self.appName =self.excutor.app_config["app_name"]
         self.language = session.get("language","en")
         self.appDir = relpath(self.excutor.dir,settings.WORKING_DIR).replace(os.sep,"/")
         self.appDirViews = self.appDir+"/views"
+        self.params = dmobject(param_data)
+        self.currentUrl=self.absUrl+request.path
     def set_data(self,data):
         self.data = data
 
@@ -38,7 +41,7 @@ class model(object):
         global __has_languages__
         if __has_languages__ == None:
             __has_languages__ = {}
-        find_key = "lang={0};app={1};key={2}".format(self.language, self.app_name,key)
+        find_key = "lang={0};app={1};key={2}".format(self.language, self.appName,key)
         ret= __has_languages__.get(find_key,None)
         if ret!=None:
             return ret
@@ -49,11 +52,11 @@ class model(object):
             try:
                 ret_obj= qr.where(pymqr.funcs.expr((Languages.language== self.language) &
                                                    (Languages.key == key) &
-                                                   (Languages.app == self.app_name))).object
+                                                   (Languages.app == self.appName))).object
                 if ret_obj.is_empty():
                     ret_obj = Languages<<{
                         Languages.language:self.language,
-                        Languages.app:self.app_name,
+                        Languages.app:self.appName,
                         Languages.key:key
                     }
                     ret,error,result = qr.insert(ret_obj.to_dict()).commit()
