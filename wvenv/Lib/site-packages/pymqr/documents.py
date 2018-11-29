@@ -2,13 +2,29 @@ __fields_types__ = "__fields_types__"  # key of field type
 __fields_docs__ = "__fields_docs__"  # key of field value
 __fields_default_value__ = "__fields_default_value__"  # key of default value field
 __model_name__ = "__model_name__"  # type: str # key of model name
+__unique_keys__ = None
+__collections_unique__= None
 import uuid
 import datetime
 class ___CollectionMapClassWrapper__():
     def __init__(self,name):
         self.name = name
     def wrapper(self,*args,**kwargs):
+        global __unique_keys__
+        if __unique_keys__ == None:
+            __unique_keys__= {}
+        global __collections_unique__
+        if __collections_unique__ == None:
+            __collections_unique__ = {}
+
         ret = args[0].__new__(BaseDocuments,self.name,args[0].__dict__)
+        if __unique_keys__.has_key(args[0]):
+            __collections_unique__.update({
+                self.name:{
+                    "fields":__unique_keys__.get(args[0]),
+                    "has_built":False
+                }
+            })
         ret.__dict__.update ({
             "__collection_name__": self.name,
             "__origin__":args[0]()
@@ -80,14 +96,14 @@ class __GOBBLE__():
         else:
             raise Exception("invalid param")
 
-    @staticmethod
-    def set_attr_field(param, key, value):
-        if isinstance(value, BaseEmbededDoc):
-            for k, v in value.__dict__.items():
-                param.update({
-                    key + "." + k: v
-                })
-                __GOBBLE__.gobble_attr_field(param, key + "." + k, v)
+    # @staticmethod
+    # def set_attr_field(param, key, value):
+    #     if isinstance(value, BaseEmbededDoc):
+    #         for k, v in value.__dict__.items():
+    #             param.update({
+    #                 key + "." + k: v
+    #             })
+    #             __GOBBLE__.gobble_attr_field(param, key + "." + k, v)
 
     @staticmethod
     def dictionary(value):
@@ -269,8 +285,8 @@ class BaseDocuments(object):
         return ret_obj
 
     def __lshift__(self, other):
-        if other == {}:
-            raise Exception("Can not fill data into {0} with empty dict".format(type(self)))
+        # if other == {}:
+        #     raise Exception("Can not fill data into {0} with empty dict".format(type(self)))
         import mobject
         ret = self.create()
         ret.__dict__.update(__GOBBLE__.get_from_dict(other))
@@ -321,3 +337,18 @@ class BaseDocuments(object):
 
 class BaseEmbedArray(BaseDocuments):
     pass
+class __UniqueIndex__wrapper__():
+    def __init__(self,fields):
+        self.__fields__ = fields
+
+    def wrapper(self,*args,**kwargs):
+        global __unique_keys__
+        if __unique_keys__ == None:
+            __unique_keys__ = {}
+        __unique_keys__.update({
+            args[0]:self.__fields__
+        })
+        return args[0]
+def UniqueIndex(*args,**kwargs):
+    ret = __UniqueIndex__wrapper__(args)
+    return ret.wrapper

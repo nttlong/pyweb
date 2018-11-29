@@ -64,16 +64,6 @@ def __apply__(fn, a, b):
         setattr(a, "__tree__", ret_tree)
 
     elif type(b) in [str, unicode]:
-        # ret_tree = {
-        #     fn: [get_field_expr (a), get_field_expr (b)]
-        # }
-        # setattr (a, "__tree__", ret_tree)
-        # import expression_parser
-        # try:
-        #     right = expression_parser.to_mongobd(b)
-        # except Exception as ex:
-        #     raise Exception("Can not apply operator +,-,*,/,.. with string constant\n"
-        #                     "Please use pyfuncs.concat or other text function in this package")
         ret_tree = {
             fn: [get_field_expr(a), b]
         }
@@ -91,6 +81,34 @@ def __apply__(fn, a, b):
     else:
         ret_tree = {
             fn: [get_field_expr(a), b]
+        }
+        setattr(a, "__tree__", ret_tree)
+    return a
+def __r_apply__(fn, a, b):
+    if isinstance(b, Fields):
+        ret_tree = {
+            fn: [get_field_expr(b), get_field_expr(a)]
+        }
+        setattr(a, "__tree__", ret_tree)
+
+    elif type(b) in [str, unicode]:
+        ret_tree = {
+            fn: [b,get_field_expr(a)]
+        }
+        setattr(a, "__tree__", ret_tree)
+    elif isinstance(b, tuple) and b.__len__() > 0:
+        _b = b[0]
+        _params = []
+        for i in range(1, b.__len__(), 1):
+            _params.append(b[i])
+        import expression_parser
+        ret_tree = {
+            fn: [expression_parser.to_mongobd(_b, *tuple(_params)),get_field_expr(a) ]
+        }
+        setattr(a, "__tree__", ret_tree)
+    else:
+        ret_tree = {
+            fn: [b,get_field_expr(a)]
         }
         setattr(a, "__tree__", ret_tree)
     return a
@@ -146,7 +164,6 @@ class Fields(BaseFields):
             return Fields(self.__name__ + "." + item, self.__for_filter__)
         else:
             return Fields(item, self.__for_filter__)
-
     def __str__(self):
         if BaseFields(self) == None:
             return "root"
@@ -163,6 +180,8 @@ class Fields(BaseFields):
 
     def __mul__(self, other):
         return __apply__("$multiply", self, other)
+    def __pow__(self, power, modulo=None):
+        return __apply__("$power", self, power)
 
     def __div__(self, other):
         return __apply__("$divide", self, other)
@@ -316,6 +335,26 @@ class Fields(BaseFields):
             else:
                 return Fields("this" + self.__name__ + "." + args[0].__str__())
         return None
+    def __radd__(self, other):
+        return __r_apply__("$add", self, other)
+    def __ror__(self, other):
+        return __r_apply__("$or", self, other)
+    def __rand__(self, other):
+        return __r_apply__("$and", self, other)
+    def __rmul__(self, other):
+        return self.__mul__(other)
+    def __rsub__(self, other):
+        return __r_apply__("$subtract",self,other)
+    def __rdiv__(self, other):
+        return __r_apply__("$divide", self, other)
+    def __rmod__(self, other):
+        return __r_apply__("$mod", self, other)
+    def __rpow__(self, other):
+        return __r_apply__("$pow", self, other)
+    def __set__(self, instance, value):
+        x=1
+
+
 
     def __rshift__(self, other):
         if isinstance(other, dict):

@@ -196,8 +196,6 @@ class dynamic_object(__validator_class__):
             })
         return dynamic_object(ret)
 
-    def __ilshift__(self, other):
-        x=1
 
 
 
