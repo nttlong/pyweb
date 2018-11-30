@@ -6,7 +6,7 @@ from flask import session
     template="index.html"
 )
 class index(controllers.Controller):
-    def OnGet(self,sender,model):
+    def OnGet(self,sender):
         x=self.request
         dmobj = pymqr.mobject.dynamic_object
         sender.user = pymqr.mobject.dynamic_object (session["user"])

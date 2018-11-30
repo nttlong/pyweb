@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f8c31e1-74d1-4f5a-84fa-5ef6249984fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/portal/controllers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/portal/controllers/index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pyweb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pyweb.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/views/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/portal/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/portal/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/portal/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/views/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pyfy/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/pyfy/controllers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pyfy/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/pyfy/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/admin/controllers/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/controllers/index.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libs/pyfy/controllers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="125" selection-start-line="125" selection-end-line="125" />
+            <state relative-caret-position="402">
+              <caret line="149" column="50" lean-forward="true" selection-start-line="149" selection-start-column="50" selection-end-line="149" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -79,11 +69,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/admin/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="116" column="13" selection-start-line="116" selection-start-column="13" selection-end-line="116" selection-end-column="13" />
+            <state relative-caret-position="331">
+              <caret line="125" column="28" lean-forward="true" selection-start-line="125" selection-start-column="28" selection-end-line="125" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/admin/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/admin/controllers/index.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="27" column="45" lean-forward="true" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,27 +102,6 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/portal/views/commons/header.html">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/portal/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="25" selection-start-column="25" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/admin/routes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -184,7 +174,6 @@
         <option value="$PROJECT_DIR$/apps/admin/views/pages/system.py" />
         <option value="$PROJECT_DIR$/apps/admin/views/pages/system.html" />
         <option value="$PROJECT_DIR$/apps/admin/controllers/dynamic_view.py" />
-        <option value="$PROJECT_DIR$/apps/admin/controllers/index.py" />
         <option value="$PROJECT_DIR$/apps/admin/controllers/pages/__init__.py" />
         <option value="$PROJECT_DIR$/apps/admin/controllers/__init__.py" />
         <option value="$PROJECT_DIR$/apps/admin/views/commons/client.html" />
@@ -204,6 +193,7 @@
         <option value="$PROJECT_DIR$/apps/portal/views/index.html" />
         <option value="$PROJECT_DIR$/libs/pyfy/controllers.py" />
         <option value="$PROJECT_DIR$/apps/admin/views/index.html" />
+        <option value="$PROJECT_DIR$/apps/admin/controllers/index.py" />
       </list>
     </option>
   </component>
@@ -241,33 +231,18 @@
               <item name="fweb" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fweb" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="portal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fweb" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="portal" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fweb" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="portal" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="commons" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fweb" type="b2602c69:ProjectViewProjectNode" />
               <item name="fweb" type="462c0819:PsiDirectoryNode" />
               <item name="libs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fweb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fweb" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+              <item name="pyfy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fweb" type="b2602c69:ProjectViewProjectNode" />
@@ -409,15 +384,15 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3283582" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.6451078" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.20410368" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.20086393" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Code comment" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3283582" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.5356551" />
-      <window_info anchor="bottom" id="Python Console" order="11" weight="0.5970149" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.22678186" />
+      <window_info anchor="bottom" id="Python Console" order="11" weight="0.5961123" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -741,16 +716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/admin/controllers/index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="9" lean-forward="true" selection-end-line="31" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/portal/controllers/index.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -768,13 +733,6 @@
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/admin/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -829,13 +787,6 @@
     <entry file="file://$PROJECT_DIR$/apps/portal/views/commons/header.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/libs/pyfy/controllers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="125" selection-start-line="125" selection-end-line="125" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/portal/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -845,8 +796,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/admin/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="116" column="13" selection-start-line="116" selection-start-column="13" selection-end-line="116" selection-end-column="13" />
+        <state relative-caret-position="331">
+          <caret line="125" column="28" lean-forward="true" selection-start-line="125" selection-start-column="28" selection-end-line="125" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/admin/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/pyfy/controllers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="149" column="50" lean-forward="true" selection-start-line="149" selection-start-column="50" selection-end-line="149" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/admin/controllers/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="27" column="45" lean-forward="true" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
