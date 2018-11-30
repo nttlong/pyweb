@@ -12,6 +12,7 @@ from pyparams_validator import types
 import jinja2
 @types(
     NAME=(str,True),
+    APP=(object,True),
     DB = (dict(
         HOST=(str,True),
         PORT = (int,True),
@@ -49,13 +50,13 @@ def init(data):
     )
     db = cnn.get_database (data.DB.NAME)
     db.authenticate (data.DB.USER,data.DB.PASSWORD)
-    app = Flask (data.NAME,template_folder = data.WORKING_DIR)
-    jinja_options = app.jinja_options.copy ()
-    jinja_options.update (dict (
-        variable_start_string='${',
-        variable_end_string='}'
-    ))
-    app.jinja_options = jinja_options
+    app = data.APP
+    # jinja_options = app.jinja_options.copy ()
+    # jinja_options.update (dict (
+    #     variable_start_string='${',
+    #     variable_end_string='}'
+    # ))
+    # app.jinja_options = jinja_options
     app.session_interface = MongoSessionInterface (db=db)
     app.secret_key = "57thvy5^%"
     dirs = []

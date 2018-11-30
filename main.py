@@ -7,7 +7,9 @@ WORKING_DIR = os.getcwd()
 config_path = os.sep.join([WORKING_DIR,'config/config.xml'])
 config = libs.pyxml_dict.load(config_path)
 config.update({
-    "WORKING_DIR":WORKING_DIR
+    "WORKING_DIR":WORKING_DIR,
+    "APP":Flask(__name__)
+
 })
 
 settings.init(config)
