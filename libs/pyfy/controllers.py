@@ -49,7 +49,20 @@ class Controller(object):
     def redirect(self,url):
         from flask import redirect as rd
         return rd(url)
+def __render__(template_dir,fileName,data):
+    import os
+    import jinja2
+    templateLoader = jinja2.FileSystemLoader(searchpath=template_dir)
+    templateEnv = jinja2.Environment(
+        loader=templateLoader,
+        variable_end_string="}",
+        variable_start_string="${"
 
+    )
+    TEMPLATE_FILE = fileName
+    template = templateEnv.get_template(TEMPLATE_FILE)
+    outputText = template.render(**data.__dict__)  # this is where to put args to the template renderer
+    return outputText
 class __controller_wrapper__(object):
     def __init__(self,data):
         from . import settings
@@ -110,8 +123,10 @@ class __controller_wrapper__(object):
                         ret = self.instance.OnPost(model, data)
                 model.set_data (data)
                 if ret == None:
-                    return render_template ("/".join ([self.app_config["rel_dir"], "views", self.template]),
-                                            **model.__dict__)
+                    html = __render__(
+                        "/".join([settings.WORKING_DIR,self.app_config["rel_dir"], "views"]),
+                        self.template,model)
+                    return html
 
                 else:
                     return ret
@@ -139,7 +154,10 @@ class __controller_wrapper__(object):
                 ret = self.instance.load (model, data)
                 model.set_data (data)
                 if ret == None:
-                    return render_template ("/".join ([self.app_config["rel_dir"], "views", self.template]), **model)
+                    html = __render__(
+                        "/".join([settings.WORKING_DIR, self.app_config["rel_dir"], "views"]),
+                        self.template,model)
+                    return html
                 else:
                     return ret
 

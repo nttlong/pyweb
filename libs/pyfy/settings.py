@@ -82,12 +82,13 @@ def init(data):
         mdl_name = app_info.DIR.split("/")[app_info.DIR.split("/").__len__()-1]
         mdl = __import__(mdl_name)
         app_config_item["mdl"] = mdl
-        if not hasattr(mdl,"routes"):
-            raise Exception("'{0}' was not found in '{1}'".format("routes",mdl_name))
+        # if not hasattr(mdl,"routes"):
+        #     raise Exception("'{0}' was not found in '{1}'".format("routes",mdl_name))
         app_config_item["app_name"] = app_info.NAME
-        app_config_item["owner"].name = app_info.NAME
-        app_config_item["owner"].login_url = app_info.LOGIN_URL
-        app_config_item["owner"].rel_dir = app_info.DIR
+        if app_config_item.has_key("onwer"):
+            app_config_item["owner"].name = app_info.NAME
+            app_config_item["owner"].login_url = app_info.LOGIN_URL
+            app_config_item["owner"].rel_dir = app_info.DIR
 
         def static_proxy(path):
             from flask import send_from_directory

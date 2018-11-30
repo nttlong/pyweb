@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f8c31e1-74d1-4f5a-84fa-5ef6249984fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/libs/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/portal/controllers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/portal/controllers/index.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pyweb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pyweb.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pyjson/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/pyjson/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/admin/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/pyfy/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/pyfy/controllers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/pyfy/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/pyfy/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,118 +20,22 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-2096726643">
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="py" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Python" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="Python Console" value="9" />
-          <entry key="py" value="519" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Python" value="528" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.26" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/libs/pyjson/__init__.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/portal/controllers/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="18">
+              <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Python27/Lib/json/encoder.py">
+        <entry file="file://$PROJECT_DIR$/apps/portal/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-434">
-              <caret line="183" selection-start-line="183" selection-end-line="183" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/admin/controllers/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/admin/controllers/sign_out.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/admin/routes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="37" column="36" selection-start-line="30" selection-start-column="2" selection-end-line="37" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/admin/controllers/login.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#33#0" expanded="true" />
-                <marker date="1543492721616" expanded="true" signature="219:224" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/pyfy/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#33#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="180">
+              <caret line="10" lean-forward="true" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -131,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libs/pyfy/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1520">
-              <caret line="82" selection-start-line="82" selection-end-line="82" />
+            <state relative-caret-position="130">
+              <caret line="85" column="87" lean-forward="true" selection-start-line="84" selection-start-column="7" selection-end-line="85" selection-end-column="87" />
               <folding>
                 <element signature="e#75#98#0" expanded="true" />
               </folding>
@@ -141,13 +53,62 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/admin/controllers/index.py">
+        <entry file="file://$PROJECT_DIR$/libs/pyfy/controllers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="132">
+              <caret line="125" selection-start-line="125" selection-end-line="125" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uvenv/local/lib/python2.7/site-packages/flask/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="1798" selection-start-line="1798" selection-end-line="1798" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/portal/views/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/admin/views/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="116" column="13" selection-start-line="116" selection-start-column="13" selection-end-line="116" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/portal/views/commons/header.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/portal/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="25" selection-start-column="25" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/admin/routes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
               <folding>
-                <element signature="e#0#33#0" expanded="true" />
-                <marker date="1543492721610" expanded="true" signature="240:895" ph="..." />
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -192,22 +153,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pyquery.py" />
-        <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/documents.py" />
         <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/mobject.py" />
         <option value="$PROJECT_DIR$/libs/memberships/models/users.py" />
         <option value="$PROJECT_DIR$/libs/memberships/models/Sessions.py" />
-        <option value="$PROJECT_DIR$/apps/portal/__init__.py" />
         <option value="$PROJECT_DIR$/uvenv/local/lib/python2.7/site-packages/pyparams_validator/exceptions.py" />
-        <option value="$PROJECT_DIR$/apps/portal/routes.py" />
         <option value="$PROJECT_DIR$/apps/portal/views/commons/header.html" />
-        <option value="$PROJECT_DIR$/apps/portal/views/index.html" />
         <option value="$PROJECT_DIR$/apps/admin/views/login.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/libs/pyxml_dict/__init__.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/config/config.xml" />
-        <option value="$PROJECT_DIR$/libs/pyfy/settings.py" />
         <option value="$PROJECT_DIR$/apps/admin/views/commons/user-menu.html" />
         <option value="$PROJECT_DIR$/apps/admin/views/signout.html" />
         <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pyparams_validator/__init__.py" />
@@ -219,8 +174,6 @@
         <option value="$PROJECT_DIR$/apps/admin/static/client/ui.directtives/ui.bootstrap.select2.js" />
         <option value="$PROJECT_DIR$/apps/admin/static/client/ui.directtives/ui.qTemplate.js" />
         <option value="$PROJECT_DIR$/apps/admin/__init__.py" />
-        <option value="$PROJECT_DIR$/libs/pyfy/routes.py" />
-        <option value="$PROJECT_DIR$/apps/admin/views/index.html" />
         <option value="$PROJECT_DIR$/apps/admin/routes.py" />
         <option value="$PROJECT_DIR$/uvenv/local/lib/python2.7/site-packages/pyparams_validator/__init__.py" />
         <option value="$PROJECT_DIR$/apps/admin/controllers/login.py" />
@@ -238,11 +191,19 @@
         <option value="$PROJECT_DIR$/apps/admin/static/client/ui.directtives/ui.drectives.ajax.js" />
         <option value="$PROJECT_DIR$/libs/pyfy/models.py" />
         <option value="$PROJECT_DIR$/apps/admin/controllers/pages/users.py" />
-        <option value="$PROJECT_DIR$/libs/pyfy/controllers.py" />
         <option value="$PROJECT_DIR$/apps/admin/views/pages/users.html" />
         <option value="$PROJECT_DIR$/libs/pyjson/test.py" />
         <option value="$PROJECT_DIR$/libs/test.py" />
         <option value="$PROJECT_DIR$/libs/pyjson/__init__.py" />
+        <option value="$PROJECT_DIR$/libs/pyfy/routes.py" />
+        <option value="$PROJECT_DIR$/apps/portal/controllers/__init__.py" />
+        <option value="$PROJECT_DIR$/apps/portal/controllers/index.py" />
+        <option value="$PROJECT_DIR$/apps/portal/routes.py" />
+        <option value="$PROJECT_DIR$/apps/portal/__init__.py" />
+        <option value="$PROJECT_DIR$/libs/pyfy/settings.py" />
+        <option value="$PROJECT_DIR$/apps/portal/views/index.html" />
+        <option value="$PROJECT_DIR$/libs/pyfy/controllers.py" />
+        <option value="$PROJECT_DIR$/apps/admin/views/index.html" />
       </list>
     </option>
   </component>
@@ -261,19 +222,57 @@
         <subPane>
           <expand>
             <path>
-              <item name="pyweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyweb" type="462c0819:PsiDirectoryNode" />
+              <item name="fweb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fweb" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="pyweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyweb" type="462c0819:PsiDirectoryNode" />
+              <item name="fweb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fweb" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fweb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fweb" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fweb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fweb" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fweb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fweb" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="portal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fweb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fweb" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="portal" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fweb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fweb" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="portal" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="commons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fweb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fweb" type="462c0819:PsiDirectoryNode" />
               <item name="libs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="pyweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyweb" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-              <item name="pyjson" type="462c0819:PsiDirectoryNode" />
+              <item name="fweb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fweb" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -310,7 +309,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test (1)">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pyweb" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -381,8 +380,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -401,15 +400,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26963562" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2412839" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3283582" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.6451078" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.66832507" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.20410368" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -448,9 +448,6 @@
       <window_info anchor="right" id="R Packages" order="4" />
       <window_info anchor="right" id="Embedded Web Browser" order="5" />
     </layout-to-restore>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -500,6 +497,16 @@
           <line>21</line>
           <option name="timeStamp" value="317" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/libs/pyfy/settings.py</url>
+          <line>88</line>
+          <option name="timeStamp" value="337" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/libs/pyfy/controllers.py</url>
+          <line>159</line>
+          <option name="timeStamp" value="339" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -518,48 +525,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/documents.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="174" selection-start-line="174" selection-end-line="174" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pydocs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="173" selection-start-line="173" selection-end-line="173" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2291" selection-start-line="2291" selection-end-line="2291" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pycollection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pyquery.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="96" column="26" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirement.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -623,24 +588,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libs/pyfy/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-380">
-          <caret line="17" column="43" selection-start-line="16" selection-start-column="12" selection-end-line="17" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/admin/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="144" selection-start-line="144" selection-end-line="144" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/admin/controllers/commons/BaseController.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/uvenv/local/lib/python2.7/site-packages/flask/app.py" />
     <entry file="file://$PROJECT_DIR$/uvenv/local/lib/python2.7/site-packages/pymqr/settings.py" />
     <entry file="file://$PROJECT_DIR$/uvenv/local/lib/python2.7/site-packages/pymqr/pyquery.py" />
     <entry file="file://$PROJECT_DIR$/uvenv/local/lib/python2.7/site-packages/pymqr/__init__.py" />
@@ -665,13 +615,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/uvenv/lib/python2.7/site-packages/flask/app.py" />
     <entry file="file://$PROJECT_DIR$/uvenv/local/lib/python2.7/site-packages/pyparams_validator/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/apps/admin/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/admin/views/pages/system.py" />
     <entry file="file://$PROJECT_DIR$/apps/admin/views/dynamic_views.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -707,7 +650,7 @@
     <entry file="file://$PROJECT_DIR$/apps/admin/views/commons/client.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
@@ -725,18 +668,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uvenv/local/lib/python2.7/site-packages/werkzeug/local.py" />
+    <entry file="file://$PROJECT_DIR$/uvenv/local/lib/python2.7/site-packages/werkzeug/local.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6138">
+          <caret line="344" selection-start-line="344" selection-end-line="344" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/admin/views/pages/users.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/pyfy/controllers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1760">
-          <caret line="91" column="41" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -747,27 +689,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/admin/controllers/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/admin/controllers/sign_out.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/admin/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="37" column="36" selection-start-line="30" selection-start-column="2" selection-end-line="37" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -777,38 +702,16 @@
           <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
-            <marker date="1543492721616" expanded="true" signature="219:224" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libs/pyfy/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
+        <state relative-caret-position="468">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/pyfy/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1520">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-          <folding>
-            <element signature="e#75#98#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/admin/controllers/index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-            <marker date="1543492721610" expanded="true" signature="240:895" ph="..." />
           </folding>
         </state>
       </provider>
@@ -820,17 +723,130 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python27/Lib/json/encoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-434">
-          <caret line="183" selection-start-line="183" selection-end-line="183" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://C:/Python27/Lib/json/encoder.py" />
     <entry file="file://$PROJECT_DIR$/libs/pyjson/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/pyfy/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/admin/controllers/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" column="9" lean-forward="true" selection-end-line="31" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/portal/controllers/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/admin/controllers/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/admin/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/admin/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/portal/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/portal/controllers/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/portal/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" lean-forward="true" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/pyfy/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="85" column="87" lean-forward="true" selection-start-line="84" selection-start-column="7" selection-end-line="85" selection-end-column="87" />
+          <folding>
+            <element signature="e#75#98#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uvenv/local/lib/python2.7/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="1798" selection-start-line="1798" selection-end-line="1798" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/portal/views/commons/header.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/pyfy/controllers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="125" selection-start-line="125" selection-end-line="125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/portal/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/admin/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="116" column="13" selection-start-line="116" selection-start-column="13" selection-end-line="116" selection-end-column="13" />
         </state>
       </provider>
     </entry>
