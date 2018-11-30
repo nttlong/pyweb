@@ -23,15 +23,14 @@ class model(object):
         self.absUrl = request.url.split("://")[0]+"://"+request.host
         self.appUrl = self.absUrl+"/"+self.excutor.host
         self.static = self.absUrl + "/" + self.excutor.host+"/static"
-        self.data = None
         self.appName =self.excutor.app_config["app_name"]
         self.language = session.get("language","en")
         self.appDir = relpath(self.excutor.dir,settings.WORKING_DIR).replace(os.sep,"/")
         self.appDirViews = self.appDir+"/views"
         self.params = dmobject(param_data)
         self.currentUrl=self.absUrl+request.path
-    def set_data(self,data):
-        self.data = data
+        self.data = dmobject({})
+
 
     def getAppRes(self,key,value = None):
         if value == None:

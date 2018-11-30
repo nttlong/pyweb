@@ -28,8 +28,7 @@ class Controller(object):
     @property
     def appDirViews(self):
         return self.appDir+"/views"
-    def get_model(self):
-        return None
+
 
 
 
@@ -114,14 +113,14 @@ class __controller_wrapper__(object):
                 from libs.pyfy import settings
                 setattr (request, "excutor", self)
                 if hasattr(self.instance,"OnLoad"):
-                    ret = self.instance.OnLoad(model, data)
+                    ret = self.instance.OnLoad(model)
                 if request.method == "GET":
                     if hasattr(self.instance,"OnGet"):
-                        ret = self.instance.OnGet(model, data)
+                        ret = self.instance.OnGet(model)
                 if request.method == "POST":
                     if hasattr(self.instance,"OnPost"):
-                        ret = self.instance.OnPost(model, data)
-                model.set_data (data)
+                        ret = self.instance.OnPost(model)
+
                 if ret == None:
                     html = __render__(
                         "/".join([settings.WORKING_DIR,self.app_config["rel_dir"], "views"]),
@@ -169,6 +168,7 @@ class __controller_wrapper__(object):
                 view_func=exec_route,
                 methods=["GET", "POST"]
             )
+
 
 
 

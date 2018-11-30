@@ -4,7 +4,7 @@ from libs.pyfy import controllers
     template="signout"
 )
 class SignOut(controllers.Controller):
-    def OnGet(self,sender,model):
+    def OnGet(self,sender):
         from libs import memberships
         memberships.SignOut (self.session)
         return self.redirect(sender.appUrl)

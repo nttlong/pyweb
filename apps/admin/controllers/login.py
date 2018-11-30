@@ -7,7 +7,7 @@ from libs import memberships
     template = "login.html"
 )
 class Login(controllers.Controller):
-    def OnPost(self,sender,model):
+    def OnPost(self,sender):
         ret = memberships.validate_user (self.request.form.to_dict ())
         if ret != None:
             memberships.SignIn (
@@ -16,6 +16,6 @@ class Login(controllers.Controller):
                 Language=sender.language)
             return self.redirect (sender.appUrl)
         else:
-            model.error = sender.getAppRes ("Login fail!!!")
+            self.data.error = sender.getAppRes ("Login fail!!!")
 
         data = self.request.data
