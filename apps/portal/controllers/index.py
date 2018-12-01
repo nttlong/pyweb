@@ -1,4 +1,4 @@
-from libs.pyfy import controllers
+from pfc import controllers
 import pymqr.mobject
 from flask import session
 @controllers.controller(

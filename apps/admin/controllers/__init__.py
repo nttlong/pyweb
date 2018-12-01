@@ -1,3 +1,3 @@
-from libs.pyfy.controllers import load
+from pfc.controllers import load
 import pages
 load()

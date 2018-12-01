@@ -13,6 +13,7 @@ mdl.directive("call",["$parse",function($parse){
                 var scope=findScopeById(e.parent().attr("s-id")*1);
                 var ws=undefined;
                 function exec(){
+                        debugger;
                     
                         var data=scope.$eval(a.params);
                         ws.call(a.id,data,function(e,r){
@@ -33,6 +34,7 @@ mdl.directive("call",["$parse",function($parse){
                         });
                 }
                 if(angular.isDefined(v)){
+                    debugger;
                     ws=v;
                     if(a.id && (!a.function)){
                         exec();

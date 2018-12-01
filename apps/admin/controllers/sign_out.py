@@ -1,4 +1,4 @@
-from libs.pyfy import controllers
+from pfc import controllers
 @controllers.controller(
     url="/signout",
     template="signout"

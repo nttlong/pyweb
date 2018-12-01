@@ -1,4 +1,4 @@
-from libs.pyfy import routes
+
 from flask import request,session,redirect
 from libs import memberships
 import pymqr.mobject

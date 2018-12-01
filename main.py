@@ -1,11 +1,12 @@
 # import settings
 from flask import Flask
 import os
-from libs.pyfy import settings
-import libs.pyxml_dict
+from pfc import settings,xml2dict
+
+
 WORKING_DIR = os.getcwd()
 config_path = os.sep.join([WORKING_DIR,'config/config.xml'])
-config = libs.pyxml_dict.load(config_path)
+config = xml2dict.load(config_path)
 config.update({
     "WORKING_DIR":WORKING_DIR,
     "APP":Flask(__name__)
