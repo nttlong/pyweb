@@ -16,6 +16,4 @@ class Login(controllers.Controller):
                 Language=sender.language)
             return self.redirect (sender.appUrl)
         else:
-            self.data.error = sender.getAppRes ("Login fail!!!")
-
-        data = self.request.data
+            sender.data.error = sender._//"Login fail!!!"

@@ -1,23 +1,21 @@
-<div>
-    {{data.name|date:'dd-MM-yyyy hh:mm:ss'}}
+<div title="${_//'List of users'}">
+    <table class="table">
+        <thead>
+        <tr>
+            <td>
+                ${_//'Username'}
+            </td>
+             <td>
+                ${_//'Email'}
+            </td>
+        </tr>
+        </thead>
+    </table>
+    {{data}}
     <input type="button" ng-click="doLoadUsers()">
     <ajax url="${currentUrl}">
         <call data-id="LoadUsers" params="postData" ng-model="data" data-function="doLoadUsers"/>
     </ajax>
+    <input type="button" ng-click="$root.$dialog($id).url('views/user').done()">
 </div>
 
-<script>
-    (function(scope){
-        scope.$watch(function(){
-            return scope.doLoadUsers;
-        },function(v){
-            alert(v)
-        });
-        scope.postData={
-            a:1,
-            b:2,
-            c:new Date()
-        }
-
-    });
-</script>

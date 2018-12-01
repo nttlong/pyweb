@@ -148,5 +148,28 @@ def SignOut(session):
     ret,error,redult = entity.commit()
     session.clear()
 
+def GetListOfUsers(page_size=50,page_index=0,pagefilter= None,sort=None):
+    from . models import roles
+    qr = query (settings.getdb (), users.Users).lookup(
+        roles.Roles,
+        users.Users.RoleCode,
+        roles.Roles.Code,
+        "Roles"
+    ).unwind("Roles").project(
+        pymqr.docs._id<<0,
+        pymqr.docs.UserId<<pymqr.docs._id,
+        users.Users.UserName,
+        pymqr.docs.LoginCount<<pymqr.funcs.size(users.Users.Logins),
+        users.Users.Email,
+        pymqr.docs.FirstName<< users.Users.Profile.FirstName,
+        pymqr.docs.LastName << users.Users.Profile.LastName,
+        pymqr.docs.RoleCode<<pymqr.docs.Roles.Code,
+        pymqr.docs.RoleName<<pymqr.docs.Roles.Name
+    )
+    ret = qr.get_page(page_size,page_index)
+    return ret
+
+
+
 
 

@@ -10,16 +10,20 @@ from . import dmobjs
 
 lock = Lock()
 
-@documents.Collection("languages")
-class Languages(object):
-    def __init__(self):
-        self.app = str,True
-        self.language = str,True
-        self.key = str,True
-        self.view = str,True
 
+class ModelRes(object):
+    def __init__(self,owner):
+        self.owner = owner
+    def __gt__(self, other):
+        return self.owner.res (other)
+    def __rshift__(self, other):
+        return self.owner.appRes (other)
+    def __floordiv__(self, other):
+        return self.owner.gRes(other)
 class model(object):
     def __init__(self,excutor,param_data):
+        self._ = ModelRes(self)
+        self.defaultData = None
         self.excutor = excutor
         self.absUrl = request.url.split("://")[0]+"://"+request.host
         self.appUrl = self.absUrl+"/"+self.excutor.host
@@ -31,59 +35,48 @@ class model(object):
         self.params = dmobject(param_data)
         self.currentUrl=self.absUrl+request.path
         self.data = dmobject({})
+        def __getGloblaRes__(key,value=None):
+            from . import langs
+            return langs.get_lang_item(
+                self.language,
+                "-",
+                "-",
+                key,value
+            )
+        def __getAppRes__(key,value=None):
+            from . import langs
+            return langs.get_lang_item(
+                self.language,
+                self.appName,
+                "-",
+                key,value
+            )
+        def __getRes__(key,value=None):
+            from . import langs
+            return langs.get_lang_item(
+                self.language,
+                self.appName,
+                self.excutor.template,
+                key,value
+            )
+        import JSON
+        self.appRes = __getAppRes__
+        self.gRes = __getGloblaRes__
+        self.res = __getRes__
+        self.toJSON=JSON.to_json
 
 
-    def getAppRes(self,key,value = None):
-        if value == None:
-            value = key.lstrip(" ").rstrip(" ")
-        key = key.lstrip (" ").rstrip (" ").lower()
 
-        global __has_languages__
-        if __has_languages__ == None:
-            __has_languages__ = {}
-        find_key = "lang={0};app={1};key={2}".format(self.language, self.appName,key)
-        ret= __has_languages__.get(find_key,None)
-        if ret!=None:
-            return ret
-        else:
-            import pymqr.settings as st
-            qr = pymqr.query(st.getdb(),Languages)
-            lock.acquire()
-            try:
-                ret_obj= qr.where(pymqr.funcs.expr((Languages.language== self.language) &
-                                                   (Languages.key == key) &
-                                                   (Languages.app == self.appName))).object
-                if ret_obj.is_empty():
-                    ret_obj = Languages<<{
-                        Languages.language:self.language,
-                        Languages.app:self.appName,
-                        Languages.key:key
-                    }
-                    ret,error,result = qr.insert(ret_obj.to_dict()).commit()
-                    if error != None:
-                        raise error
-                    __has_languages__.update({
-                        find_key:value
-                    })
-                lock.release()
-                return value
-            except Exception as ex:
-                lock.release()
-                raise ex
+
 
 
 # encoding=utf8
-VERSION = [1,0,0,"final",0]
-def get_version():
-    return VERSION[0].__str__()+\
-           "."+VERSION[1].__str__()+\
-           "."+VERSION[2].__str__()+\
-           "."+VERSION[3].__str__()+\
-           "."+VERSION[4].__str__()
+
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 import datetime
+
 class __validator_class__(object):
     def __init__(self):
         # self.__properties__ ={}

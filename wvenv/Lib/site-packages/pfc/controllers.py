@@ -2,8 +2,9 @@ from flask import request
 from pyparams_validator import types
 import models
 from flask import render_template
-
 class Controller(object):
+    def __init__(self):
+        self.Model = None
     @property
     def absUrl(self):
         from flask import request
@@ -28,15 +29,6 @@ class Controller(object):
     @property
     def appDirViews(self):
         return self.appDir+"/views"
-
-
-
-
-
-
-
-
-
     @property
     def request(self):
         from flask import request
@@ -98,6 +90,16 @@ class __controller_wrapper__(object):
                             (not self.app_config["mdl"].auth ()):
                         from flask import redirect
                         return redirect (self.host + "/" + self.app_config["login_url"])
+                if request.method == "GET":
+
+                    if hasattr(self.instance,"Model") and self.instance.Model != None:
+                        from pymqr import documents
+                        if not issubclass(self.instance.Model,documents.BaseDocuments):
+                            raise Exception("Model of controller {0} must be sub class of {1}".format(
+                                type(self.instance),documents.BaseDocuments
+                            ))
+                        model.defaultData = (self.instance.Model()<<{}).to_dict()
+
                 if request.method == "POST":
                     data = models.dmobject (request.form.to_dict ())
                     call_method = request.headers.get("AJAX-POST",None)
@@ -106,9 +108,9 @@ class __controller_wrapper__(object):
                             from . import dmobjs
                             from . import JSON
                             from flask import Response
-
-                            data = dmobjs.pdmobject(JSON.from_json(request.data))
-                            ret_data = getattr(self.instance,call_method)(data)
+                            model = models.model (self,JSON.from_json(request.data))
+                            # data = dmobjs.pdmobject(JSON.from_json(request.data))
+                            ret_data = getattr(self.instance,call_method)(model)
                             ret_json=JSON.to_json(ret_data)
                             return ret_json, 200, {'Content-Type': 'application/json; charset=utf-8'}
 
@@ -170,10 +172,6 @@ class __controller_wrapper__(object):
                 view_func=exec_route,
                 methods=["GET", "POST"]
             )
-
-
-
-
 @types(
     url=(str,True),
     template=(str,True)
@@ -186,7 +184,6 @@ def controller(data):
 
     ret = __controller_wrapper__(data)
     return ret.wrapper
-
 def load():
     from . import settings
     import os

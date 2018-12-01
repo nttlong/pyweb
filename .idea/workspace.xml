@@ -1,47 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/controllers.py" line="96" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0f8c31e1-74d1-4f5a-84fa-5ef6249984fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/libs/pfc/pfc/MongoDbSession.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/pfc/pfc/dmobjs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/pfc/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/admin/controllers/pages/user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/admin/views/pages/user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/memberships/models/roles.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/pfc/pfc/langs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/pfc/pfc/res_models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/controllers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/controllers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/controllers/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/controllers/index.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/admin/controllers/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/controllers/login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/controllers/pages/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/controllers/pages/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/admin/controllers/pages/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/controllers/pages/users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/controllers/sign_out.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/controllers/sign_out.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/static/client/ui.directtives/ui.directitive.ajax.call.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/static/client/ui.directtives/ui.directitive.ajax.call.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/admin/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/admin/views/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/views/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/admin/views/pages/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/views/pages/users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/portal/controllers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/controllers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/portal/controllers/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/controllers/index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/MongodDbSession/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pkg_djcontrollers/.idea/djcontrollers.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pkg_djcontrollers/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pkg_djcontrollers/.idea/libraries/R_User_Library.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pkg_djcontrollers/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pkg_djcontrollers/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pkg_djcontrollers/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pkg_djcontrollers/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pyfy/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pyfy/controllers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pyfy/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pyfy/routes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pyfy/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pyfy/start_info.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pyjson/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/pyxml_dict/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirement.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirement.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pydmobjects/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/qobjects-1.0.0.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/qobjects-1.0.0.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/qobjects-1.0.0.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/qobjects-1.0.0.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/qobjects-1.0.0.0.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/memberships/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/memberships/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/memberships/models/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/memberships/models/users.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/pfc/pfc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/pfc/pfc/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/pfc/pfc/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/pfc/pfc/controllers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/pfc/pfc/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/pfc/pfc/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc-0.0.0b5.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc-0.0.0b5.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc-0.0.0b5.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc-0.0.0b5.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc-0.0.0b5.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/controllers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr-1.0.1b0.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr-1.0.1b0.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr-1.0.1b0.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr-1.0.1b0.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr-1.0.1b0.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/documents.py" beforeDir="false" afterPath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/documents.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pyaggregatebuilders.py" beforeDir="false" afterPath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pyaggregatebuilders.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pydocs.py" beforeDir="false" afterPath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pydocs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pyquery.py" beforeDir="false" afterPath="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pyquery.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,37 +51,44 @@
     <session id="-2096726643">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="2" />
-          <entry key="js" value="2" />
-          <entry key="py" value="39" />
-          <entry key="txt" value="2" />
+          <entry key="html" value="9" />
+          <entry key="js" value="3" />
+          <entry key="py" value="70" />
+          <entry key="txt" value="4" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="2" />
-          <entry key="JavaScript" value="2" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="39" />
+          <entry key="HTML" value="9" />
+          <entry key="JavaScript" value="3" />
+          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="Python" value="70" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="206" />
-          <entry key="html" value="223" />
+          <entry key="Python Console" value="588" />
+          <entry key="html" value="1339" />
           <entry key="js" value="17" />
-          <entry key="py" value="457" />
+          <entry key="py" value="3343" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="223" />
+          <entry key="HTML" value="1339" />
           <entry key="JavaScript" value="17" />
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="663" />
+          <entry key="Python" value="3931" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -93,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/admin/controllers/pages/users.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="180">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -103,10 +108,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/portal/controllers/index.py">
+        <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="8" selection-start-column="8" selection-end-column="8" />
+            <state relative-caret-position="243">
+              <caret line="135" selection-start-line="135" selection-end-line="135" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/admin/views/pages/user.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+              <folding>
+                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" />
+                <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,17 +132,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/controllers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="101" column="49" selection-end-line="209" />
+            <state relative-caret-position="96">
+              <caret line="100" selection-start-line="100" selection-end-line="100" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/admin/views/pages/users.html">
+        <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/documents.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" column="41" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
+            <state relative-caret-position="81">
+              <caret line="214" selection-start-line="214" selection-end-line="214" />
             </state>
           </provider>
         </entry>
@@ -132,38 +150,40 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/controllers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="200" column="19" lean-forward="true" selection-start-line="200" selection-start-column="19" selection-end-line="200" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/dmobjs.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+            <state relative-caret-position="220">
+              <caret line="206" selection-start-line="206" selection-end-line="206" />
               <folding>
-                <element signature="e#3948#4574#0" />
+                <element signature="e#142#1213#0" />
+                <element signature="e#232#319#0" />
+                <element signature="e#364#438#0" />
+                <element signature="e#483#537#0" />
+                <element signature="e#584#653#0" />
+                <element signature="e#698#856#0" />
+                <element signature="e#906#933#0" />
+                <element signature="e#979#1027#0" />
+                <element signature="e#1262#1713#0" />
+                <element signature="e#1756#7242#0" />
+                <element signature="e#7327#7504#0" />
+                <element signature="e#7522#8196#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/models.py">
+        <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="100">
+              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/admin/views/pages/users.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="86">
+              <caret line="15" column="27" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -171,20 +191,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="133" column="36" lean-forward="true" selection-start-line="133" selection-start-column="36" selection-end-line="133" selection-end-column="36" />
+            <state relative-caret-position="368">
+              <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
+                <element signature="e#1274#1446#0" />
+                <element signature="e#1502#1683#0" />
+                <element signature="e#1736#1935#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/routes.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/admin/controllers/pages/user.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+            <state relative-caret-position="328">
+              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+                <element signature="e#281#362#0" />
+                <marker date="1543663986579" expanded="true" signature="97:219" ph="..." />
+                <marker date="1543663986579" expanded="true" signature="390:1033" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -224,6 +253,9 @@
       <find>dmobjs.</find>
       <find>dmobject</find>
       <find>pyfy</find>
+      <find>unwind</find>
+      <find>proj</find>
+      <find>project</find>
     </findStrings>
     <replaceStrings>
       <replace>${static}/</replace>
@@ -236,27 +268,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apps/admin/views/commons/header.html" />
-        <option value="$PROJECT_DIR$/apps/admin/views/commons/main-sidebar.html" />
-        <option value="$PROJECT_DIR$/apps/admin/static/client/ui.directtives/ui.bootstrap.select2.js" />
-        <option value="$PROJECT_DIR$/apps/admin/static/client/ui.directtives/ui.qTemplate.js" />
-        <option value="$PROJECT_DIR$/apps/admin/__init__.py" />
-        <option value="$PROJECT_DIR$/uvenv/local/lib/python2.7/site-packages/pyparams_validator/__init__.py" />
-        <option value="$PROJECT_DIR$/apps/admin/controllers/commons/BaseController.py" />
-        <option value="$PROJECT_DIR$/uvenv/local/lib/python2.7/site-packages/pymqr/pyquery.py" />
-        <option value="$PROJECT_DIR$/apps/admin/views/dynamic_views.html" />
-        <option value="$PROJECT_DIR$/apps/admin/views/pages/system.py" />
-        <option value="$PROJECT_DIR$/apps/admin/views/pages/system.html" />
-        <option value="$PROJECT_DIR$/apps/admin/controllers/dynamic_view.py" />
-        <option value="$PROJECT_DIR$/apps/admin/views/commons/client.html" />
-        <option value="$PROJECT_DIR$/apps/admin/static/client/ui.directtives/ui.drectives.ajax.js" />
-        <option value="$PROJECT_DIR$/libs/pyjson/test.py" />
-        <option value="$PROJECT_DIR$/libs/test.py" />
-        <option value="$PROJECT_DIR$/libs/pyfy/routes.py" />
         <option value="$PROJECT_DIR$/apps/portal/routes.py" />
         <option value="$PROJECT_DIR$/apps/portal/__init__.py" />
         <option value="$PROJECT_DIR$/apps/portal/views/index.html" />
-        <option value="$PROJECT_DIR$/apps/admin/views/index.html" />
         <option value="$PROJECT_DIR$/libs/pyfy/models.py" />
         <option value="$PROJECT_DIR$/libs/pyfy/settings.py" />
         <option value="$PROJECT_DIR$/apps/admin/static/client/ui.directtives/ui.directitive.ajax.call.js" />
@@ -276,17 +290,35 @@
         <option value="$PROJECT_DIR$/apps/admin/controllers/__init__.py" />
         <option value="$PROJECT_DIR$/apps/admin/controllers/pages/__init__.py" />
         <option value="$PROJECT_DIR$/apps/admin/controllers/index.py" />
-        <option value="$PROJECT_DIR$/apps/admin/controllers/login.py" />
         <option value="$PROJECT_DIR$/apps/admin/controllers/sign_out.py" />
         <option value="$PROJECT_DIR$/apps/portal/controllers/__init__.py" />
         <option value="$PROJECT_DIR$/apps/portal/controllers/index.py" />
-        <option value="$PROJECT_DIR$/libs/pfc/pfc/models.py" />
         <option value="$PROJECT_DIR$/libs/pfc/pfc/dmobjs.py" />
+        <option value="$PROJECT_DIR$/libs/memberships/models/roles.py" />
+        <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pyquery.py" />
+        <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pyaggregatebuilders.py" />
         <option value="$PROJECT_DIR$/apps/admin/controllers/pages/users.py" />
-        <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/controllers.py" />
+        <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/JSON.py" />
+        <option value="$PROJECT_DIR$/libs/memberships/models/users.py" />
+        <option value="$PROJECT_DIR$/libs/memberships/__init__.py" />
+        <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pydocs.py" />
+        <option value="$PROJECT_DIR$/libs/pfc/pfc/res_models/__init__.py" />
+        <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/models.py" />
+        <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/res_models.py" />
+        <option value="$PROJECT_DIR$/libs/pfc/pfc/res_models.py" />
+        <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/langs.py" />
+        <option value="$PROJECT_DIR$/libs/pfc/pfc/langs.py" />
+        <option value="$PROJECT_DIR$/apps/admin/controllers/login.py" />
+        <option value="$PROJECT_DIR$/apps/admin/views/login.html" />
         <option value="$PROJECT_DIR$/apps/admin/views/pages/users.html" />
+        <option value="$PROJECT_DIR$/apps/admin/views/index.html" />
+        <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/documents.py" />
+        <option value="$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/controllers.py" />
         <option value="$PROJECT_DIR$/libs/pfc/pfc/controllers.py" />
+        <option value="$PROJECT_DIR$/libs/pfc/pfc/models.py" />
         <option value="$PROJECT_DIR$/libs/pfc/pfc/__init__.py" />
+        <option value="$PROJECT_DIR$/apps/admin/views/pages/user.html" />
+        <option value="$PROJECT_DIR$/apps/admin/controllers/pages/user.py" />
       </list>
     </option>
   </component>
@@ -316,6 +348,35 @@
             <path>
               <item name="pyweb" type="b2602c69:ProjectViewProjectNode" />
               <item name="pyweb" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pyweb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pyweb" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pyweb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pyweb" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="commons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pyweb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pyweb" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pyweb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pyweb" type="462c0819:PsiDirectoryNode" />
               <item name="libs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -330,6 +391,12 @@
               <item name="libs" type="462c0819:PsiDirectoryNode" />
               <item name="pfc" type="462c0819:PsiDirectoryNode" />
               <item name="pfc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pyweb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pyweb" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+              <item name="pkg_djcontrollers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -345,14 +412,14 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/apps/admin/static" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\code\python\pyweb\libs\pfc\pfc" />
       <recent name="E:\code\python\pyweb\libs" />
       <recent name="E:\code\python\pyweb" />
       <recent name="E:\code\python\pyweb\apps\admin" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps/admin/static" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -367,7 +434,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.app">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pyweb" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pyweb" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -435,9 +523,11 @@
       <item itemvalue="Python.test" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.test (1)" />
+      <item itemvalue="Python.app" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.app" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.test" />
@@ -461,21 +551,21 @@
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30364373" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3125506" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3283582" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.6451078" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.5737977" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.17247097" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Code comment" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3283582" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.5356551" />
-      <window_info anchor="bottom" id="Python Console" order="11" weight="0.2305141" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.35157546" />
+      <window_info anchor="bottom" id="Python Console" order="11" weight="0.4394693" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -507,6 +597,9 @@
       <window_info anchor="right" id="Embedded Web Browser" order="5" />
     </layout-to-restore>
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -517,13 +610,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pydocs.py</url>
-          <line>257</line>
+          <line>264</line>
           <option name="timeStamp" value="152" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pydocs.py</url>
-          <line>254</line>
-          <option name="timeStamp" value="153" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/libs/pyxml_dict/__init__.py</url>
@@ -534,11 +622,6 @@
           <url>file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pydocs.py</url>
           <line>216</line>
           <option name="timeStamp" value="265" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/admin/controllers/login.py</url>
-          <line>18</line>
-          <option name="timeStamp" value="312" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/libs/pyfy/settings.py</url>
@@ -573,207 +656,16 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/admin/views/commons/client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uvenv/local/lib/python2.7/site-packages/werkzeug/local.py" />
-    <entry file="file://$PROJECT_DIR$/libs/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/json/encoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-434">
-          <caret line="183" selection-start-line="183" selection-end-line="183" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/pyfy/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/portal/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uvenv/local/lib/python2.7/site-packages/flask/app.py" />
-    <entry file="file://$PROJECT_DIR$/apps/portal/views/commons/header.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/portal/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/admin/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="125" column="28" selection-start-line="125" selection-start-column="28" selection-end-line="125" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/pyfy/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/-1000515817/__builtin__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="2578" column="8" selection-start-line="2578" selection-start-column="8" selection-end-line="2578" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/pyfy/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="52" column="18" lean-forward="true" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
-          <folding>
-            <element signature="e#75#98#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="n#CONFIG#0;n#root#0;n#!!top" />
-            <element signature="n#DB#0;n#root#0;n#!!top" />
-            <element signature="n#APPS#0;n#root#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/admin/static/client/ui.directtives/ui.drectives.ajax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/admin/static/client/ui.directtives/ui.directitive.ajax.call.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#1698#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/json/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="351" selection-start-line="351" selection-end-line="351" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/json/decoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="363" selection-start-line="363" selection-end-line="363" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/pyjson/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="110" column="38" lean-forward="true" selection-start-line="110" selection-start-column="38" selection-end-line="110" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/pyfy/controllers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/pyxml_dict/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="55" lean-forward="true" selection-end-line="55" />
-          <folding>
-            <element signature="e#56#1881#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/pyfy/xml2dict.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
-          <folding>
-            <element signature="e#56#1881#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/pyfy/JSON.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-          <folding>
-            <element signature="e#230#264#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/pyfy/xml2dict.py" />
+    <entry file="file://$PROJECT_DIR$/libs/pyfy/JSON.py" />
     <entry file="file://$PROJECT_DIR$/libs/pfc/setup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirement.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/MongodDbSession/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="17" column="46" lean-forward="true" selection-end-line="49" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/MongodDbSession/__init__.py" />
     <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/MongoDbSession.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -794,16 +686,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#18#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py" />
     <entry file="file://$PROJECT_DIR$/libs/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -811,9 +694,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret lean-forward="true" />
-          <folding>
-            <element signature="e#1#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -821,9 +701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="103">
           <caret line="83" selection-start-line="83" selection-end-line="83" />
-          <folding>
-            <element signature="e#75#98#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -843,40 +720,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/JSON.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
+        <state relative-caret-position="-60" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/admin/controllers/index.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="8" selection-start-column="8" selection-end-column="8" />
-          <folding>
-            <marker date="1543637169009" expanded="true" signature="228:883" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/admin/controllers/login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" selection-start-column="8" selection-end-column="8" />
-          <folding>
-            <marker date="1543637189746" expanded="true" signature="213:218" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/admin/controllers/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -904,75 +754,298 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/models.py">
+    <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/dmobjs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="180">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/routes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
+        <state relative-caret-position="480">
           <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/models.py">
+    <entry file="file://$PROJECT_DIR$/libs/memberships/models/roles.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="133" column="36" lean-forward="true" selection-start-line="133" selection-start-column="36" selection-end-line="133" selection-end-column="36" />
+        <state relative-caret-position="220">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
           <folding>
-            <element signature="e#0#33#0" expanded="true" />
+            <marker date="1543642837168" expanded="true" signature="135:304" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/dmobjs.py">
+    <entry file="file://$PROJECT_DIR$/apps/admin/controllers/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        <state relative-caret-position="20">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/JSON.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="105" selection-start-line="105" selection-end-line="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pyquery.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="166" column="46" selection-start-line="166" selection-start-column="46" selection-end-line="166" selection-end-column="46" />
           <folding>
-            <element signature="e#3948#4574#0" />
+            <element signature="e#3624#5775#0" />
+            <marker date="1543644928629" expanded="true" signature="6848:7008" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/memberships/models/users.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="39" column="33" lean-forward="true" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pyaggregatebuilders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/pydocs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-75">
+          <caret line="251" column="27" lean-forward="true" selection-start-line="251" selection-start-column="27" selection-end-line="251" selection-end-column="27" />
+          <folding>
+            <element signature="e#7804#8489#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/memberships/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="169" selection-start-line="169" selection-end-line="169" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+            <element signature="e#644#1488#0" />
+            <element signature="e#1590#2887#0" />
+            <element signature="e#2938#3016#0" />
+            <element signature="e#3129#3687#0" />
+            <element signature="e#3729#4338#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/languages/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/pkg_djcontrollers/djcontrollers/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="120" column="30" lean-forward="true" selection-start-line="120" selection-start-column="30" selection-end-line="120" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/pkg_djcontrollers/djcontrollers/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-580">
+          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirement.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="8" selection-start-line="3" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/res_models/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="32" lean-forward="true" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/res_models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/res_models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/langs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="39" column="27" lean-forward="true" selection-start-line="33" selection-start-column="16" selection-end-line="39" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/langs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="42" column="18" lean-forward="true" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+          <folding>
+            <marker date="1543653862761" expanded="true" signature="518:522" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/admin/controllers/login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+            <marker date="1543654234106" expanded="true" signature="213:218" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/admin/views/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="63" column="8" lean-forward="true" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/admin/static/client/ui.directtives/ui.bootstrap.layout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="233" column="29" selection-start-line="233" selection-start-column="19" selection-end-line="233" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#8461#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/admin/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="122" column="10" lean-forward="true" selection-start-line="122" selection-start-column="10" selection-end-line="122" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/admin/controllers/pages/users.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="180">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/admin/views/pages/users.html">
+    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="41" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/controllers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="101" column="49" selection-end-line="209" />
+        <state relative-caret-position="243">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/controllers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="200" column="19" lean-forward="true" selection-start-line="200" selection-start-column="19" selection-end-line="200" selection-end-column="19" />
+        <state relative-caret-position="220">
+          <caret line="206" selection-start-line="206" selection-end-line="206" />
+          <folding>
+            <element signature="e#142#1213#0" />
+            <element signature="e#232#319#0" />
+            <element signature="e#364#438#0" />
+            <element signature="e#483#537#0" />
+            <element signature="e#584#653#0" />
+            <element signature="e#698#856#0" />
+            <element signature="e#906#933#0" />
+            <element signature="e#979#1027#0" />
+            <element signature="e#1262#1713#0" />
+            <element signature="e#1756#7242#0" />
+            <element signature="e#7327#7504#0" />
+            <element signature="e#7522#8196#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pymqr/documents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="214" selection-start-line="214" selection-end-line="214" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+            <element signature="e#1274#1446#0" />
+            <element signature="e#1502#1683#0" />
+            <element signature="e#1736#1935#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libs/pfc/pfc/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+        <state relative-caret-position="100">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/admin/views/pages/users.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wvenv/Lib/site-packages/pfc/controllers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/admin/views/pages/user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/admin/controllers/pages/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#281#362#0" />
+            <marker date="1543663986579" expanded="true" signature="97:219" ph="..." />
+            <marker date="1543663986579" expanded="true" signature="390:1033" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

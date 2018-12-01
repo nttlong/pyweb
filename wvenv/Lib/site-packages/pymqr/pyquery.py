@@ -166,7 +166,18 @@ class query ():
         import pyaggregatebuilders
         self.stages (pyaggregatebuilders.Project (*args, **kwargs))
         return self
-
+    def unwind(self,field,includeArrayIndex= None,preserveNullAndEmptyArrays=True):
+        """
+        path: <field path>,
+              includeArrayIndex: <string>,
+              preserveNullAndEmptyArrays: <boolean>
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        import pyaggregatebuilders
+        self.stages(pyaggregatebuilders.Unwind(field,includeArrayIndex,preserveNullAndEmptyArrays))
+        return self
     def addFields(self, fields, *args, **kwargs):
         """
         :param selectors:

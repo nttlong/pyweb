@@ -118,7 +118,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div q-template url="${appUrl}/{{page}}" ng-if="page">
+    <div q-template url="${appUrl}/{{page}}" ng-if="page" class="box">
 
     </div>
 
@@ -134,8 +134,10 @@
 
 <script>
   var mdl =angular.module("admin",["q-ui"]);
-  mdl.controller("admin",["$scope",function(scope){
+  mdl.controller("admin",["$compile","$scope",function($compile,scope){
     history_navigator(scope.$root)
+    scope.$root.$compile = $compile;
+    scope.$root.$dialog=dialog
     scope.$root.$history.change(function(data){
       scope.page = data.page;
       scope.$applyAsync();

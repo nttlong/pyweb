@@ -166,14 +166,18 @@ class Lookup(PipelineStage):
 
     def __lookup__(self, coll, localField, foreignField, alias):
         import pydocs
+        import documents
         import expression_parser
         _CC = coll
         _LF = localField
         _FF = foreignField
+        _AS = alias
         if isinstance(alias,pydocs.Fields):
-            alias = pydocs.get_field_expr(alias,True)
-        if type(coll) not in [str, unicode]:
+            _AS = pydocs.get_field_expr(alias,True)
+        if type(coll) not in [str, unicode,documents.BaseDocuments]:
             raise Exception("'coll' must be 'str' or 'unicode'")
+        if isinstance(coll,documents.BaseDocuments):
+            _CC = coll.get_collection_name()
         if type(alias) not in [str, unicode]:
             raise Exception("'alias' must be 'str' or 'unicode'")
         if isinstance(localField, pydocs.Fields):
@@ -181,9 +185,10 @@ class Lookup(PipelineStage):
         if isinstance(foreignField, pydocs.Fields):
             _FF = pydocs.get_field_expr(_FF, True)
         self.__stage__ = {
-            "from": coll,
+            "from": _CC,
             "localField": _LF,
-            "foreignField": _FF
+            "foreignField": _FF,
+            "as":_AS
         }
         return self
 

@@ -204,8 +204,18 @@ class BaseDocuments(object):
         from inspect import isfunction
 
 
+        field_types = None
+        if self.__dict__.has_key("__origin__"):
+            if hasattr(self.__dict__,"__dict__"):
+                field_types = __GOBBLE__.get_fields_info (self.__dict__["__origin__"].__dict__)
+            else:
+                field_types = __GOBBLE__.get_fields_info (self.__dict__["__origin__"])
 
-        field_types = __GOBBLE__.get_fields_info(self.__dict__["__origin__"].__dict__)
+        else:
+            self.__dict__.update({
+                "__origin__":self.__dict__
+            })
+            field_types = __GOBBLE__.get_fields_info (self.__dict__["__origin__"])
         field_defaults = __GOBBLE__.get_dict_default_value(self.__dict__)
         ret ={}
         ret_type ={}
