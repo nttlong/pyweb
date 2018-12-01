@@ -99,6 +99,10 @@ def to_json(ret):
         else:
             if type(ret) is dict:
                 ret_data = json.dumps(ret, default=json_serial)
+            elif hasattr(ret,"to_dict"):
+                return  to_json(ret.to_dict())
+
+
             elif hasattr(ret,"next"):
                 ret_data = json.dumps(list(ret), default=json_serial)
             else:

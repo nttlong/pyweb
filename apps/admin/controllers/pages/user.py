@@ -1,9 +1,18 @@
 from pfc import controllers
 from pymqr import documents
-class __model__(documents.BaseDocuments):
+@documents.FormModel()
+class __model_user__(object):
+    def __init__(self):
+        self.UserName= str,True
+        self.Email = str, True
+        self.Password = str, True
+        self.IsActive = bool,True,False
+        self.IsSysAdmin = bool,True,True
+@documents.FormModel()
+class __model__(object):
     def __init__(self):
         self.message=str,True
-        self.data = object,True
+        self.data = __model_user__,True
         self.isError = bool,True
 
 
@@ -15,16 +24,24 @@ class user(controllers.Controller):
     def __init__(self):
         self.Model = __model__
     def DoSaveUser(self,sender):
+        ret= None
         from pyparams_validator import exceptions
-        if sender.params.__is_emty__():
-            return dict(
-                message=sender._//"Please enter data"
-            )
+        if sender.model.data==None:
+            return self.Model<<{
+                self.Model.message:sender._//"Please enter data",
+                self.Model.isError:True
+            }
         from libs import memberships
         try:
-            ret= memberships.create_user(sender.params.__to_dict__())
+            ret= memberships.create_user(sender.model.data.__to_dict__())
         except exceptions.MissingFields as ex:
             x=ex.fields
+        except memberships.exceptions.UserIsExist as ex:
+            return self.Model<<{
+                self.Model.isError:True,
+                self.Model.message:sender._//"User is existing",
+                self.Model.data :sender.model.data
+            }
         except Exception as ex:
             raise ex
 

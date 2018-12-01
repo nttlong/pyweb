@@ -21,7 +21,7 @@ class ModelRes(object):
     def __floordiv__(self, other):
         return self.owner.gRes(other)
 class model(object):
-    def __init__(self,excutor,param_data):
+    def __init__(self,excutor,param_data={}):
         self._ = ModelRes(self)
         self.defaultData = None
         self.excutor = excutor
@@ -34,7 +34,7 @@ class model(object):
         self.appDirViews = self.appDir+"/views"
         self.params = dmobject(param_data)
         self.currentUrl=self.absUrl+request.path
-        self.data = dmobject({})
+        self.model = dmobject(param_data)
         def __getGloblaRes__(key,value=None):
             from . import langs
             return langs.get_lang_item(

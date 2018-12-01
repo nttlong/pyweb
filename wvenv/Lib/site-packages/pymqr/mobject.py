@@ -114,7 +114,7 @@ class dynamic_object(__validator_class__):
         for k in keys:
             v= self.__dict__[k]
             if hasattr(v,"__to_dict__"):
-                ret.update({k:v.to_dict()})
+                ret.update({k:v.__to_dict__()})
             elif type(v) is list:
                 lst = []
                 for x in v:

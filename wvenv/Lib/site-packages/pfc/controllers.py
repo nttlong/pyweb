@@ -94,11 +94,11 @@ class __controller_wrapper__(object):
 
                     if hasattr(self.instance,"Model") and self.instance.Model != None:
                         from pymqr import documents
-                        if not issubclass(self.instance.Model,documents.BaseDocuments):
+                        if not isinstance(self.instance.Model,documents.BaseDocuments):
                             raise Exception("Model of controller {0} must be sub class of {1}".format(
                                 type(self.instance),documents.BaseDocuments
                             ))
-                        model.defaultData = (self.instance.Model()<<{}).to_dict()
+                        model.defaultData = (self.instance.Model<<{}).to_dict()
 
                 if request.method == "POST":
                     data = models.dmobject (request.form.to_dict ())

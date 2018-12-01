@@ -14,8 +14,12 @@
                  <span>${_//'Password'}</span><input type="text" ng-model="model.data.Password">
             </div>
             <div>
-                <span>${_//'Sys admin user?'}</span><input type="checkbox" ng-model="data.IsSysAdmin">
-                 <span>${_//'Is active'}</span><input type="checkbox" ng-model="data.IsActive">
+                <span>${_//'Description'}</span>
+                <textarea span="3" class="form-control"></textarea>
+            </div>
+            <div>
+                <span>${_//'Sys admin user?'}</span><input type="checkbox" ng-model="model.data.IsSysAdmin">
+                 <span>${_//'Is active'}</span><input type="checkbox" ng-model="model.data.IsActive">
             </div>
             <div>
                 <div class="btn-toolbar pull-right"   span="4" role="toolbar">
@@ -37,7 +41,7 @@
 
     </div>
     <ajax url="${currentUrl}">
-        <call data-id="DoSaveUser" data-function="doSave" data-params="data" ng-model="response"/>
+        <call data-id="DoSaveUser" data-function="doSave" data-params="model" ng-model="model"/>
     </ajax>
 </div>
 <script>
