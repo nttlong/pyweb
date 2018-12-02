@@ -17,6 +17,10 @@ class index(controllers.Controller):
                     dmobj (
                         caption="Users",
                         page="views/users"
+                    ),
+                    dmobj(
+                        caption = "Roles",
+                        page = "views/roles"
                     )
                 ]
             ),

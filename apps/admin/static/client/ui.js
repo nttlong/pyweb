@@ -233,6 +233,7 @@ function dialog($scope) {
     }
     return new ret($scope);
 }
+
 function $url() {
     function ret() {
         var me = this;

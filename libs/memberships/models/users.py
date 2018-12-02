@@ -42,4 +42,5 @@ class Users(documents.BaseDocuments):
         self.Logins = [Logins]
         self.Signouts = [Signouts]
         self.RoleCode = str,True
+        self.Description =str,True
 

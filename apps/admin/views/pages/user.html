@@ -1,9 +1,4 @@
 <div title="${_//'User info'}">
-    <style>
-        .form-element{
-            padding:4px;
-        }
-    </style>
     <div form-layout>
         <div form-template>
             <div>
@@ -15,7 +10,7 @@
             </div>
             <div>
                 <span>${_//'Description'}</span>
-                <textarea span="3" class="form-control"></textarea>
+                <textarea span="3" class="form-control" ng-model="model.data.Description"></textarea>
             </div>
             <div>
                 <span>${_//'Sys admin user?'}</span><input type="checkbox" ng-model="model.data.IsSysAdmin">
@@ -41,11 +36,12 @@
 
     </div>
     <ajax url="${currentUrl}">
+        <call data-id="DoLoadItem" data-params="{UserName:$root.$history.data().username}" ng-model="model.data"/>
         <call data-id="DoSaveUser" data-function="doSave" data-params="model" ng-model="model"/>
     </ajax>
 </div>
 <script>
     (function(scope,userId){
-        scope.model=${toJSON(defaultData)}
+
     })
 </script>

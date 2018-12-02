@@ -8,6 +8,11 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     {% include "commons/header.html" %}
   {% include "commons/client.html" %}
+   <style>
+        .form-element{
+            padding:4px;
+        }
+    </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini" ng-controller="admin">
 <div class="wrapper">
@@ -118,9 +123,15 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div q-template url="${appUrl}/{{page}}" ng-if="page" class="box">
+    <div  class="box">
+      <div class="box-body" style="margin:10px">
+           <div q-template url="${appUrl}/{{page}}" ng-if="page" >
 
+            </div>
+      </div>
     </div>
+
+
 
   </div>
   <!-- /.content-wrapper -->
@@ -136,6 +147,8 @@
   var mdl =angular.module("admin",["q-ui"]);
   mdl.controller("admin",["$compile","$scope",function($compile,scope){
     history_navigator(scope.$root)
+    scope.$root.$url = function() {return  $url();}
+    console.log(scope.$root);
     scope.$root.$compile = $compile;
     scope.$root.$dialog=dialog
     scope.$root.$history.change(function(data){

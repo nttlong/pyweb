@@ -1,0 +1,35 @@
+<div>
+    <div  ng-if="!$root.$history.data().code">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>${_//"Code"}</th>
+                <th>${_//"Name"}</th>
+                <th>${_//"Foreign Name"}</th>
+                <th>${_//"Description"}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="p in model">
+                <td><a href="#{{$root.$url().param('code',p.Code).url()}}">{{p.Code}}</a></td>
+                <td>{{p.Name}}</td>
+                <td>{{p.FName}}</td>
+                <td>{{p.Description}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="btn-group">
+            <a  href="#{{$root.$url().param('code','*').url()}}" class="btn btn-default">${_//"New"}</a>
+
+        </div>
+    </div>
+    <div class="container-fluid"  ng-if="$root.$history.data().code">
+        <div q-template url="${appUrl}/views/role">
+
+        </div>
+    </div>
+
+    <ajax url="${currentUrl}">
+        <call data-id="GetListOfRoles" ng-model="model"/>
+    </ajax>
+</div>

@@ -46,6 +46,13 @@ def create_user(data):
         }
         user_data,error, result = qr.insert(user_data.to_dict()).commit()
         if error:
+            from pymqr import errors
+            if isinstance(error,errors.DataException):
+                if error.error_type == errors.ErrorType.duplicate:
+                    if error.fields.count(users.Users.UserName.__name__)>0:
+                        raise exceptions.UserIsExist (data.UserName)
+                    else:
+                        raise error
             raise error
         else:
             return user_data
@@ -99,6 +106,20 @@ def validate_user(data):
 
         else:
             return None
+@types(
+    UserName= (str,True),
+    Password = (str,True)
+)
+def change_password(data):
+    from pymqr import settings as st,query,filters
+    from .models import users
+    salt = uuid.uuid4 ().hex
+    hash_object = hashlib.sha1 (data.Password + salt)
+    ret,err,result = query(st.getdb(),users.Users).where(filters.UserName==data.UserName).set({
+        users.Users.PasswordSalt:salt,
+        users.Users.HashPassword:hash_object.hexdigest()
+    }).commit()
+
 
 @types(pydocs.Fields)
 def find_user(filter):
@@ -169,6 +190,21 @@ def GetListOfUsers(page_size=50,page_index=0,pagefilter= None,sort=None):
     ret = qr.get_page(page_size,page_index)
     return ret
 
+
+@types(
+    Code=(str,True),
+    Name = (str,True),
+    FName = str,
+    Description=str
+)
+def create_role(data):
+    from . models import roles
+    qr= query(settings.getdb(),roles.Roles)
+    try:
+        ret,error, result = qr.insert(data).commit()
+        return ret,error
+    except Exception as ex:
+        raise ex
 
 
 

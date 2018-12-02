@@ -1,0 +1,34 @@
+<div title="${_//'Create or edit role'}">
+    <div form-layout>
+        <div form-template>
+            <div>
+                <span>${_//"Code"}</span><input type="text" ng-model="model.data.Code">
+                <span>${_//"Name"}</span><input type="text" ng-model="model.data.Name">
+                <span>${_//"Foreign name"}</span><input type="text" ng-model="model.data.FName">
+            </div>
+            <div>
+                <span>${_//"Description"}</span><textarea  ng-model="model.data.Description" class="form-control" span="12"></textarea>
+            </div>
+            <div>
+                <div  span="12">
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default" ng-click="doSave()">${_//"Save"}</button>
+                        <!--<button type="button" class="btn btn-default">Middle</button>-->
+                        <button type="button" ng-click="$doClose()" class="btn btn-default">${_//"Close"}</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <ajax url="${currentUrl}">
+        <call data-id="DoLoad" data-params="{'code':$root.$history.data().code}" ng-model="model.data"/>
+        <call data-id="DoSave" data-params="model.data" data-function="doSave" ng-model="model.data"/>
+    </ajax>
+
+</div>
+<script>
+    (function(scope){
+        //scope.model=${initModel}
+    });
+</script>
