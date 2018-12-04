@@ -24,10 +24,16 @@ mdl.service("$ajax",[function(){
         if(!_data){
             callData=me._data;
         }
+//        callData = callData||{}
+//        callData["csrfmiddlewaretoken"]=$("[name='csrfmiddlewaretoken']").val()
+
         $.ajax({
             url:me.owner.url,
             method:"POST",
-            headers:{"AJAX-POST":callId},
+            headers:{
+                    "AJAX-POST":callId,
+                    "X-CSRFToken": me.readCookie('csrftoken')
+                    },
             data:JSON.stringify(callData),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -83,6 +89,16 @@ mdl.service("$ajax",[function(){
         } else {
             return me.__exec(callback);
         }
+    }
+    executor.prototype.readCookie=function(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
     }
     function Caller(url){
         this.url=url;

@@ -11,7 +11,14 @@ function makeUpForm(divRow,a){
         for(var i=0;i<eles.length;i++){
             var div=$("<div class='form-element'></div>");
             var ele=$(eles[i]);
+            if (ele.attr("ng-show")){
+                div.attr("ng-show",ele.attr("ng-show"))
 
+            }
+            if (ele.attr("ng-if")){
+                div.attr("ng-if",ele.attr("ng-if"))
+
+            }
             if((ele[0].tagName==="LABEL")||
             ((ele[0].tagName==="SPAN"))){
                 ele.addClass("control-label");
@@ -253,8 +260,9 @@ angularDefine(function(mdl){
             function init(html){
                 var divRow=$("<div></div>");
                 divRow.html(html);
-                $compile(divRow.contents())(s);
+
                 divRow=makeUpForm(divRow,a);
+                $compile(divRow.contents())(s);
                 
                 divRow.contents().appendTo(e[0])
 

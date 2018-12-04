@@ -7,16 +7,12 @@ angularDefine(function (mdl) {
             return {
                 restrict: "CEA",
                 template:function(){
-                    if(libs_directives.isSmallSize){
-                        return  "<select class=\"input-sm form-control\"></select>"
-                    }
-                    else {
-                        return  "<select class=\"form-control\"></select>"
-                    }
+                    return "<select class=\"input-sm form-control\"></select>"
                 },
                 scope: false,
                 replace: true,
                 link: function (scope, ele, attr) {
+                    debugger;
                     function applyData(data) {
                         ele.find("select").empty();
                         if (angular.isArray(data)) {
