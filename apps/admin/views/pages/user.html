@@ -36,7 +36,7 @@
 
     </div>
     <ajax url="${currentUrl}">
-        <call data-id="DoLoadItem" data-params="{UserName:$root.$history.data().id}" ng-model="model.data"/>
+        <call data-id="DoLoadItem" data-params="{UserName:$root.$history.data().username}" ng-model="model.data"/>
         <call data-id="DoSaveUser" data-function="doSave" data-params="model" ng-model="model"/>
     </ajax>
 </div>
