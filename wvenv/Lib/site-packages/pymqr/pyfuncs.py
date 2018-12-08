@@ -643,15 +643,18 @@ def ltrim(field,chars=None):
             })
     return __create_item__("$trim", ret_data)
 def map(field,In,alias):
+    from . import pydocs
+    from . import pyaggregatebuilders
     """
     { $map: { input: <expression>, as: <string>, in: <expression> } }
     :return:
     """
+    _In = pyaggregatebuilders.Project(*In).stage
     ret_data={
         "$map":{
-            "input":__get_field_expr__(field),
-            "as":__get_field_expr__(alias,True),
-            "in":__get_field_expr__(In)
+            "input":pydocs.get_field_expr(field),
+            "as":pydocs.get_field_expr(alias,True),
+            "in":_In
         }
     }
     return __create__(ret_data)

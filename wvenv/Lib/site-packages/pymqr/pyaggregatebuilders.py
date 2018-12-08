@@ -178,7 +178,7 @@ class Lookup(PipelineStage):
             raise Exception("'coll' must be 'str' or 'unicode'")
         if isinstance(coll,documents.BaseDocuments):
             _CC = coll.get_collection_name()
-        if type(alias) not in [str, unicode]:
+        if type(_AS) not in [str, unicode]:
             raise Exception("'alias' must be 'str' or 'unicode'")
         if isinstance(localField, pydocs.Fields):
             _LF = pydocs.get_field_expr(_LF, True)

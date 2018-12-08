@@ -26,7 +26,8 @@ mdl.service("$ajax",[function(){
         }
 //        callData = callData||{}
 //        callData["csrfmiddlewaretoken"]=$("[name='csrfmiddlewaretoken']").val()
-
+        var $mask = $("<div class='mask'></div>");
+            $mask.appendTo("body");
         $.ajax({
             url:me.owner.url,
             method:"POST",
@@ -38,6 +39,7 @@ mdl.service("$ajax",[function(){
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success:function(res){
+                $mask.remove();
                 if(instance.onAfterCall){
                     instance.onAfterCall(me,sender);
                 }
@@ -46,6 +48,7 @@ mdl.service("$ajax",[function(){
                 }
             },
             error:function(ex){
+            $mask.remove();
                 if(instance.onAfterCall){
                     instance.onAfterCall(me,sender);
                 }

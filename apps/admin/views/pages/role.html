@@ -1,4 +1,5 @@
 <div title="${_//'Create or edit role'}">
+   
 
     <div form-layout>
         <div form-template>
@@ -32,11 +33,34 @@
                 </div>
 
             </div>
+            <div>
+                <table class="table table-hover" span="12">
+                    <thead>
+                    <tr>
+                        <th>${_//"UserName"}</th>
+                         <th>${_//"Emai"}</th>
+                         <th>${_//"FirstName"}</th>
+                        <th>${_//"LastName"}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="p in model.data.Users">
+                        <td>{{p.UserName}}</td>
+                        <td>{{p.Emai}}</td>
+                        <td>{{p.FirstName}}</td>
+                        <td>{{p.LastName}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <ajax url="${currentUrl}">
         <call data-id="DoLoad" data-params="{'code':$root.$history.data().code}" ng-model="model.data"/>
         <call data-id="DoSave" data-params="model.data" data-function="doSave" ng-model="model.data"/>
+        <call data-id="DoAddUsers" data-params="{code:model.data.Code,users:selectedItems}"
+              ng-model="model.listOfUsers"
+              data-function="doAddUsers"/>
     </ajax>
 
 </div>

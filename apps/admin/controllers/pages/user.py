@@ -1,6 +1,6 @@
 from pfc import controllers
-from pymqr import documents,errors
-
+from pymqr import documents,errors,docs
+from libs.memberships.models import users
 @documents.FormModel()
 class __model_user__(object):
     def __init__(self):
@@ -96,13 +96,31 @@ class user(controllers.Controller):
         from pymqr import query,settings as st,filters
         from libs.memberships.models import users
         if isinstance(sender,model):
+            import datetime
+            t1 = datetime.datetime.now ()
             if sender.model.UserName=='*':
                 return __model_user__<<{}
             else:
                 qr =query(st.getdb(),users.Users)
-                ret = qr.where(filters.UserName==sender.model.UserName).object
-                return __model_user__<<{
-                    __model_user__.UserId:ret._id,
+                t2 = (datetime.datetime.now () - t1).microseconds
+                print "time 0 {0}".format (t2)
+                t1 = datetime.datetime.now ()
+                ret = qr.match(filters.UserName==sender.model.UserName).project(
+                    __model_user__.UserId<<docs._id,
+                    users.Users.UserName,
+                    users.Users.Email,
+                    users.Users.IsActive,
+                    users.Users.Profile,
+                    users.Users.Description,
+                    users.Users.IsSysAdmin
+
+                ).object
+                t2 = (datetime.datetime.now () - t1).microseconds
+                print "time 100 {0}".format (t2)
+
+
+                ret= __model_user__<<{
+                    __model_user__.UserId:ret.UserId,
                     __model_user__.UserName:ret.UserName,
                     __model_user__.Email:ret.Email,
                     __model_user__.IsSysAdmin:ret.IsSysAdmin,
@@ -113,5 +131,9 @@ class user(controllers.Controller):
                     __model_user__.Description: (lambda : ret.Description if hasattr(ret,"Description") else "")()
 
                 }
+                t2 = (datetime.datetime.now () -t1).microseconds
+                print "time 1000 {0}".format(t2)
+                return ret
+
 
 

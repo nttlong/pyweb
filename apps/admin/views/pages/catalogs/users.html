@@ -28,16 +28,13 @@
 
             </div>
             <div class="btn-group">
-                <button type="button" class="btn btn-default">${_//"Select"}</button>
+                <button type="button" class="btn btn-default" ng-click="($parent.selectedItems=(model.items|filter:{selected:true}));$parent.doAddUsers()">${_//"Add selected users"}</button>
             </div>
             <div class="btn-group">
                 <button type="button" ng-click="$doClose()" class="btn btn-default">${_//"Close"}</button>
             </div>
         </div>
     </div>
-    <input type="button" ng-click="($parent.test=(model.items|filter:{selected:true}))">
-
-
     <ajax url="${currentUrl}">
         <call data-id="LoadItems" ng-model="model"/>
 

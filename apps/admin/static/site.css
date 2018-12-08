@@ -1,0 +1,11 @@
+.mask {
+    position:fixed;
+    left:0 !important;
+    bottom:0 !important;
+    right:0 !important;
+    top:0 !important;
+    right:0 !important;
+    z-index:20000;
+
+    background: url("images/load.svg") no-repeat center;
+}

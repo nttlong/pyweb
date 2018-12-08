@@ -57,6 +57,7 @@ def init(data):
     #     variable_end_string='}'
     # ))
     # app.jinja_options = jinja_options
+    from  . import MongoDbSession
     app.session_interface = MongoDbSession.MongoSessionInterface (db=db)
     app.secret_key = "57thvy5^%"
     dirs = []
