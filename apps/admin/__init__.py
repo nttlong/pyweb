@@ -3,6 +3,7 @@ from libs import memberships
 from  libs.memberships import users
 from flask import session
 import pymqr
+
 from . import controllers
 def auth():
 
@@ -21,3 +22,7 @@ def auth():
         return False
     else:
         return user.get("IsSysAdmin",False)
+
+
+
+
