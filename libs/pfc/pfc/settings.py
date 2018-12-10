@@ -57,8 +57,9 @@ def init(data):
     #     variable_end_string='}'
     # ))
     # app.jinja_options = jinja_options
-    from  . import MongoDbSession
-    app.session_interface = MongoDbSession.MongoSessionInterface (db=db)
+    from . import MongoDbSession
+    app.session_interface = MongoDbSession.MongoSessionInterface(db)
+    # app.session_interface = MongoDbSession.MongoSessionInterface (db=db)
     app.secret_key = "57thvy5^%"
     dirs = []
 
@@ -74,7 +75,8 @@ def init(data):
             dir = os.sep.join([_path,app_info.DIR.split("/")[app_info.DIR.split("/").__len__()-1]]),
             host = app_info.HOST_DIR,
             rel_dir = app_info.DIR,
-            login_url = app_info.LOGIN_URL
+            login_url = app_info.LOGIN_URL,
+            name = app_info.NAME
         )
 
         dirs.append(os.sep.join([data.WORKING_DIR, app_info.DIR,"views"]))

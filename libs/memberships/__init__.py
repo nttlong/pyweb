@@ -1,8 +1,8 @@
 from pyparams_validator import types
-from pymqr import settings
+from pymqr import settings,funcs
 import hashlib, uuid
 from pymqr import query
-from . models import users
+from . models import users,apps
 import exceptions
 import datetime
 import pymqr
@@ -205,6 +205,45 @@ def create_role(data):
         return ret,error
     except Exception as ex:
         raise ex
+@types(
+    AppName = (str,True),
+    Url = (str,True),
+    Template =(str,True)
+)
+def register_view(data):
+    qr = query(settings.getdb(),apps.Apps)
+    app = qr.match(funcs.expr(apps.Apps.AppName==data.AppName)).count().object
+
+    if app.is_empty() or app.ret==0:
+        qr_insert = qr.new()
+        data = apps.Apps<<{
+            apps.Apps.AppName:data.AppName,
+            apps.Apps.Views:[
+                apps.ViewDoc<<{
+                    apps.ViewDoc.ViewPath : data.Template,
+                    apps.ViewDoc.Url : data.Url
+                }
+            ]
+        }
+        ret,err,result = qr_insert.insert(data).commit()
+        if err:
+            raise err
+    else:
+        qr_update = qr.new().where(
+            funcs.expr(
+                apps.Apps.AppName==data.AppName
+            )
+        )
+        ret,err,result= qr_update.push({
+            apps.Apps.Views:apps.ViewDoc<<{
+                apps.ViewDoc.ViewPath: data.Template,
+                apps.ViewDoc.Url: data.Url
+            }
+        }).commit()
+        if err:
+            raise err
+
+
 
 
 

@@ -1,5 +1,9 @@
-from pymqr.documents import  Collection,EmbededDocument,BaseDocuments
-class __role__(object):
+from pymqr.documents import  Collection,EmbededDocument,BaseDocuments,UniqueIndex
+
+class __Role__(object):
+    """
+    Define detail of embed Role in View
+    """
     def __init__(self):
         self.Role = str,True
         self.IsAllowInsert = bool,True,True
@@ -8,20 +12,31 @@ class __role__(object):
         self.IsAllowExport = bool, True, True
         self.IsAllowImport = bool, True, True
         self.IsAllowPrint = bool, True, True
-
-class View(object):
-    class Roles(__role__):pass
+@EmbededDocument()
+class RoleDoc(__Role__):
+    """
+    Embed doc for query or create instance Ex: myInstance=RoleDoc<<{
+    RoleDoc.Role:"Admin"
+    }
+    """
+    pass
+class __View__(object):
+    class Roles(__Role__):pass
     def __init__(self):
         self.ViewPath = str, True
+        self.Url  =str,True
         self.SupportPrivileges = [str], True, ['insert', 'update', 'delete', 'print', 'export', 'import']
-        self.Roles = [__role__],True,[]
+        self.Roles = [__Role__],True,[]
         self.Description = str
-@Collection("views")
+@EmbededDocument()
+class ViewDoc(__View__): pass
+@Collection("apps")
+@UniqueIndex(["AppName"])
 class Apps(object):
-    class Views(View):pass
+    class Views(__View__):pass
     def __init__(self):
         self.AppName=str,True
-        self.Views =[View],True,[]
+        self.Views =[__View__],True,[]
         self.Description = str
 
 

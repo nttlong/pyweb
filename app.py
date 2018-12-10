@@ -13,9 +13,20 @@ config.update({
 
 })
 
+
 settings.init(config)
 from pymqr import settings as st
 st.setdb(settings.db)
+from pfc.controllers import get_list_of_controllers
+from libs import memberships
+lst = get_list_of_controllers()
+for item in lst:
+    memberships.register_view(
+        AppName=item.app_name,
+        Url = item.url,
+        Template = item.template
+    )
+
 # import routes
 if __name__ == "__main__":
 

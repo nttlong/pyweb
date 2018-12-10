@@ -98,7 +98,7 @@ class entity():
             })
             return data,None,ret
         except pymongo.errors.DuplicateKeyError as ex:
-            return data, errors.__duplicate__(self.owner.coll,ex), ret
+            return data, errors.__duplicate__(self.owner.coll,ex), None
 
     def __do_insert_many__(self,items):
         try:

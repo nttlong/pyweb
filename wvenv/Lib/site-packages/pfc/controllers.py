@@ -2,6 +2,24 @@ from flask import request
 from pyparams_validator import types
 import models
 from flask import render_template
+___on_register_view_handler__ = None
+__cache_view__ = None
+__lst_controllers__ = None
+def get_list_of_controllers():
+    return __lst_controllers__
+class register_controller_model(object):
+    def __init__(self):
+        self.app_name = None
+        self.url = None
+        self.template = None
+def set_on_register_controller(handler):
+    """
+    Set handler on register view when system match a new view
+    :param handler:
+    :return:
+    """
+    ___on_register_view_handler__ = handler
+
 class Controller(object):
     def __init__(self):
         self.Model = None
@@ -56,7 +74,15 @@ def __render__(template_dir,fileName,data):
     return outputText
 class __controller_wrapper__(object):
     def __init__(self,data):
+        global __cache_view__
+        global __lst_controllers__
+        if __lst_controllers__ == None:
+            __lst_controllers__ =[]
+        if __cache_view__ == None:
+            __cache_view__ ={}
+
         from . import settings
+        self.app_name = None
         self.__flask_app__ = settings.app
         find_apps = [x for x in settings.list_of_apps if data.file.find (x["dir"]) > -1]
         self.instance = None
@@ -65,11 +91,37 @@ class __controller_wrapper__(object):
             self.dir  = find_apps[0]["dir"]
             self.app_config = find_apps[0]
             self.app_config["owner"] = self
+            self.app_name = self.app_config["name"]
+
 
         self.url = data.url
         self.file = data.file
         self.template = data.template
-        pass
+        # if ___on_register_view_handler__ == None:
+        #     raise Exception("It looks like you forgot call 'pfc.controller.set_on_register_controller'")
+        _key_="app={0};url={1}".format(self.app_name,self.url).lower()
+        if not __cache_view__.has_key(_key_):
+            import threading
+            lock = threading.Lock()
+            lock.acquire()
+            try:
+                rg = register_controller_model()
+                rg.app_name =self.app_name
+                rg.url = self.url
+                rg.template = self.template
+                if ___on_register_view_handler__!=None:
+                    ___on_register_view_handler__(rg)
+                __cache_view__.update({
+                    _key_:rg
+                })
+                __lst_controllers__.append(rg)
+                lock.release()
+            except Exception as ex:
+                lock.release()
+                raise ex
+
+
+
     def wrapper(self,*args,**kwargs):
         from . import settings
         self.instance = args[0].__bases__[0].__new__(args[0])
@@ -177,11 +229,11 @@ class __controller_wrapper__(object):
     template=(str,True)
 )
 def controller(data):
+
     import inspect
     file_caller = inspect.stack ()[3][1]
     data.__validator__ = False
     data.file = file_caller
-
     ret = __controller_wrapper__(data)
     return ret.wrapper
 def load():

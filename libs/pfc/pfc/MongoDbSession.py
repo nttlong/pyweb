@@ -25,7 +25,6 @@ class MongoSessionInterface(SessionInterface):
         global __session_cache__
         if __session_cache__ == None:
             __session_cache__ = {}
-        __session_cache__ = {}
         sid = request.cookies.get(app.session_cookie_name)
         if sid:
             if __session_cache__.has_key(sid):
