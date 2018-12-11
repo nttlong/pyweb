@@ -6,10 +6,15 @@ from libs.memberships.models import roles,users
 class ClientDataModel(object):
     def __init__(self):
         self.RoleId = str,True,None
+        """RoleId just for select"""
         self.Code= str,True,"NA"
+        """Code is a unique """
         self.Name = str,True
+        """Name of role"""
         self.FName =str,True
+        """Foreign name the name in other language"""
         self.Description = str
+        """Descrition this may be contains html"""
 
 @documents.FormModel()
 class ClientModel(object):
@@ -27,7 +32,10 @@ class role(controllers.Controller):
         """
         Init controller
         """
+        import roles
         self.Model = ClientModel
+        self.ParentController = roles.role_controller
+    @controllers.privileges.View()
     def OnGet(self,sender):
         """
         On Get
@@ -37,6 +45,7 @@ class role(controllers.Controller):
         sender.initModel =sender.toJSON((self.Model<<{
             self.Model.data:(ClientDataModel<<{}).to_dict()
         }).to_dict())
+    @controllers.privileges.View()
     def DoLoad(self,sender):
         """
         Load user
@@ -86,7 +95,7 @@ class role(controllers.Controller):
             )
 
             return qr.object
-
+    @controllers.privileges.Update()
     def DoSave(self,sender):
         """
 
@@ -105,6 +114,7 @@ class role(controllers.Controller):
                 roles.Roles.FName: sender.model.FName
             }).commit()
             return sender.model
+    @controllers.privileges.Update()
     def DoAddUsers(self,sender):
         entity = query(st.getdb(),roles.Roles).where(filters.Code==sender.model.code)
         for item in sender.model.users:

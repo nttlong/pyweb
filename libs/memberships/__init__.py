@@ -1,5 +1,5 @@
-from pyparams_validator import types
-from pymqr import settings,funcs
+from pyparams_validator import types as __types__
+from pymqr import settings ,funcs,filters
 import hashlib, uuid
 from pymqr import query
 from . models import users,apps
@@ -10,7 +10,7 @@ from pymqr import pydocs
 from flask import session,Session
 
 
-@types(
+@__types__(
     UserName = (str,True), #Username is require
     Password = (str,True), #Password is require
     Email = (str,True), #Email is requie
@@ -59,7 +59,7 @@ def create_user(data):
     else:
         raise exceptions.UserIsExist(data.UserName)
 
-@types(
+@__types__(
     UserName = (unicode,True),
     Password = (unicode,True)
 )
@@ -106,7 +106,7 @@ def validate_user(data):
 
         else:
             return None
-@types(
+@__types__(
     UserName= (str,True),
     Password = (str,True)
 )
@@ -121,12 +121,12 @@ def change_password(data):
     }).commit()
 
 
-@types(pydocs.Fields)
+@__types__(pydocs.Fields)
 def find_user(filter):
     qr = query (settings.getdb (), users.Users)
     return qr.where(filter).object
 
-@types(
+@__types__(
     Session = (object,True),
     User = (object,True),
     Language=(str,True)
@@ -151,7 +151,7 @@ def SignIn(data):
         users.Users.Logins:login_item
     }).commit()
     x=ret
-@types(object)
+@__types__(object)
 def SignOut(session):
     from . models import Sessions as _session
     qr = query(settings.getdb(),_session.Sessions)
@@ -168,7 +168,9 @@ def SignOut(session):
 
     ret,error,redult = entity.commit()
     session.clear()
-
+"""
+===================================================
+"""
 def GetListOfUsers(page_size=50,page_index=0,pagefilter= None,sort=None):
     from . models import roles
     qr = query (settings.getdb (), users.Users).lookup(
@@ -191,7 +193,7 @@ def GetListOfUsers(page_size=50,page_index=0,pagefilter= None,sort=None):
     return ret
 
 
-@types(
+@__types__(
     Code=(str,True),
     Name = (str,True),
     FName = str,
@@ -205,15 +207,26 @@ def create_role(data):
         return ret,error
     except Exception as ex:
         raise ex
-@types(
+"""
+===========================================================
+"""
+@__types__(
     AppName = (str,True),
     Url = (str,True),
     Template =(str,True)
 )
 def register_view(data):
+    """
+    This method will registe a view in application if app was not found the method will create new app
+    :param data:
+    :return:
+    """
     qr = query(settings.getdb(),apps.Apps)
     app = qr.match(funcs.expr(apps.Apps.AppName==data.AppName)).count().object
-
+    """
+    If app was not found create new app in mongodb with full fields has been declare
+    in Model
+    """
     if app.is_empty() or app.ret==0:
         qr_insert = qr.new()
         data = apps.Apps<<{
@@ -229,19 +242,26 @@ def register_view(data):
         if err:
             raise err
     else:
-        qr_update = qr.new().where(
-            funcs.expr(
-                apps.Apps.AppName==data.AppName
+        """
+        If app was found but not contains view push view into views of app
+        """
+        find_obj = qr.new().match(filters.AppName==data.AppName).match(
+            filters.Views.ViewPath==data.Template
+        ).count().object
+        if find_obj.is_empty() or find_obj.ret==0:
+            qr_update = qr.new().where(
+                funcs.expr(
+                    apps.Apps.AppName==data.AppName
+                )
             )
-        )
-        ret,err,result= qr_update.push({
-            apps.Apps.Views:apps.ViewDoc<<{
-                apps.ViewDoc.ViewPath: data.Template,
-                apps.ViewDoc.Url: data.Url
-            }
-        }).commit()
-        if err:
-            raise err
+            ret,err,result= qr_update.push({
+                apps.Apps.Views:apps.ViewDoc<<{
+                    apps.ViewDoc.ViewPath: data.Template,
+                    apps.ViewDoc.Url: data.Url
+                }
+            }).commit()
+            if err:
+                raise err
 
 
 

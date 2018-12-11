@@ -6,12 +6,20 @@ class __Role__(object):
     """
     def __init__(self):
         self.Role = str,True
-        self.IsAllowInsert = bool,True,True
-        self.IsAllowUpdate = bool, True, True
-        self.IsAllowDelete = bool, True, True
-        self.IsAllowExport = bool, True, True
-        self.IsAllowImport = bool, True, True
-        self.IsAllowPrint = bool, True, True
+        """Role which refer to roles.Code"""
+        self.IsAllowInsert = bool,True,False
+        """Allow insert with default value is False"""
+        self.IsAllowUpdate = bool, True, False
+        """Allow update with default value is False"""
+        self.IsAllowDelete = bool, True, False
+        """Allow delete with default value is False"""
+        self.IsAllowExport = bool, True, False
+        """Allow export to excel with default value is False"""
+        self.IsAllowImport = bool, True, False
+        """Allow import to excel with default value is False"""
+        self.IsAllowPrint = bool, True, False
+        """Allow import to print with default value is False"""
+
 @EmbededDocument()
 class RoleDoc(__Role__):
     """
@@ -24,6 +32,7 @@ class __View__(object):
     class Roles(__Role__):pass
     def __init__(self):
         self.ViewPath = str, True
+        """ViewPath hold value of controller template path"""
         self.Url  =str,True
         self.SupportPrivileges = [str], True, ['insert', 'update', 'delete', 'print', 'export', 'import']
         self.Roles = [__Role__],True,[]
@@ -35,8 +44,11 @@ class ViewDoc(__View__): pass
 class Apps(object):
     class Views(__View__):pass
     def __init__(self):
+
         self.AppName=str,True
+        """Application name"""
         self.Views =[__View__],True,[]
+        """Description of application"""
         self.Description = str
 
 

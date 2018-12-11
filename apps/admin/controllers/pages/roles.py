@@ -5,6 +5,7 @@ from pfc import controllers
     template = "pages/roles.html"
 )
 class role_controller(controllers.Controller):
+    controllers.privileges.View()
     def GetListOfRoles(self,sender):
         from pymqr import settings as st, query
         from libs.memberships.models import roles

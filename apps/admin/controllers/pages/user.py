@@ -27,7 +27,10 @@ class __model__(object):
 )
 class user(controllers.Controller):
     def __init__(self):
+        import users
         self.Model = __model__
+        self.ParentController = users
+    controllers.privileges.Update()
     def DoSaveUser(self,sender):
         from pymqr import query,filters,settings as st
         from pfc.models import model
@@ -90,7 +93,7 @@ class user(controllers.Controller):
                     self.Model.message:sender._//"Update is successfull",
                     self.Model.data:sender.model.data
                 }
-
+    controllers.privileges.View()
     def DoLoadItem(self,sender):
         from pfc.models import model
         from pymqr import query,settings as st,filters

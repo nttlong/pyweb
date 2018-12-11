@@ -4,3 +4,9 @@ def get_version():
            "."+VERSION[1].__str__()+\
            "."+VERSION[2].__str__()+\
            "."+VERSION[3].__str__()
+def get_user_name():
+    import threading
+    if hasattr(threading.current_thread(),"user_name"):
+        return threading.current_thread().user_name
+    else:
+        return "application"
