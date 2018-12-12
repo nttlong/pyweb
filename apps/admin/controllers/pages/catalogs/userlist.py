@@ -1,4 +1,4 @@
-from pfc.controllers import Controller,controller
+from pfc.controllers import Controller,controller,privileges
 from pfc.models import model
 
 from libs.memberships.models import users
@@ -20,7 +20,11 @@ class __form__(object):
 class UsersController(Controller):
     def __init__(self):
         self.Model = __form__
+
+    @privileges.View()
     def LoadItems(self,sender):
+        """Get lis of employee including: UserName,Email,FirstName and LastName"""
+
         if isinstance(sender,model):
             params = self.Model<<sender.model.__dict__
             ret = query(st.getdb(),users.Users).match(

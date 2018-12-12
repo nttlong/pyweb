@@ -116,7 +116,8 @@ class __controller_wrapper__(object):
                     if callable(v) and v.__dict__.has_key("privileges"):
                         rg.methods.append(dict(
                             privileges=v.__dict__["privileges"],
-                            description = v.func_doc
+                            description = v.func_doc,
+                            name = v.func_name
                         ))
 
                 if ___on_register_view_handler__ != None:
