@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 import pymqr
-from . import base
+from . import emps
+from .. import commons
 pymqr.documents.Collection("depts")
 pymqr.documents.UniqueIndex([
     "Code"
 ])
-class Depts(base.BaseOrgObject):
+class Depts(commons.BaseOrgObject):
     def __init__(self):
         self.Code = str,True
         self.Name =str,True

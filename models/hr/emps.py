@@ -1,4 +1,6 @@
 from pymqr import documents
+from . import deps
+from ..commons import BaseObject,get_user_name
 class implementation():
 
     class EmpExperience(object):
@@ -21,15 +23,16 @@ class docs():
 @documents.UniqueIndex([
     "Code"
 ])
-class Emps(object):
+class Emps(BaseObject):
     class Experience(implementation.EmpExperience):pass
+    class Dept(deps.Depts):pass
     def __init__(self):
         from datetime import datetime
-        from . import deps
+
         self.Code = str,True
         self.FirstName = str,True
         self.LastName = str,True
-        self.Experience = [implementation.EmpExperience],True,[]
+        self.Exprs = [implementation.EmpExperience],True,[]
         self.Dept=deps.Depts,True
         self.CreatedBy = str, True
         self.CreatedOn = datetime, True, datetime.now

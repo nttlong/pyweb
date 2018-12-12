@@ -32,11 +32,12 @@ from hr import emps
 
 ret,err,result=emp = query(settings.db,emps.Emps).insert(
     emps.Emps<<{
-        emps.Emps.Code:"A001",
+        emps.Emps.Code:"A00",
         emps.Emps.FirstName:"Julia",
-        emps.Emps.LastName:"Robbert lync"
+        emps.Emps.LastName:"Nguyen"
     }
 ).commit()
+
 x=ret
 # import routes
 if __name__ == "__main__":
