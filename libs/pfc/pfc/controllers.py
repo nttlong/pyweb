@@ -318,5 +318,5 @@ class privileges():
         return __resolve_mapper__ ("import", )
     @staticmethod
     def Custom(privilege):
-        return __resolve_mapper__ (privilege, )
+        return __resolve_mapper__ (privilege)
 

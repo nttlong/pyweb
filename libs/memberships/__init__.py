@@ -1,5 +1,5 @@
 from pyparams_validator import types as __types__
-from pymqr import settings ,funcs,filters
+from pymqr import settings ,funcs,filters,docs
 import hashlib, uuid
 from pymqr import query
 from . models import users,apps
@@ -213,7 +213,11 @@ def create_role(data):
 @__types__(
     AppName = (str,True),
     Url = (str,True),
-    Template =(str,True)
+    Template =(str,True),
+    API =[dict(
+        description=(str,False),
+        privileges = (object,True)
+    )]
 )
 def register_view(data):
     """
@@ -262,6 +266,12 @@ def register_view(data):
             }).commit()
             if err:
                 raise err
+        else:
+            pos = qr.new().match(filters.AppName==data.AppName).project(
+                docs.posOfView<<funcs.indexOfArray(apps.Apps.Views.ViewPath,data.Template)
+            ).object
+            x=pos
+
 
 
 
