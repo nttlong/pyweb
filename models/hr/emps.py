@@ -2,7 +2,6 @@ from pymqr import documents
 from . import deps
 from ..commons import BaseObject,get_user_name
 class implementation():
-
     class EmpExperience(object):
         def __init__(self):
             from datetime import datetime
@@ -10,13 +9,20 @@ class implementation():
             self.EndDate = datetime,True
             self.Salary = float,True
             self.CurrencyCode = str,False
+    class EmpDept(object):
 
-
-
+        def __init__(self):
+            from datetime import datetime
+            self.Code =str,True
+            self.Name = str,True
+            self.FName = str,True
+            self.JoinDate = datetime,True,None
 
 class docs():
     @documents.EmbededDocument()
     class EmpExperience(implementation.EmpExperience):pass
+    @documents.EmbededDocument()
+    class EmpDept(implementation.EmpDept):pass
 
 
 @documents.Collection("emps")
@@ -25,15 +31,14 @@ class docs():
 ])
 class Emps(BaseObject):
     class Experience(implementation.EmpExperience):pass
-    class Dept(deps.Depts):pass
+    class Dept(implementation.EmpDept):pass
     def __init__(self):
         from datetime import datetime
-
         self.Code = str,True
         self.FirstName = str,True
         self.LastName = str,True
         self.Exprs = [implementation.EmpExperience],True,[]
-        self.Dept=deps.Depts,True
+        self.Dept=implementation.EmpDept,True,docs.EmpDept<<{}
         self.CreatedBy = str, True
         self.CreatedOn = datetime, True, datetime.now
         self.CreatedOnUtc = datetime, True, datetime.utcnow

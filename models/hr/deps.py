@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*-
 import pymqr
-from . import emps
 from .. import commons
-pymqr.documents.Collection("depts")
-pymqr.documents.UniqueIndex([
+
+class implements():
+    class Depts(commons.BaseOrgObject):
+        def __init__(self):
+            super(implements.Depts,self).__init__()
+@pymqr.documents.Collection("depts")
+@pymqr.documents.UniqueIndex([
     "Code"
 ])
-class Depts(commons.BaseOrgObject):
-    def __init__(self):
-        self.Code = str,True
-        self.Name =str,True
-        self.FName=str,True
-        self.Parent =str,True
+class Depts(implements.Depts):pass
+
+
+
 
 
 # extends(

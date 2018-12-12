@@ -64,6 +64,8 @@ class model(object):
         self.gRes = __getGloblaRes__
         self.res = __getRes__
         self.toJSON=JSON.to_json
+        self.user= session.get ("user",None)
+
 
 
 

@@ -12,6 +12,7 @@ class RootObject(object):
 
 class BaseObject(RootObject):
     def __init__(self):
+        super(BaseObject,self).__init__()
         self.Code = str,True
         self.Name = str,True
         self.FName = str,True,""
@@ -19,6 +20,7 @@ class BaseObject(RootObject):
 
 class BaseOrgObject(BaseObject):
     def __init__(self):
+        super(BaseOrgObject,self).__init__()
         self.Parent = str,True
         self.LevelCodes = [str],True
         self.Level = int,True

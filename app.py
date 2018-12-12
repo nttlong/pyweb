@@ -28,11 +28,11 @@ for item in lst:
         API = item.methods
     )
 from pfc import settings
-from hr import emps
+from models.hr import emps
 
 ret,err,result=emp = query(settings.db,emps.Emps).insert(
     emps.Emps<<{
-        emps.Emps.Code:"A00",
+        emps.Emps.Code:"A001",
         emps.Emps.FirstName:"Julia",
         emps.Emps.LastName:"Nguyen"
     }

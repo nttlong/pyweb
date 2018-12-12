@@ -83,13 +83,22 @@ class embeded(object):
     class SetupApproverSubstitute(implemnetation.SetupApproverSubstitute):pass
     @pymqr.documents.EmbededDocument()
     class SetupApplyEmp(implemnetation.SetupApplyEmp):pass
+    @pymqr.documents.EmbededDocument()
+    class SetupApproverDept(implemnetation.SetupApproverDept):pass
 
 @pymqr.documents.Collection("tm.SetupProcess")
 @pymqr.documents.UniqueIndex([
     "ProcessId"
 ])
 class SetupProcess(object):
+    class ScoreByCoeff(embeded.ScoreByCoeff):pass
+    class SetupApproveLevel(embeded.SetupApproveLevel):pass
+    class SetupApproverDept(embeded.SetupApproverDept):pass
+    class SetupApproverSubstitute(embeded.SetupApproverSubstitute):pass
+    class SetupApplyEmp(embeded.SetupApplyEmp):pass
     def __init__(self):
+        from datetime import datetime
+        from .. import commons
         self.ProcessId = str,True
         self.ProcessName = str,True
         self.IsNotApplyProcess =bool,False
@@ -98,226 +107,48 @@ class SetupProcess(object):
         self.IsApproveByDept =bool,True,False
         self.IsRequireReason = bool,True,False
         self.IsRequireWhenApprove = bool,True,False
-        self.IsRequireWhenReject = ("bool"),
-        self.IsShowListApprover = ("bool"),
-        self.IsReselectApprover = ("bool"),
-        self.IsRequireAttachFile = ("bool"),
-        self.FileSizeLimit = ("numeric"),
-        self.ExcludeFileTypes = ("text"),
-        self.IsEmailCancel = ("bool"),
-        self.IsEmailDelete = ("bool"),
-        self.IsEmailInstead = ("bool"),
-        self.EmailSendCode = ("text"),
-        self.EmailSendName = ("text"),
-        self.EmailSendTo = ("list"),
-        self.EmailSendCC = ("list"),
-        self.EmailSendMore = ("text"),
-        self.EmailCancelCode = ("text"),
-        self.EmailCancelName = ("text"),
-        self.EmailCancelTo = ("list"),
-        self.EmailCancelCC = ("list"),
-        self.EmailCancelMore = ("text"),
-        self.EmailDeleteCode = ("text"),
-        self.EmailDeleteName = ("text"),
-        self.EmailDeleteTo = ("list"),
-        self.EmailDeleteCC = ("list"),
-        self.EmailDeleteMore = ("text"),
-        self.EmailInsteadCode = ("text"),
-        self.EmailInsteadName = ("text"),
-        self.EmailInsteadTo = ("list"),
-        self.email_instead_cc = ("list"),
-        self.email_instead_more = ("text"),
-        self.is_send_email_pronto = ("bool"),
-        self.is_send_email_once = ("bool"),
-        self.send_email_once_from_hour = ("text"),
-        self.send_email_once_to_hour = ("text"),
-        self.process_level_apply_for = ("numeric"),
-        self.score_by = ("numeric"),
-        self.created_on = ("date", True),
-        self.created_by = ("text", True),
-        self.modified_on = ("date"),
-        self.score_by_coeff = ("list", False, dict(
-            approver_level=("numeric", True),
-            Coeff=("numeric")
-        )),
-        self.modified_by = ("text"),
-        self.setup_approve_level = ("list", False, dict(
-            rec_id=("text", True),
-            approve_level=("numeric", True),
-            approver_value=("numeric"),
-            email_approve_code=("text"),
-            email_approve_name=("text"),
-            email_approve_to=("list"),
-            email_approve_cc=("list"),
-            email_approve_more=("text"),
-            email_reject_code=("text"),
-            email_reject_name=("text"),
-            email_reject_to=("list"),
-            email_reject_cc=("list"),
-            email_reject_more=("text"),
-            email_approve_cancel_code=("text"),
-            email_approve_cancel_name=("text"),
-            email_approve_cancel_to=("list"),
-            email_approve_cancel_cc=("list"),
-            email_approve_cancel_more=("text"),
-            email_reject_cancel_code=("text"),
-            email_reject_cancel_name=("text"),
-            email_reject_cancel_to=("list"),
-            email_reject_cancel_cc=("list"),
-            email_reject_cancel_more=("list"),
-            default_approver_code=("text"),
-            default_approver_full_name=("text"),
-            not_receive_email=("bool"),
-        )),
-        self.setup_approver_emp = ("list", False, dict(
-            rec_id=("text", True),
-            approve_level=("numeric", True),
-            employee_code=("text", True),
-            appover_code=("text"),
-            emp_full_name=("text"),
-            approver_full_name=("text")
-        )),
-        self.setup_approver_dept = ("list", False, dict(
-            rec_id=("text", True),
-            approve_level=("int", True),
-            department_code=("text", True),
-            appover_code=("text"),
-            department_name=("text"),
-            department_name2=("text"),
-            approver_full_name=("text")
-        )),
-        self.setup_approver_substitute = ("list", False, dict(
-            rec_id=("text", True),
-            appover_code=("numeric", True),
-            substitute_code=("text", True),
-            approver_full_name=("text"),
-            substitute_full_name=("text"),
-            from_date=("date"),
-            to_date=("date"),
-            note=("text")
-        )),
-        self.setup_apply_emp = ("list", False, dict(
-            rec_id=("text", True),
-            employee_code=("text", True),
-            emp_full_name=("text")
-        ))
-
-
-
-# from qmongo import define, extends, helpers
-# extends(
-#             "TM_SetupProcess",
-#             "base",
-#             [["process_id"]],
-#             process_id= ("text", True),
-#             process_name= ("text", True),
-#             is_not_apply_process= ("bool"),
-#             function_id= ("text"),
-#             max_approve_level= ("numeric"),
-#             is_approve_by_dept= ("bool"),
-#             is_require_reason= ("bool"),
-#             is_require_when_approve= ("bool"),
-#             is_require_when_reject= ("bool"),
-#             is_show_list_approver= ("bool"),
-#             is_reselect_approver= ("bool"),
-#             is_require_attach_file= ("bool"),
-#             file_size_limit= ("numeric"),
-#             exclude_file_types= ("text"),
-#             is_email_cancel= ("bool"),
-#             is_email_delete= ("bool"),
-#             is_email_instead= ("bool"),
-#             email_send_code= ("text"),
-#             email_send_name=("text"),
-#             email_send_to= ("list"),
-#             email_send_cc= ("list"),
-#             email_send_more= ("text"),
-#             email_cancel_code= ("text"),
-#             email_cancel_name= ("text"),
-#             email_cancel_to= ("list"),
-#             email_cancel_cc= ("list"),
-#             email_cancel_more= ("text"),
-#             email_delete_code= ("text"),
-#             email_delete_name= ("text"),
-#             email_delete_to= ("list"),
-#             email_delete_cc= ("list"),
-#             email_delete_more= ("text"),
-#             email_instead_code= ("text"),
-#             email_instead_name= ("text"),
-#             email_instead_to= ("list"),
-#             email_instead_cc= ("list"),
-#             email_instead_more= ("text"),
-#             is_send_email_pronto= ("bool"),
-#             is_send_email_once= ("bool"),
-#             send_email_once_from_hour= ("text"),
-#             send_email_once_to_hour= ("text"),
-#             process_level_apply_for= ("numeric"),
-#             score_by= ("numeric"),
-#             created_on=("date", True),
-#             created_by=("text", True),
-#             modified_on=("date"),
-#             modified_by=("text"),
-#             score_by_coeff= ("list",False,dict(
-#                 approver_level=("numeric",True),
-#                 Coeff=("numeric")
-#             )),
-#             setup_approve_level = ("list",False,dict(
-#                 rec_id=("text",True),
-#                 approve_level=("numeric",True),
-#                 approver_value = ("numeric"),
-#                 email_approve_code = ("text"),
-#                 email_approve_name = ("text"),
-#                 email_approve_to = ("list"),
-#                 email_approve_cc = ("list"),
-#                 email_approve_more = ("text"),
-#                 email_reject_code = ("text"),
-#                 email_reject_name = ("text"),
-#                 email_reject_to = ("list"),
-#                 email_reject_cc = ("list"),
-#                 email_reject_more = ("text"),
-#                 email_approve_cancel_code = ("text"),
-#                 email_approve_cancel_name = ("text"),
-#                 email_approve_cancel_to = ("list"),
-#                 email_approve_cancel_cc = ("list"),
-#                 email_approve_cancel_more = ("text"),
-#                 email_reject_cancel_code = ("text"),
-#                 email_reject_cancel_name = ("text"),
-#                 email_reject_cancel_to = ("list"),
-#                 email_reject_cancel_cc = ("list"),
-#                 email_reject_cancel_more = ("list"),
-#                 default_approver_code = ("text"),
-#                 default_approver_full_name = ("text"),
-#                 not_receive_email = ("bool"),
-#             )),
-#             setup_approver_emp = ("list",False,dict(
-#                 rec_id=("text",True),
-#                 approve_level=("numeric",True),
-#                 employee_code=("text",True),
-#                 appover_code=("text"),
-#                 emp_full_name=("text"),
-#                 approver_full_name=("text")
-#             )),
-#             setup_approver_dept = ("list",False,dict(
-#                 rec_id=("text",True),
-#                 approve_level = ("int",True),
-#                 department_code = ("text",True),
-#                 appover_code = ("text"),
-#                 department_name = ("text"),
-#                 department_name2 = ("text"),
-#                 approver_full_name = ("text")
-#             )),
-#             setup_approver_substitute = ("list",False,dict(
-#                 rec_id=("text",True),
-#                 appover_code = ("numeric",True),
-#                 substitute_code = ("text",True),
-#                 approver_full_name = ("text"),
-#                 substitute_full_name = ("text"),
-#                 from_date = ("date"),
-#                 to_date = ("date"),
-#                 note = ("text")
-#             )),
-#             setup_apply_emp = ("list",False,dict(
-#                 rec_id=("text",True),
-#                 employee_code = ("text",True),
-#                 emp_full_name = ("text")
-#             ))
-#         )
+        self.IsRequireWhenReject = bool,False,False
+        self.IsShowListApprover = bool,True,False
+        self.IsReselectApprover = bool,True,False
+        self.IsRequireAttachFile = bool,True,False
+        self.FileSizeLimit = int,True,50*1024*1024
+        self.ExcludeFileTypes = str,True,""
+        self.IsEmailCancel = bool,True,False
+        self.IsEmailDelete = bool,True,False
+        self.IsEmailInstead = bool,True,False
+        self.EmailSendCode = str,True,""
+        self.EmailSendName = str,True,""
+        self.EmailSendTo = [str],True,[]
+        self.EmailSendCC = [str],True,[]
+        self.EmailSendMore = str,True,""
+        self.EmailCancelCode = str,True,""
+        self.EmailCancelName = str,True,""
+        self.EmailCancelTo = [str],True,[]
+        self.EmailCancelCC = [str],True,[]
+        self.EmailCancelMore = str,True,""
+        self.EmailDeleteCode = str,True,""
+        self.EmailDeleteName = str,True,""
+        self.EmailDeleteTo = [str],True,[]
+        self.EmailDeleteCC = [str],True,[]
+        self.EmailDeleteMore = str,True,""
+        self.EmailInsteadCode = str,True,""
+        self.EmailInsteadName = str,True,""
+        self.EmailInsteadTo = [str],True,[]
+        self.EmailInsteadCC = [str],True,[]
+        self.EmailInsteadMore = str,True,""
+        self.IsSendEmailPronto =bool,True,False
+        self.IsSendEmailOnce = bool,True,False
+        self.SendEmailOnceFromHour = str,True,""
+        self.SendEmailOnceToHour = str,True,""
+        self.ProcessLevelApplyFor = int,True,0
+        self.ScoreBy = int,True,0
+        self.CreatedOn = datetime,True,datetime.now
+        self.CreatedBy = str,True,commons.get_user_name
+        self.ModifiedOn = datetime,False
+        self.ScoreByCoeff = embeded.ScoreByCoeff,True,embeded.ScoreByCoeff<<{}
+        self.modified_by = str,True,""
+        self.SetupApproveLevel = [embeded.SetupApproveLevel],True,[]
+        self.SetupApproverEmp = [embeded.SetupApplyEmp],True,[]
+        self.SetupApproverDept = [embeded.SetupApproverDept],True,[]
+        self.SetupApproverSubstitute = [embeded.SetupApproverSubstitute],True,[]
+        self.SetupApplyEmp = [embeded.SetupApplyEmp],True,[]
