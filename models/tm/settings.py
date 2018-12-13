@@ -152,3 +152,4 @@ class SetupProcess(object):
         self.SetupApproverDept = [embeded.SetupApproverDept],True,[]
         self.SetupApproverSubstitute = [embeded.SetupApproverSubstitute],True,[]
         self.SetupApplyEmp = [embeded.SetupApplyEmp],True,[]
+        self.EmpCodes=[str],True,[]
