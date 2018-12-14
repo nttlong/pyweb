@@ -1,34 +1,41 @@
-from datetime import datetime
-
 import pymqr
-import datetime
-from pymqr import documents
-@documents.EmbededDocument()
-class Logins(object):
-    def __init__(self):
-        self.Time= datetime.datetime,True
-        self.TimeUtc =datetime.datetime,True
-        self.SessionID= str,True
-        self.Language = str,True
-@documents.EmbededDocument()
-class Signouts(object):
-    def __init__(self):
-        self.Time = datetime.datetime, True
-        self.TimeUtc = datetime.datetime, True
-        self.SessionID = str, True
-@documents.EmbededDocument ()
-class Profile (object):
-    def __init__(self):
-        self.FirstName = str, True
-        self.LastName = str, True
-        self.BirthDate = datetime.datetime, True
-@documents.Collection("users")
-@documents.UniqueIndex([
+class imps():
+    class Login(object):
+        def __init__(self):
+            import datetime
+            self.Time = datetime.datetime, True
+            self.TimeUtc = datetime.datetime, True
+            self.SessionID = str, True
+            self.Language = str, True
+    class SignOut(object):
+        def __init__(self):
+            import datetime
+            self.Time = datetime.datetime, True
+            self.TimeUtc = datetime.datetime, True
+            self.SessionID = str, True
+    class Profile(object):
+        def __init__(self):
+            import datetime
+            self.FirstName = str, True
+            self.LastName = str, True
+            self.BirthDate = datetime.datetime, True
+class docs():
+    @pymqr.documents.EmbededDocument()
+    class Login (imps.Login):pass
+    @pymqr.documents.EmbededDocument()
+    class Signout (imps.SignOut):pass
+    @pymqr.documents.EmbededDocument()
+    class Profile (object):pass
+
+@pymqr.documents.Collection("users")
+@pymqr.documents.UniqueIndex([
     "UserName"
 ],["Email"])
-class Users(documents.BaseDocuments):
+class Users(object):
+    class Logins(imps.Login):pass
+    class Signouts(imps.SignOut):pass
     def __init__(self):
-
+        import datetime
         self.UserName = str,True # type is text and require
         self.Email = str,True #Email
         self.HashPassword = str,True
@@ -36,11 +43,11 @@ class Users(documents.BaseDocuments):
         self.CreatedOn = datetime.datetime,True
         self.CreatedBy = str,True
         self.IsSysAdmin =bool,True
-        self.Profile = Profile, True
+        self.Profile = imps.Profile, True
         self.IsActive = bool,True
         self.ActivateOn = datetime
-        self.Logins = [Logins]
-        self.Signouts = [Signouts]
+        self.Logins = [imps.Login],True,[]
+        self.Signouts = [imps.SignOut],True,[]
         self.RoleCode = str,True
         self.Description =str,True
 

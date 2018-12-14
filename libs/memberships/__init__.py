@@ -141,11 +141,11 @@ def SignIn(data):
         "user":data.User.to_dict()
     })
     qr = query (settings.getdb (), users.Users)
-    login_item = users.Logins<<{
-        users.Logins.Language:data.Language,
-        users.Logins.TimeUtc:datetime.datetime.utcnow(),
-        users.Logins.Time:datetime.datetime.now(),
-        users.Logins.SessionID: data.Session.sid
+    login_item = users.docs.Login<<{
+        users.docs.Login.Language:data.Language,
+        users.docs.Login.TimeUtc:datetime.datetime.utcnow(),
+        users.docs.Login.Time:datetime.datetime.now(),
+        users.docs.Login.SessionID: data.Session.sid
     }
     ret = qr.where(pymqr.filters.UserName==data.User.UserName).push({
         users.Users.Logins:login_item
