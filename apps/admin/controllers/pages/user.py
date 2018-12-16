@@ -1,6 +1,6 @@
 from pfc import controllers
 from pymqr import documents,errors,docs
-from libs.memberships.models import users
+from libs.memberships.models import User
 @documents.FormModel()
 class __model_user__(object):
     def __init__(self):

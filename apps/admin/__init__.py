@@ -1,6 +1,6 @@
 import routes
 from libs import memberships
-from  libs.memberships import users
+from  libs.memberships import User
 from flask import session
 import pymqr
 

@@ -1,7 +1,7 @@
 from pfc import controllers
 from pymqr import  documents
 from pymqr import settings as st, query, funcs, docs,filters
-from libs.memberships.models import roles,users
+from libs.memberships.models import Role,User
 @documents.FormModel()
 class ClientDataModel(object):
     def __init__(self):

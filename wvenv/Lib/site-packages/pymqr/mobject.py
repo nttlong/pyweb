@@ -107,11 +107,6 @@ class dynamic_object(__validator_class__):
                     else:
                         setattr(self, k, v)
             self.__dict__.update({"__validator__": True})
-        n =(datetime.datetime.now()-t).microseconds
-        print "dynamic_object {0}".format(n)
-        print data
-        print "============================"
-
     def to_dict(self):
         keys = [x for x in self.__dict__.keys() if x[0:2] != "__"]
         if keys == []:

@@ -1,7 +1,7 @@
-from pymqr import documents
-import datetime
-@documents.Collection("sessions")
-class Sessions(object):
+import pymqr
+@pymqr.documents.Collection("sessions")
+class Session(object):
     def __init__(self):
-        self.expiration = datetime.datetime
+        from  datetime import datetime
+        self.expiration = datetime
         self.sid = str

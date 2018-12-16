@@ -2,7 +2,7 @@ from pyparams_validator import types as __types__
 from pymqr import settings ,funcs,filters,docs
 import hashlib, uuid
 from pymqr import query
-from . models import users,apps
+from . models import User,App
 import exceptions
 import datetime
 import pymqr
@@ -29,27 +29,27 @@ def create_user(data):
     :param data:
     :return:
     """
-    Users =users.Users
-    qr = query (settings.getdb (), Users)
+
+    qr = query (settings.getdb (), User)
     user = qr.where(pymqr.filters.UserName == data.UserName).object
     if user.is_empty():
         salt = uuid.uuid4().hex
         hash_object = hashlib.sha1 (data.Password + salt)
-        user_data = Users<<{
-            Users.UserName:data.UserName,
-            Users.HashPassword:hash_object.hexdigest(),
-            Users.PasswordSalt: salt,
-            Users.Email: data.Email,
-            Users.IsSysAdmin:True,
-            Users.IsActive:data.IsActive,
-            Users.Logins:[]
+        user_data = User<<{
+            User.UserName:data.UserName,
+            User.HashPassword:hash_object.hexdigest(),
+            User.PasswordSalt: salt,
+            User.Email: data.Email,
+            User.IsSysAdmin:True,
+            User.IsActive:data.IsActive,
+            User.Logins:[]
         }
         user_data,error, result = qr.insert(user_data.to_dict()).commit()
         if error:
             from pymqr import errors
             if isinstance(error,errors.DataException):
                 if error.error_type == errors.ErrorType.duplicate:
-                    if error.fields.count(users.Users.UserName.__name__)>0:
+                    if error.fields.count(User.UserName.__name__)>0:
                         raise exceptions.UserIsExist (data.UserName)
                     else:
                         raise error
@@ -70,24 +70,24 @@ def validate_user(data):
     :param data:
     :return:
     """
-    qr = query(settings.getdb(),users.Users)
+    qr = query(settings.getdb(),User)
     user_data = qr.match(
         pymqr.funcs.expr(
             (pymqr.funcs.strcasecmp(
-                users.Users.UserName,
+                User.UserName,
                 data.UserName
             )==0) &
-            users.Users.IsActive
+            User.IsActive
         )).project(
         "_id",
-        users.Users.UserName,
-        users.Users.Email,
-        users.Users.IsSysAdmin,
-        users.Users.PasswordSalt,
-        users.Users.HashPassword,
-        pymqr.docs.FirstName<<users.Users.Profile.FirstName,
-        pymqr.docs.LastName << users.Users.Profile.LastName,
-        pymqr.docs.BirthDate << users.Users.Profile.BirthDate
+        User.UserName,
+        User.Email,
+        User.IsSysAdmin,
+        User.PasswordSalt,
+        User.HashPassword,
+        pymqr.docs.FirstName<<User.Profile.FirstName,
+        pymqr.docs.LastName << User.Profile.LastName,
+        pymqr.docs.BirthDate << User.Profile.BirthDate
     ).object
     if user_data.is_empty():
         return None
@@ -95,9 +95,9 @@ def validate_user(data):
         hash_object = hashlib.sha1 (data.Password + user_data.PasswordSalt)
         if hash_object.hexdigest() == user_data.HashPassword:
             x = user_data.filter_to_oject(
-                users.Users.IsSysAdmin,
-                users.Users.UserName,
-                users.Users.Email,
+                User.IsSysAdmin,
+                User.UserName,
+                User.Email,
                 pymqr.docs.FirstName,
                 pymqr.docs.LastName,
                 pymqr.docs.BirthDate
@@ -112,18 +112,18 @@ def validate_user(data):
 )
 def change_password(data):
     from pymqr import settings as st,query,filters
-    from .models import users
+    from .models import User
     salt = uuid.uuid4 ().hex
     hash_object = hashlib.sha1 (data.Password + salt)
-    ret,err,result = query(st.getdb(),users.Users).where(filters.UserName==data.UserName).set({
-        users.Users.PasswordSalt:salt,
-        users.Users.HashPassword:hash_object.hexdigest()
+    ret,err,result = query(st.getdb(),User).where(filters.UserName==data.UserName).set({
+        User.Users.PasswordSalt:salt,
+        User.Users.HashPassword:hash_object.hexdigest()
     }).commit()
 
 
 @__types__(pydocs.Fields)
 def find_user(filter):
-    qr = query (settings.getdb (), users.Users)
+    qr = query (settings.getdb (), User)
     return qr.where(filter).object
 
 @__types__(
@@ -140,30 +140,31 @@ def SignIn(data):
     data.Session.update({
         "user":data.User.to_dict()
     })
-    qr = query (settings.getdb (), users.Users)
-    login_item = users.docs.Login<<{
-        users.docs.Login.Language:data.Language,
-        users.docs.Login.TimeUtc:datetime.datetime.utcnow(),
-        users.docs.Login.Time:datetime.datetime.now(),
-        users.docs.Login.SessionID: data.Session.sid
-    }
+    qr = query (settings.getdb (), User)
+    login_item = User.Logins<<dict(
+        Language=data.Language,
+        TimeUtc=datetime.datetime.utcnow(),
+        Time=datetime.datetime.now(),
+        SessionID=data.Session.sid
+    )
+
     ret = qr.where(pymqr.filters.UserName==data.User.UserName).push({
-        users.Users.Logins:login_item
+        User.Logins:login_item
     }).commit()
     x=ret
 @__types__(object)
 def SignOut(session):
-    from . models import Sessions as _session
-    qr = query(settings.getdb(),_session.Sessions)
+
+    qr = query(settings.getdb(),models.Session)
     ret,error,result=qr.where(pymqr.filters.sid==session.sid).delete()
-    logout_item = users.Signouts<<{
-        users.Signouts.SessionID:session.sid,
-        users.Signouts.Time:datetime.datetime.now(),
-        users.Signouts.TimeUtc:datetime.datetime.utcnow()
-    }
-    entity = query(settings.getdb(), users.Users).where(pymqr.filters.UserName == session["user"]["UserName"])
+    logout_item = models.User.Signouts<<dict(
+        SessionID=session.sid,
+        Time=datetime.datetime.now(),
+        TimeUtc=datetime.datetime.now()
+    )
+    entity = query(settings.getdb(), User).where(pymqr.filters.UserName == session["user"]["UserName"])
     entity = entity.push({
-        users.Users.Signouts: logout_item
+        User.Signouts: logout_item
     })
 
     ret,error,redult = entity.commit()
@@ -172,20 +173,20 @@ def SignOut(session):
 ===================================================
 """
 def GetListOfUsers(page_size=50,page_index=0,pagefilter= None,sort=None):
-    from . models import roles
-    qr = query (settings.getdb (), users.Users).lookup(
-        roles.Roles,
-        users.Users.RoleCode,
-        roles.Roles.Code,
+    from . models import Role
+    qr = query (settings.getdb (), User).lookup(
+        Role,
+        User.RoleCode,
+        Role.Code,
         "Roles"
     ).unwind("Roles").project(
         pymqr.docs._id<<0,
         pymqr.docs.UserId<<pymqr.docs._id,
-        users.Users.UserName,
-        pymqr.docs.LoginCount<<pymqr.funcs.size(users.Users.Logins),
-        users.Users.Email,
-        pymqr.docs.FirstName<< users.Users.Profile.FirstName,
-        pymqr.docs.LastName << users.Users.Profile.LastName,
+        User.UserName,
+        pymqr.docs.LoginCount<<pymqr.funcs.size(User.Logins),
+        User.Email,
+        pymqr.docs.FirstName<< User.Profile.FirstName,
+        pymqr.docs.LastName << User.Profile.LastName,
         pymqr.docs.RoleCode<<pymqr.docs.Roles.Code,
         pymqr.docs.RoleName<<pymqr.docs.Roles.Name
     )
@@ -200,8 +201,8 @@ def GetListOfUsers(page_size=50,page_index=0,pagefilter= None,sort=None):
     Description=str
 )
 def create_role(data):
-    from . models import roles
-    qr= query(settings.getdb(),roles.Roles)
+    from . models import Role
+    qr= query(settings.getdb(),Role)
     try:
         ret,error, result = qr.insert(data).commit()
         return ret,error
@@ -225,21 +226,21 @@ def register_view(data):
     :param data:
     :return:
     """
-    qr = query(settings.getdb(),apps.Apps)
-    app = qr.match(funcs.expr(apps.Apps.AppName==data.AppName)).count().object
+    qr = query(settings.getdb(),App)
+    app = qr.match(funcs.expr(App.AppName==data.AppName)).count().object
     """
     If app was not found create new app in mongodb with full fields has been declare
     in Model
     """
     if app.is_empty() or app.ret==0:
         qr_insert = qr.new()
-        data = apps.Apps<<{
-            apps.Apps.AppName:data.AppName,
-            apps.Apps.Views:[
-                apps.ViewDoc<<{
-                    apps.ViewDoc.ViewPath : data.Template,
-                    apps.ViewDoc.Url : data.Url
-                }
+        data = App<<{
+            App.AppName:data.AppName,
+            App.Views:[
+                App.Views<<dict(
+                    ViewPath = data.Template,
+                    Url= data.Url
+                )
             ]
         }
         ret,err,result = qr_insert.insert(data).commit()
@@ -255,20 +256,20 @@ def register_view(data):
         if find_obj.is_empty() or find_obj.ret==0:
             qr_update = qr.new().where(
                 funcs.expr(
-                    apps.Apps.AppName==data.AppName
+                    App.AppName==data.AppName
                 )
             )
             ret,err,result= qr_update.push({
-                apps.Apps.Views:apps.ViewDoc<<{
-                    apps.ViewDoc.ViewPath: data.Template,
-                    apps.ViewDoc.Url: data.Url
-                }
+                App.Views:App.Views<<dict(
+                    ViewPath=data.Template,
+                    Url=data.Url
+                )
             }).commit()
             if err:
                 raise err
         else:
             pos = qr.new().match(filters.AppName==data.AppName).project(
-                docs.posOfView<<funcs.indexOfArray(apps.Apps.Views.ViewPath,data.Template)
+                docs.posOfView<<funcs.indexOfArray(App.Views.ViewPath,data.Template)
             ).object
             x=pos
 

@@ -29,7 +29,8 @@ for item in lst:
     )
 from pfc import settings
 from models.hr import emps
-
+import libs.memberships.models_delete as FX
+c=FX.Test.A.C<<{}
 ret,err,result=emp = query(settings.db,emps.Emps).insert(
     emps.Emps<<{
         emps.Emps.Code:"A001",

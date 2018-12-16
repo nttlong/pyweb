@@ -8,7 +8,7 @@ class role_controller(controllers.Controller):
     controllers.privileges.View()
     def GetListOfRoles(self,sender):
         from pymqr import settings as st, query
-        from libs.memberships.models import roles
-        qr = query(st.getdb(),roles.Roles)
+        from libs.memberships import models
+        qr = query(st.getdb(),models.Role)
         return list(qr.items)
     pass

@@ -1,7 +1,7 @@
 from pfc.controllers import Controller,controller,privileges
 from pfc.models import model
 
-from libs.memberships.models import users
+from libs.memberships.models import User
 from pymqr import filters,query, settings as st,docs
 from pymqr.documents import FormModel
 @FormModel()

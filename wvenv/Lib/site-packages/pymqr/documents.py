@@ -38,7 +38,23 @@ class ___CollectionMapClassWrapper__():
         })
         return ret
 
-
+def EmbeddedField(obj,name,require,default):
+    obj_type = EmbededDocument () (getattr (type (obj), name))
+    obj.__dict__.update ({
+        name: (obj_type, require, default)
+    })
+def EmbeddedFieldArray(obj,name,require):
+    obj_type = getattr(type(obj),name)
+    if not isinstance(obj_type,BaseDocuments):
+        obj_type=EmbededDocument()(getattr(type(obj),name))
+    if not require:
+        obj.__dict__.update ({
+            name: ([obj_type], require)
+        })
+    else:
+        obj.__dict__.update ({
+            name: ([obj_type], require,[])
+        })
 def Collection(*args,**kwargs):
     ret = ___CollectionMapClassWrapper__(args[0])
     return ret.wrapper
@@ -49,19 +65,24 @@ def FormModel(*args,**kwargs):
 def EmbededDocument(*args,**kwargs):
     def wrapper(*args,**kwargs):
         ret = args[0].__new__(BaseDocuments,None,args[0].__dict__)
-        ret.__dict__.update ({
-            "__origin__": args[0] ()
-        })
+        if not isinstance(args[0],object):
+            ret.__dict__.update ({
+                "__origin__": args[0] ()
+            })
+        else:
+            ret.__dict__.update ({
+                "__origin__": args[0]
+            })
         return ret
     return wrapper
-def EmbededArray(*args,**kwargs):
-    def wrapper(*args,**kwargs):
-        ret = args[0].__new__(BaseEmbedArray,None,args[0].__dict__)
-        ret.__dict__.update ({
-            "__origin__": args[0] ()
-        })
-        return ret
-    return wrapper
+# def EmbededArray(*args,**kwargs):
+#     def wrapper(*args,**kwargs):
+#         ret = args[0].__new__(BaseEmbedArray,None,args[0].__dict__)
+#         ret.__dict__.update ({
+#             "__origin__": args[0] ()
+#         })
+#         return ret
+#     return wrapper
 class exceptions():
     class InvalidDataType(Exception):
         def __init__(self, field_name, expectect_data_type, receive_data_type):
@@ -192,16 +213,24 @@ class BaseDocuments(object):
     def __getattr__(self, field):
         import pydocs
         ret = pydocs.Fields(field)
-        if hasattr(self.__origin__,field):
-            org = getattr(self.__origin__,field)
-            if isinstance(org,list) and org.__len__()>0:
-                ret.__dict__.update ({
-                    "__origin__": org[0]
-                })
-            else:
-                ret.__dict__.update({
-                    "__origin__":org
-                })
+        org = getattr(self.__origin__,field)
+        my_docs= self.__dict__.get("__document__",self)
+        if isinstance(org,list) and org.__len__()>0:
+            ret.__dict__.update ({
+                "__origin__": org[0],
+                "__parent__":self,
+                "__document__":my_docs
+            })
+        else:
+            ret.__dict__.update({
+                "__origin__":org,
+                "__parent__": self,
+                "__document__": my_docs
+            })
+        ret.__dict__.update({
+            "__type__":type(self.__origin__).__dict__.get(ret.__name__,None),
+            "__field_name__":field
+        })
         return ret
 
 
