@@ -1,5 +1,8 @@
 import pymqr
 @pymqr.documents.Collection("sys.users")
+@pymqr.documents.UniqueIndex([
+    "UserName"
+],["Email"])
 class User(object):
     @pymqr.documents.EmbededDocument()
     class Profile(object):
@@ -8,9 +11,9 @@ class User(object):
         """
         def __init__(self):
             import datetime
-            self.FirstName = str, True
-            self.LastName = str, True
-            self.BirthDate = datetime.datetime, True
+            self.FirstName = str, True,None
+            self.LastName = str, True,None
+            self.BirthDate = datetime.datetime, True,None
     @pymqr.documents.EmbededDocument()
     class Logins(object):
         """
@@ -35,6 +38,8 @@ class User(object):
 
         """
         import datetime
+        def create_profile():
+            return type(self).Profile<<{}
         self.UserName = str,True # type is text and require
         self.Email = str,True #Email
         self.HashPassword = str,True
@@ -42,7 +47,7 @@ class User(object):
         self.CreatedOn = datetime.datetime,True
         self.CreatedBy = str,True
         self.IsSysAdmin =bool,True
-        self.Profile = type(self).Profile,True,type(self).Profile<<{}
+        self.Profile = type(self).Profile,True,create_profile
         self.IsActive = bool,True
         self.ActivateOn = datetime
         self.Logins = [type(self).Logins],True,[]

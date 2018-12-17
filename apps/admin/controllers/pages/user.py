@@ -104,18 +104,18 @@ class user(controllers.Controller):
             if sender.model.UserName=='*':
                 return __model_user__<<{}
             else:
-                qr =query(st.getdb(),users.Users)
+                qr =query(st.getdb(),users.User)
                 t2 = (datetime.datetime.now () - t1).microseconds
                 print "time 0 {0}".format (t2)
                 t1 = datetime.datetime.now ()
                 ret = qr.match(filters.UserName==sender.model.UserName).project(
                     __model_user__.UserId<<docs._id,
-                    users.Users.UserName,
-                    users.Users.Email,
-                    users.Users.IsActive,
-                    users.Users.Profile,
-                    users.Users.Description,
-                    users.Users.IsSysAdmin
+                    users.User.UserName,
+                    users.User.Email,
+                    users.User.IsActive,
+                    users.User.Profile,
+                    users.User.Description,
+                    users.User.IsSysAdmin
 
                 ).object
                 t2 = (datetime.datetime.now () - t1).microseconds

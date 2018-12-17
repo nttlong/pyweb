@@ -237,10 +237,10 @@ def register_view(data):
         data = App<<{
             App.AppName:data.AppName,
             App.Views:[
-                App.Views<<dict(
+                (App.Views<<dict(
                     ViewPath = data.Template,
                     Url= data.Url
-                )
+                )).__dict__
             ]
         }
         ret,err,result = qr_insert.insert(data).commit()
