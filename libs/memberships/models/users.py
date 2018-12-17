@@ -1,8 +1,6 @@
 import pymqr
 @pymqr.documents.Collection("sys.users")
-@pymqr.documents.UniqueIndex([
-    "UserName"
-],["Email"])
+@pymqr.documents.UniqueIndex(["UserName"],["Email"])
 class User(object):
     @pymqr.documents.EmbededDocument()
     class Profile(object):

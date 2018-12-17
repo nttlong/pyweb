@@ -234,44 +234,112 @@ def register_view(data):
     """
     if app.is_empty() or app.ret==0:
         qr_insert = qr.new()
-        data = App<<{
-            App.AppName:data.AppName,
-            App.Views:[
-                (App.Views<<dict(
-                    ViewPath = data.Template,
-                    Url= data.Url
-                )).__dict__
-            ]
+        view =App.Views<<{
+            App.Views.Url:data.Url,
+            App.Views.ViewPath:data.Template.lower(),
+            App.Views.API:[]
         }
-        ret,err,result = qr_insert.insert(data).commit()
+        app_data = App<<{
+            App.AppName:data.AppName,
+            App.Views:[view]
+        }
+        for api in data.API:
+            view.API.append(
+                App.Views.API<<{
+                    App.Views.API.Name:api.name.lower(),
+                    App.Views.API.RequirePrivilege:[k for k,v in  api.privileges.__dict__.items() if k[0:2]!="__" and k[k.__len__()-2:k.__len__()]!="__" and  v==True][0],
+                    App.Views.API.Description:api.description
+                }
+            )
+        ret,err,result = qr_insert.insert(app_data).commit()
         if err:
             raise err
     else:
-        """
-        If app was found but not contains view push view into views of app
-        """
-        find_obj = qr.new().match(filters.AppName==data.AppName).match(
-            filters.Views.ViewPath==data.Template
-        ).count().object
-        if find_obj.is_empty() or find_obj.ret==0:
-            qr_update = qr.new().where(
-                funcs.expr(
-                    App.AppName==data.AppName
+        qr_find_index_of_view=qr.new().match(funcs.expr(App.AppName==data.AppName)).project(
+            pymqr.docs.index_of_view<<funcs.indexOfArray(App.Views.ViewPath,data.Template.lower())
+        )
+
+        obj=qr_find_index_of_view.object
+        if obj.index_of_view==-1 or obj.index_of_view == None:
+            view=App.Views<<{
+                App.Views.ViewPath:data.Template.lower(),
+                App.Views.API:[],
+                App.Views.Url:data.Url
+            }
+            for api in data.API:
+                view.API.append(
+                    App.Views.API << {
+                        App.Views.API.Name: api.name.lower(),
+                        App.Views.API.RequirePrivilege: [k for k, v in api.privileges.__dict__.items() if
+                                                         k[0:2] != "__" and k[
+                                                                            k.__len__() - 2:k.__len__()] != "__" and v == True][
+                            0],
+                        App.Views.API.Description: api.description
+                    }
                 )
-            )
-            ret,err,result= qr_update.push({
-                App.Views:App.Views<<dict(
-                    ViewPath=data.Template,
-                    Url=data.Url
-                )
+            qr_push_view=qr.new().where(funcs.expr(App.AppName==data.AppName)).push({
+                App.Views:view
             }).commit()
-            if err:
-                raise err
         else:
-            pos = qr.new().match(filters.AppName==data.AppName).project(
-                docs.posOfView<<funcs.indexOfArray(App.Views.ViewPath,data.Template)
-            ).object
-            x=pos
+            for api in data.API:
+                qr_find_index_of_view = qr.new().match(filters.AppName == data.AppName).match(
+                    filters.Views(obj.index_of_view).ViewPath == data.Template.lower()
+                ).project(
+                    pymqr.docs.index_of_view << funcs.indexOfArray(App.Views.ViewPath, data.Template.lower()),
+                    pymqr.docs.index_of_api<<funcs.indexOfArray(App.Views.API.Name,api.name.lower())
+                )
+                obj = qr_find_index_of_view.object
+                if obj.index_of_api==-1:
+                    push_api = App.Views.API << {
+                        App.Views.API.Name: api.name.lower(),
+                        App.Views.API.RequirePrivilege: [k for k, v in api.privileges.__dict__.items() if
+                                                         k[0:2] != "__" and k[
+                                                                            k.__len__() - 2:k.__len__()] != "__" and v == True][
+                            0],
+                        App.Views.API.Description: api.description
+                    }
+                    qr_push =qr.new().where(funcs.expr(App.AppName == data.AppName)).push({
+                        App.Views(obj.index_of_view).API:push_api
+                    }).commit()
+                else:
+                    update_api = App.Views.API << {
+                        App.Views.API.Name: api.name.lower(),
+                        App.Views.API.RequirePrivilege: [k for k, v in api.privileges.__dict__.items() if
+                                                         k[0:2] != "__" and k[
+                                                                            k.__len__() - 2:k.__len__()] != "__" and v == True][
+                            0],
+                        App.Views.API.Description:  api.__dict__.get("description","")
+                    }
+                    qr_update_api = qr.new().where(funcs.expr(App.AppName == data.AppName)).set({
+                        App.Views(obj.index_of_view).API(obj.index_of_api): update_api
+                    }).commit()
+
+
+        # """
+        # If app was found but not contains view push view into views of app
+        # """
+        # find_obj = qr.new().match(filters.AppName==data.AppName).match(
+        #     filters.Views.ViewPath==data.Template
+        # ).count().object
+        # if find_obj.is_empty() or find_obj.ret==0:
+        #     qr_update = qr.new().where(
+        #         funcs.expr(
+        #             App.AppName==data.AppName
+        #         )
+        #     )
+        #     ret,err,result= qr_update.push({
+        #         App.Views:App.Views<<dict(
+        #             ViewPath=data.Template,
+        #             Url=data.Url
+        #         )
+        #     }).commit()
+        #     if err:
+        #         raise err
+        # else:
+        #     pos = qr.new().match(filters.AppName==data.AppName).project(
+        #         docs.posOfView<<funcs.indexOfArray(App.Views.ViewPath,data.Template)
+        #     ).object
+        #     x=pos
 
 
 

@@ -13,7 +13,7 @@ config.update({
 
 })
 
-
+from models.categories import Acadame
 settings.init(config)
 from pymqr import settings as st,query
 st.setdb(settings.db)
@@ -28,18 +28,21 @@ for item in lst:
         API = item.methods
     )
 from pfc import settings
-from models.hr import emps
-import libs.memberships.models_delete as FX
-c=FX.Test.A.C<<{}
-ret,err,result=emp = query(settings.db,emps.Emps).insert(
-    emps.Emps<<{
-        emps.Emps.Code:"A001",
-        emps.Emps.FirstName:"Julia",
-        emps.Emps.LastName:"Nguyen"
-    }
-).commit()
 
-x=ret
+v1=Acadame.Details<<{}
+
+v= Acadame<<{}
+# import libs.memberships.models_delete as FX
+# c=FX.Test.A.C<<{}
+# ret,err,result=emp = query(settings.db,emps.Emps).insert(
+#     emps.Emps<<{
+#         emps.Emps.Code:"A001",
+#         emps.Emps.FirstName:"Julia",
+#         emps.Emps.LastName:"Nguyen"
+#     }
+# ).commit()
+
+x=v
 # import routes
 if __name__ == "__main__":
 
