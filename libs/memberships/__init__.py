@@ -280,39 +280,39 @@ def register_view(data):
             qr_push_view=qr.new().where(funcs.expr(App.AppName==data.AppName)).push({
                 App.Views:view
             }).commit()
-        else:
-            for api in data.API:
-                qr_find_index_of_view = qr.new().match(filters.AppName == data.AppName).match(
-                    filters.Views(obj.index_of_view).ViewPath == data.Template.lower()
-                ).project(
-                    pymqr.docs.index_of_view << funcs.indexOfArray(App.Views.ViewPath, data.Template.lower()),
-                    pymqr.docs.index_of_api<<funcs.indexOfArray(App.Views.API.Name,api.name.lower())
-                )
-                obj = qr_find_index_of_view.object
-                if obj.index_of_api==-1:
-                    push_api = App.Views.API << {
-                        App.Views.API.Name: api.name.lower(),
-                        App.Views.API.RequirePrivilege: [k for k, v in api.privileges.__dict__.items() if
-                                                         k[0:2] != "__" and k[
-                                                                            k.__len__() - 2:k.__len__()] != "__" and v == True][
-                            0],
-                        App.Views.API.Description: api.description
-                    }
-                    qr_push =qr.new().where(funcs.expr(App.AppName == data.AppName)).push({
-                        App.Views(obj.index_of_view).API:push_api
-                    }).commit()
-                else:
-                    update_api = App.Views.API << {
-                        App.Views.API.Name: api.name.lower(),
-                        App.Views.API.RequirePrivilege: [k for k, v in api.privileges.__dict__.items() if
-                                                         k[0:2] != "__" and k[
-                                                                            k.__len__() - 2:k.__len__()] != "__" and v == True][
-                            0],
-                        App.Views.API.Description:  api.__dict__.get("description","")
-                    }
-                    qr_update_api = qr.new().where(funcs.expr(App.AppName == data.AppName)).set({
-                        App.Views(obj.index_of_view).API(obj.index_of_api): update_api
-                    }).commit()
+        # else:
+        #     for api in data.API:
+        #         qr_find_index_of_view = qr.new().match(filters.AppName == data.AppName).match(
+        #             filters.Views(obj.index_of_view).ViewPath == data.Template.lower()
+        #         ).project(
+        #             pymqr.docs.index_of_view << funcs.indexOfArray(App.Views.ViewPath, data.Template.lower()),
+        #             pymqr.docs.index_of_api<<funcs.indexOfArray(App.Views.API.Name,api.name.lower())
+        #         )
+        #         obj = qr_find_index_of_view.object
+        #         if obj.index_of_api==-1:
+        #             push_api = App.Views.API << {
+        #                 App.Views.API.Name: api.name.lower(),
+        #                 App.Views.API.RequirePrivilege: [k for k, v in api.privileges.__dict__.items() if
+        #                                                  k[0:2] != "__" and k[
+        #                                                                     k.__len__() - 2:k.__len__()] != "__" and v == True][
+        #                     0],
+        #                 App.Views.API.Description: api.description
+        #             }
+        #             qr_push =qr.new().where(funcs.expr(App.AppName == data.AppName)).push({
+        #                 App.Views(obj.index_of_view).API:push_api
+        #             }).commit()
+        #         else:
+        #             update_api = App.Views.API << {
+        #                 App.Views.API.Name: api.name.lower(),
+        #                 App.Views.API.RequirePrivilege: [k for k, v in api.privileges.__dict__.items() if
+        #                                                  k[0:2] != "__" and k[
+        #                                                                     k.__len__() - 2:k.__len__()] != "__" and v == True][
+        #                     0],
+        #                 App.Views.API.Description:  api.__dict__.get("description","")
+        #             }
+        #             qr_update_api = qr.new().where(funcs.expr(App.AppName == data.AppName)).set({
+        #                 App.Views(obj.index_of_view).API(obj.index_of_api): update_api
+        #             }).commit()
 
 
         # """
