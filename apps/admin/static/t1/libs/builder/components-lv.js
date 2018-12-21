@@ -71,13 +71,14 @@ function changeNodeName(node, newNodeName)
 Vvveb.ComponentsGroup['Appraisal form'] =
 [
 "html/container",
-//"html/gridrow",
+"html/gridcolumn",
+"html/gridrow",
 "html/grid4cols",
 "html/button",
 //"html/buttongroup",
 //"html/buttontoolbar",
 //"html/heading",
-//"html/image",
+"html/image",
 //"html/jumbotron",
 //"html/alert",
 //"html/card",
@@ -125,11 +126,49 @@ Vvveb.Components.add("_base", {
     ,{
         name:"Datasource",
         key:"data-source",
-        htmlAttr:"data-source",
-        sort: base_sort++,
+//        htmlAttr:"data-source",
+//        sort: base_sort++,
         inline:true,
         col:12,
-        inputtype: TextArea
+        inputtype: searchBox, //TextArea
+        init:function(ele){
+            if (";TD;TR;TH;THEAD;".indexOf(";"+ele.tagName+";")>-1){
+                return -1
+            }
+            if($(ele).is("[data-source]")){
+                return $(ele).attr("data-source")
+            }
+            else {
+                var eles =$(ele).parents("[data-source]");
+                if(eles.length==0){
+                    return "-"
+                }else {
+                     return $(eles[0]).attr("data-source")
+                }
+
+            }
+
+        },
+        onChange:function(ele,value){
+            $(ele).attr("data-source",value)
+        }
+    }
+    ,{
+        name:"Description",
+        key:"data-description",
+//        htmlAttr:"data-source",
+//        sort: base_sort++,
+        inline:true,
+        col:12,
+        inputtype: searchBox, //TextArea
+        init:function(ele){
+            if($(ele))
+            return unescape(decodeURIComponent($(eles[0]).attr("data-description")))
+
+        },
+        onChange:function(ele,value){
+            $(ele).attr("data-description",value)
+        }
     }
 //    , {
 //        name: "Class",
@@ -310,247 +349,247 @@ Vvveb.Components.add("_base", {
 //});
 
 ////Typography
-//Vvveb.Components.extend("_base", "_base", {
-//	 properties: [
-//     {
-//		key: "typography_header",
-//		inputtype: SectionInput,
-//		name:false,
-//		sort: base_sort++,
-//		data: {header:"Typography"},
-//    }, {
-//        name: "Font family",
-//        key: "font-family",
-//		htmlAttr: "style",
-//        sort: base_sort++,
-//        col:6,
-//		inline:true,
-//        inputtype: SelectInput,
-//        data: {
-//			options: [{
-//				value: "",
-//				text: "Default"
-//			}, {
-//				value: "Arial, Helvetica, sans-serif",
-//				text: "Arial"
-//			}, {
-//				value: 'Lucida Sans Unicode", "Lucida Grande", sans-serif',
-//				text: 'Lucida Grande'
-//			}, {
-//				value: 'Palatino Linotype", "Book Antiqua", Palatino, serif',
-//				text: 'Palatino Linotype'
-//			}, {
-//				value: '"Times New Roman", Times, serif',
-//				text: 'Times New Roman'
-//			}, {
-//				value: "Georgia, serif",
-//				text: "Georgia, serif"
-//			}, {
-//				value: "Tahoma, Geneva, sans-serif",
-//				text: "Tahoma"
-//			}, {
-//				value: 'Comic Sans MS, cursive, sans-serif',
-//				text: 'Comic Sans'
-//			}, {
-//				value: 'Verdana, Geneva, sans-serif',
-//				text: 'Verdana'
-//			}, {
-//				value: 'Impact, Charcoal, sans-serif',
-//				text: 'Impact'
-//			}, {
-//				value: 'Arial Black, Gadget, sans-serif',
-//				text: 'Arial Black'
-//			}, {
-//				value: 'Trebuchet MS, Helvetica, sans-serif',
-//				text: 'Trebuchet'
-//			}, {
-//				value: 'Courier New", Courier, monospace',
-//				text: 'Courier New", Courier, monospace'
-//			}, {
-//				value: 'Brush Script MT, sans-serif',
-//				text: 'Brush Script'
-//			}]
-//		}
-//	}, {
-//        name: "Font weight",
-//        key: "font-weight",
-//		htmlAttr: "style",
-//        sort: base_sort++,
-//        col:6,
-//		inline:true,
-//        inputtype: SelectInput,
-//        data: {
-//			options: [{
-//				value: "",
-//				text: "Default"
-//			}, {
-//				value: "100",
-//				text: "Thin"
-//			}, {
-//				value: "200",
-//				text: "Extra-Light"
-//			}, {
-//				value: "300",
-//				text: "Light"
-//			}, {
-//				value: "400",
-//				text: "Normal"
-//			}, {
-//				value: "500",
-//				text: "Medium"
-//			}, {
-//				value: "600",
-//				text: "Semi-Bold"
-//			}, {
-//				value: "700",
-//				text: "Bold"
-//			}, {
-//				value: "800",
-//				text: "Extra-Bold"
-//			}, {
-//				value: "900",
-//				text: "Ultra-Bold"
-//			}],
-//		}
-//	}, {
-//        name: "Text align",
-//        key: "text-align",
-//        htmlAttr: "style",
-//        sort: base_sort++,
-//        col:12,
-//        inline:true,
-//        inputtype: RadioButtonInput,
-//        data: {
-//			extraclass:"btn-group-sm btn-group-fullwidth",
-//            options: [{
-//                value: "none",
-//                icon:"la la-close",
-//                //text: "None",
-//                title: "None",
-//                checked:true,
-//            }, {
-//                value: "left",
-//                //text: "Left",
-//                title: "Left",
-//                icon:"la la-align-left",
-//                checked:false,
-//            }, {
-//                value: "center",
-//                //text: "Center",
-//                title: "Center",
-//                icon:"la la-align-center",
-//                checked:false,
-//            }, {
-//                value: "right",
-//                //text: "Right",
-//                title: "Right",
-//                icon:"la la-align-right",
-//                checked:false,
-//            }, {
-//                value: "justify",
-//                //text: "justify",
-//                title: "Justify",
-//                icon:"la la-align-justify",
-//                checked:false,
-//            }],
-//        },
-//	}, {
-//        name: "Line height",
-//        key: "line-height",
-//		htmlAttr: "style",
-//        sort: base_sort++,
-//        col:6,
-//		inline:true,
-//        inputtype: CssUnitInput
-//	}, {
-//        name: "Letter spacing",
-//        key: "letter-spacing",
-//		htmlAttr: "style",
-//        sort: base_sort++,
-//        col:6,
-//		inline:true,
-//        inputtype: CssUnitInput
-//	}, {
-//        name: "Text decoration",
-//        key: "text-decoration-line",
-//        htmlAttr: "style",
-//        sort: base_sort++,
-//        col:12,
-//        inline:true,
-//        inputtype: RadioButtonInput,
-//        data: {
-//			extraclass:"btn-group-sm btn-group-fullwidth",
-//            options: [{
-//                value: "none",
-//                icon:"la la-close",
-//                //text: "None",
-//                title: "None",
-//                checked:true,
-//            }, {
-//                value: "underline",
-//                //text: "Left",
-//                title: "underline",
-//                icon:"la la-long-arrow-down",
-//                checked:false,
-//            }, {
-//                value: "overline",
-//                //text: "Right",
-//                title: "overline",
-//                icon:"la la-long-arrow-up",
-//                checked:false,
-//            }, {
-//                value: "line-through",
-//                //text: "Right",
-//                title: "Line Through",
-//                icon:"la la-strikethrough",
-//                checked:false,
-//            }, {
-//                value: "underline overline",
-//                //text: "justify",
-//                title: "Underline Overline",
-//                icon:"la la-arrows-v",
-//                checked:false,
-//            }],
-//        },
-//	}, {
-//        name: "Decoration Color",
-//        key: "text-decoration-color",
-//        sort: base_sort++,
-//        col:6,
-//		inline:true,
-//		htmlAttr: "style",
-//        inputtype: ColorInput,
-//	}, {
-//        name: "Decoration style",
-//        key: "text-decoration-style",
-//		htmlAttr: "style",
-//        sort: base_sort++,
-//        col:6,
-//		inline:true,
-//        inputtype: SelectInput,
-//        data: {
-//			options: [{
-//				value: "",
-//				text: "Default"
-//			}, {
-//				value: "solid",
-//				text: "Solid"
-//			}, {
-//				value: "wavy",
-//				text: "Wavy"
-//			}, {
-//				value: "dotted",
-//				text: "Dotted"
-//			}, {
-//				value: "dashed",
-//				text: "Dashed"
-//			}, {
-//				value: "double",
-//				text: "Double"
-//			}],
-//		}
-//  }]
-//})
+Vvveb.Components.extend("_base", "_base", {
+	 properties: [
+     {
+		key: "typography_header",
+		inputtype: SectionInput,
+		name:false,
+		sort: base_sort++,
+		data: {header:"Typography"},
+    }, {
+        name: "Font family",
+        key: "font-family",
+		htmlAttr: "style",
+        sort: base_sort++,
+        col:6,
+		inline:true,
+        inputtype: SelectInput,
+        data: {
+			options: [{
+				value: "",
+				text: "Default"
+			}, {
+				value: "Arial, Helvetica, sans-serif",
+				text: "Arial"
+			}, {
+				value: 'Lucida Sans Unicode", "Lucida Grande", sans-serif',
+				text: 'Lucida Grande'
+			}, {
+				value: 'Palatino Linotype", "Book Antiqua", Palatino, serif',
+				text: 'Palatino Linotype'
+			}, {
+				value: '"Times New Roman", Times, serif',
+				text: 'Times New Roman'
+			}, {
+				value: "Georgia, serif",
+				text: "Georgia, serif"
+			}, {
+				value: "Tahoma, Geneva, sans-serif",
+				text: "Tahoma"
+			}, {
+				value: 'Comic Sans MS, cursive, sans-serif',
+				text: 'Comic Sans'
+			}, {
+				value: 'Verdana, Geneva, sans-serif',
+				text: 'Verdana'
+			}, {
+				value: 'Impact, Charcoal, sans-serif',
+				text: 'Impact'
+			}, {
+				value: 'Arial Black, Gadget, sans-serif',
+				text: 'Arial Black'
+			}, {
+				value: 'Trebuchet MS, Helvetica, sans-serif',
+				text: 'Trebuchet'
+			}, {
+				value: 'Courier New", Courier, monospace',
+				text: 'Courier New", Courier, monospace'
+			}, {
+				value: 'Brush Script MT, sans-serif',
+				text: 'Brush Script'
+			}]
+		}
+	}, {
+        name: "Font weight",
+        key: "font-weight",
+		htmlAttr: "style",
+        sort: base_sort++,
+        col:6,
+		inline:true,
+        inputtype: SelectInput,
+        data: {
+			options: [{
+				value: "",
+				text: "Default"
+			}, {
+				value: "100",
+				text: "Thin"
+			}, {
+				value: "200",
+				text: "Extra-Light"
+			}, {
+				value: "300",
+				text: "Light"
+			}, {
+				value: "400",
+				text: "Normal"
+			}, {
+				value: "500",
+				text: "Medium"
+			}, {
+				value: "600",
+				text: "Semi-Bold"
+			}, {
+				value: "700",
+				text: "Bold"
+			}, {
+				value: "800",
+				text: "Extra-Bold"
+			}, {
+				value: "900",
+				text: "Ultra-Bold"
+			}],
+		}
+	}, {
+        name: "Text align",
+        key: "text-align",
+        htmlAttr: "style",
+        sort: base_sort++,
+        col:12,
+        inline:true,
+        inputtype: RadioButtonInput,
+        data: {
+			extraclass:"btn-group-sm btn-group-fullwidth",
+            options: [{
+                value: "none",
+                icon:"la la-close",
+                //text: "None",
+                title: "None",
+                checked:true,
+            }, {
+                value: "left",
+                //text: "Left",
+                title: "Left",
+                icon:"la la-align-left",
+                checked:false,
+            }, {
+                value: "center",
+                //text: "Center",
+                title: "Center",
+                icon:"la la-align-center",
+                checked:false,
+            }, {
+                value: "right",
+                //text: "Right",
+                title: "Right",
+                icon:"la la-align-right",
+                checked:false,
+            }, {
+                value: "justify",
+                //text: "justify",
+                title: "Justify",
+                icon:"la la-align-justify",
+                checked:false,
+            }],
+        },
+	}, {
+        name: "Line height",
+        key: "line-height",
+		htmlAttr: "style",
+        sort: base_sort++,
+        col:6,
+		inline:true,
+        inputtype: CssUnitInput
+	}, {
+        name: "Letter spacing",
+        key: "letter-spacing",
+		htmlAttr: "style",
+        sort: base_sort++,
+        col:6,
+		inline:true,
+        inputtype: CssUnitInput
+	}, {
+        name: "Text decoration",
+        key: "text-decoration-line",
+        htmlAttr: "style",
+        sort: base_sort++,
+        col:12,
+        inline:true,
+        inputtype: RadioButtonInput,
+        data: {
+			extraclass:"btn-group-sm btn-group-fullwidth",
+            options: [{
+                value: "none",
+                icon:"la la-close",
+                //text: "None",
+                title: "None",
+                checked:true,
+            }, {
+                value: "underline",
+                //text: "Left",
+                title: "underline",
+                icon:"la la-long-arrow-down",
+                checked:false,
+            }, {
+                value: "overline",
+                //text: "Right",
+                title: "overline",
+                icon:"la la-long-arrow-up",
+                checked:false,
+            }, {
+                value: "line-through",
+                //text: "Right",
+                title: "Line Through",
+                icon:"la la-strikethrough",
+                checked:false,
+            }, {
+                value: "underline overline",
+                //text: "justify",
+                title: "Underline Overline",
+                icon:"la la-arrows-v",
+                checked:false,
+            }],
+        },
+	}, {
+        name: "Decoration Color",
+        key: "text-decoration-color",
+        sort: base_sort++,
+        col:6,
+		inline:true,
+		htmlAttr: "style",
+        inputtype: ColorInput,
+	}, {
+        name: "Decoration style",
+        key: "text-decoration-style",
+		htmlAttr: "style",
+        sort: base_sort++,
+        col:6,
+		inline:true,
+        inputtype: SelectInput,
+        data: {
+			options: [{
+				value: "",
+				text: "Default"
+			}, {
+				value: "solid",
+				text: "Solid"
+			}, {
+				value: "wavy",
+				text: "Wavy"
+			}, {
+				value: "dotted",
+				text: "Dotted"
+			}, {
+				value: "dashed",
+				text: "Dashed"
+			}, {
+				value: "double",
+				text: "Double"
+			}],
+		}
+  }]
+})
 
 ////Size
 //Vvveb.Components.extend("_base", "_base", {
@@ -698,57 +737,57 @@ Vvveb.Components.add("_base", {
 //});
 
 
-////Border
-//Vvveb.Components.extend("_base", "_base", {
-//	 properties: [{
-//		key: "border_header",
-//		inputtype: SectionInput,
-//		name:false,
-//		sort: base_sort++,
-//		data: {header:"Border", expanded:false},
-//	 }, {
-//        name: "Style",
-//        key: "border-style",
-//		htmlAttr: "style",
-//        sort: base_sort++,
-//        col:12,
-//		inline:true,
-//        inputtype: SelectInput,
-//        data: {
-//			options: [{
-//				value: "",
-//				text: "Default"
-//			}, {
-//				value: "solid",
-//				text: "Solid"
-//			}, {
-//				value: "dotted",
-//				text: "Dotted"
-//			}, {
-//				value: "dashed",
-//				text: "Dashed"
-//			}],
-//		}
-//	}, {
-//        name: "Width",
-//        key: "border-width",
-//		htmlAttr: "style",
-//        sort: base_sort++,
-//        col:6,
-//		inline:true,
-//        inputtype: CssUnitInput
-//   	}, {
-//        name: "Color",
-//        key: "border-color",
-//        sort: base_sort++,
-//        col:6,
-//		inline:true,
-//		htmlAttr: "style",
-//        inputtype: ColorInput,
-//    }]
-//});
+//Border
+Vvveb.Components.extend("_base", "_base", {
+	 properties: [{
+		key: "border_header",
+		inputtype: SectionInput,
+		name:false,
+		sort: base_sort++,
+		data: {header:"Border", expanded:false},
+	 }, {
+        name: "Style",
+        key: "border-style",
+		htmlAttr: "style",
+        sort: base_sort++,
+        col:12,
+		inline:true,
+        inputtype: SelectInput,
+        data: {
+			options: [{
+				value: "",
+				text: "Default"
+			}, {
+				value: "solid",
+				text: "Solid"
+			}, {
+				value: "dotted",
+				text: "Dotted"
+			}, {
+				value: "dashed",
+				text: "Dashed"
+			}],
+		}
+	}, {
+        name: "Width",
+        key: "border-width",
+		htmlAttr: "style",
+        sort: base_sort++,
+        col:6,
+		inline:true,
+        inputtype: CssUnitInput
+   	}, {
+        name: "Color",
+        key: "border-color",
+        sort: base_sort++,
+        col:6,
+		inline:true,
+		htmlAttr: "style",
+        inputtype: ColorInput,
+    }]
+});
 
-////Background image
+//////Background image
 //Vvveb.Components.extend("_base", "_base", {
 //	 properties: [{
 //		key: "background_image_header",
@@ -1793,18 +1832,6 @@ Vvveb.Components.extend("_base", "html/table", {
 			  <td>Otto</td>\
 			  <td>@mdo</td>\
 			</tr>\
-			<tr>\
-			  <th scope="row">2</th>\
-			  <td>Jacob</td>\
-			  <td>Thornton</td>\
-			  <td>@fat</td>\
-			</tr>\
-			<tr>\
-			  <th scope="row">3</th>\
-			  <td>Larry</td>\
-			  <td>the Bird</td>\
-			  <td>@twitter</td>\
-			</tr>\
 		  </tbody>\
 		</table>',
     properties: [
@@ -1968,12 +1995,52 @@ Vvveb.Components.extend("_base", "html/tablerow", {
 Vvveb.Components.extend("_base", "html/tablecell", {
     nodes: ["td"],
     name: "Table Cell",
-    html: "<td>Cell</td>"
+    html: "<td>Cell</td>",
+    properties:[
+        {
+            name: "Width",
+            key: "width",
+            htmlAttr: "width",
+            inputtype: TextInput
+        },{
+            name: "colspan",
+            key: "colspan",
+            htmlAttr: "colspan",
+            inputtype: NumberInput
+        },
+        {
+            name: "rowspan",
+            key: "rowspan",
+            htmlAttr: "rowspan",
+            inputtype: NumberInput
+        },
+    ]
 });
 Vvveb.Components.extend("_base", "html/tableheadercell", {
     nodes: ["th"],
     name: "Table Header Cell",
-    html: "<th>Head</th>"
+    html: "<th>Head</th>",
+    properties:[
+        {
+            name: "Width",
+            key: "width",
+            htmlAttr: "width",
+            inputtype: TextInput
+        },
+        {
+            name: "colspan",
+            key: "colspan",
+            htmlAttr: "colspan",
+            inputtype: NumberInput
+        },
+        {
+            name: "rowspan",
+            key: "rowspan",
+            htmlAttr: "rowspan",
+            inputtype: NumberInput
+        },
+
+    ]
 });
 Vvveb.Components.extend("_base", "html/tablehead", {
     nodes: ["thead"],
@@ -2050,7 +2117,7 @@ Vvveb.Components.add("html/gridrow", {
     name: "Grid Row",
     image: "icons/grid_row.svg",
     classes: ["row"],
-    html: '<div class="row"><div class="col-sm-4"><h3>col-sm-4</h3></div><div class="col-sm-4 col-5"><h3>col-sm-4</h3></div><div class="col-sm-4"><h3>col-sm-4</h3></div></div>',
+    html: '<div class="row" style="min-height:24px"><span>Row</span></div>',//<div class="col-sm-4"><h3>col-sm-4</h3></div><div class="col-sm-4 col-5"><h3>col-sm-4</h3></div><div class="col-sm-4"><h3>col-sm-4</h3></div>
 
 	beforeInit: function (node)
 	{
@@ -2109,6 +2176,7 @@ Vvveb.Components.add("html/gridrow", {
 
 		//remove all column properties
 		this.properties = this.properties.filter(function(item) {
+
 			return item.key.indexOf("column") === -1;
 		});
 
@@ -2159,68 +2227,71 @@ Vvveb.Components.add("html/grid4cols", {
 
 	beforeInit: function (node)
 	{
-		properties = [];
-		var i = 0;
-		var j = 0;
-
-		$(node).find('[class*="col-"]').each(function() {
-			_class = $(this).attr("class");
-
-			var reg = /col-([^-\$ ]*)?-?(\d+)/g;
-			var match;
-			data = {};
-
-			while ((match = reg.exec(_class)) != null) {
-				data["col" + ((match[1] != undefined)?"_" + match[1]:"")] = match[2];
-			}
-
-			i++;
-			properties.push({
-				name: "Column " + i,
-				key: "column" + i,
-				//index: i - 1,
-				columnNode: this,
-				inline:true,
-				inputtype: GridInput,
-				data: data,
-				onChange: function(node, value, input) {
-
-					//column = $('[class*="col-"]:eq(' + this.index + ')', node);
-					column = $(this.columnNode);
-
-					//if remove button is clicked remove column and render row properties
-					if (input.nodeName == 'BUTTON')
-					{
-						column.remove();
-						Vvveb.Components.render("html/grid4cols");
-						return node;
-					}
-
-					//if select input then change column class
-					_class = column.attr("class");
-
-					//remove previous breakpoint column size
-					_class = _class.replace(new RegExp(input.name + '-\\d+?'), '');
-					//add new column size
-					if (value) _class +=  ' ' + input.name + '-' + value;
-					column.attr("class", _class);
-
-					//console.log(this, node, value, input, input.name);
-
-					return node;
-				},
-			});
-		});
-
-		//remove all column properties
-		this.properties = this.properties.filter(function(item) {
-			return item.key.indexOf("column") === -1;
-		});
-
-		//add remaining properties to generated column properties
-		properties.push(this.properties[0]);
-
-		this.properties = properties;
+//	    console.log(node);
+//		properties = [];
+//		var i = 0;
+//		var j = 0;
+//
+//		$(node).find('[class*="col-"]').each(function() {
+//			_class = $(this).attr("class");
+//
+//			var reg = /col-([^-\$ ]*)?-?(\d+)/g;
+//			var match;
+//			data = {};
+//
+//			while ((match = reg.exec(_class)) != null) {
+//				data["col" + ((match[1] != undefined)?"_" + match[1]:"")] = match[2];
+//			}
+//
+//			i++;
+//			properties.push({
+//				name: "Column " + i,
+//				key: "column" + i,
+//				//index: i - 1,
+//				columnNode: this,
+//				inline:true,
+//				inputtype: GridInput,
+//				data: data,
+//				onChange: function(node, value, input) {
+//
+//					//column = $('[class*="col-"]:eq(' + this.index + ')', node);
+//					column = $(this.columnNode);
+//
+//					//if remove button is clicked remove column and render row properties
+//					if (input.nodeName == 'BUTTON')
+//					{
+//						column.remove();
+//						Vvveb.Components.render("html/grid4cols");
+//						return node;
+//					}
+//
+//					//if select input then change column class
+//					_class = column.attr("class");
+//
+//					//remove previous breakpoint column size
+//					_class = _class.replace(new RegExp(input.name + '-\\d+?'), '');
+//					//add new column size
+//					if (value) _class +=  ' ' + input.name + '-' + value;
+//					column.attr("class", _class);
+//
+//					//console.log(this, node, value, input, input.name);
+//
+//					return node;
+//				},
+//			});
+//		});
+//
+//		//remove all column properties
+//		this.properties = this.properties.filter(function(item) {
+//		    debugger;
+//			return item.key.indexOf("column") === -1;
+//		});
+//        if(this.properties.length>0){
+//		//add remaining properties to generated column properties
+//		    properties.push(this.properties[0]);
+//
+//		    this.properties = properties;
+//		}
 		return node;
 	},
 

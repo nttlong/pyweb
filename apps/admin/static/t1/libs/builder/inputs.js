@@ -55,6 +55,80 @@ var Input = {
 		return this.element;
 	}
 };
+var bSearchBox={
+    init:function(name){
+
+    },
+    onChange:function(event,node){
+        if (event.data && event.data.element)
+		{
+
+		    debugger;
+			event.data.element.trigger('propertyChange', [this.value, this]);
+		}
+    },
+    renderTemplate:function(name,data){
+        return '<div class="input-group">'+
+                '<input class="form-control py-2 border-right-0 border" type="search" value="search" id="txtValue">'+
+                '<span class="input-group-append">'+
+                    '<button class="btn btn-secondary" type="button" id="btnSearch">'+
+                        '<i class="fa fa-search"></i>'+
+                        "..."+
+                    '</button>'+
+//                    '<div class="input-group-text bg-transparent"><i class="fa fa-search"></i>...</div>'+
+                '</span>'+
+            '</div>'
+    },
+    setValue: function(value) {
+        if(value==-1){
+            $(this.element).hide();
+        }
+        else {
+            $(this.element).show();
+        }
+		$('#txtValue', this.element).val(value);
+	},
+
+	render: function(name, data) {
+		this.element = $(this.renderTemplate(name, data));
+
+		//bind events
+		if (this.events)
+		for (var i in this.events)
+		{
+			ev = this.events[i][0];
+			fun = this[ this.events[i][1] ];
+			el = this.events[i][2];
+
+			$("#txtValue",this.element).on(ev, el, {element: this.element, input:this}, fun);
+		}
+		var me=this
+		$("#btnSearch",this.element).on("click",function(){
+		    if(!window.onRequestDatasource){
+		        throw("'window.onRequestDatasource' function was not found")
+		    }
+		    else {
+		        window.onRequestDatasource($("#txtValue", me.element).val())
+		    }
+
+		})
+
+
+		return this.element;
+	}
+
+}
+var searchBox= $.extend({}, bSearchBox, {
+
+    events: [
+        ["keyup", "onChange"],
+	 ],
+
+	init: function(data) {
+		return this.render("search-box", data);
+	},
+  }
+);
 var tArea = {
 
 	init: function(name) {
